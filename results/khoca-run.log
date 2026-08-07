@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/compute_k15.py", line 53, in <module>
+    'Q_X2_minus_X': InteractiveCalculator(1, (0, -1), 0),
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/khoca/__init__.py", line 130, in __init__
+    self('braidaA', ' ') # sets self._description
+    ~~~~^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/khoca/__init__.py", line 299, in __call__
+    import py
+ModuleNotFoundError: No module named 'py'
