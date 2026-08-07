@@ -1,0 +1,62 @@
+name: K15 blue-green quick topology audit
+on:
+  push:
+    paths:
+      - '.github/workflows/k15-bg-quick-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install --no-cache-dir 'snappy==3.3.2' 'spherogram==2.4.1'
+      - id: compute
+        continue-on-error: true
+        run: |
+          cat > /tmp/audit.py <<'PY'
+          import json, traceback
+          import snappy
+          from spherogram import Link
+          from spherogram.links.bands.search import linking_nums_all_zero
+          PD=[(28,24,29,23),(24,6,25,5),(25,10,26,11),(9,26,10,27),(6,28,7,27),(16,29,17,30),(30,13,31,14),(31,3,18,2),(1,19,2,18),(14,19,15,20),(20,15,21,16),(21,9,22,8),(7,23,8,22),(11,4,12,5),(12,0,13,17),(3,0,4,1)]
+          L=Link(PD); E=L.exterior(); out={'PD':PD,'crossings':len(L.crossings),'components':len(L.link_components),'linking_matrix':L.linking_matrix(),'DT':L.DT_code()}
+          out['exterior']={'isosig':E.triangulation_isosig(decorated=True),'volume':str(E.volume()),'solution_type':E.solution_type(),'homology':str(E.homology()),'fundamental_group_generators':E.fundamental_group().generators(),'fundamental_group_relators':E.fundamental_group().relators()}
+          for name,func in [('identify',lambda:[str(x) for x in E.identify()]),('fox_milnor',lambda:E.fox_milnor_test()),('signature',lambda:L.signature()),('determinant',lambda:L.determinant()),('alexander',lambda:str(L.alexander_polynomial())),('jones',lambda:str(L.jones_polynomial()))]:
+              try: out[name]=func()
+              except BaseException as exc: out[name+'_error']=repr(exc)
+          # Inspect all short bands with exact unlink recognition.
+          from spherogram.links.bands.core import banded_links
+          from spherogram.links.bands.search import is_unlink_exterior
+          short=[]
+          for B,spec in banded_links(L,max_twists=6,max_band_len=8,paths='shortest'):
+              if any(x for row in B.linking_matrix() for x in row): continue
+              B.simplify('global')
+              rec={'spec':spec,'crossings':len(B.crossings),'components':len(B.link_components)+B.unlinked_unknot_components,'PD':B.PD_code(),'detached':B.unlinked_unknot_components}
+              try: rec['is_unlink_exterior']=is_unlink_exterior(B.exterior())
+              except BaseException as exc: rec['unlink_error']=repr(exc)
+              short.append(rec)
+              if rec.get('is_unlink_exterior'):
+                  out['one_band_hit']=rec;break
+          out['short_zero_linking_bands']=short
+          with open('k15-bg-quick-audit.json','w') as f:json.dump(out,f,indent=2,sort_keys=True)
+          print(json.dumps({k:v for k,v in out.items() if k not in ['PD','short_zero_linking_bands','exterior']},sort_keys=True))
+          PY
+          python /tmp/audit.py 2>&1 | tee k15-bg-quick-audit.log
+      - if: always()
+        env:
+          OUTCOME: ${{ steps.compute.outcome }}
+        run: |
+          mkdir -p results/k15-bg-quick
+          cp k15-bg-quick-audit.* results/k15-bg-quick/ 2>/dev/null || true
+          printf '%s\n' "$OUTCOME" > results/k15-bg-quick/outcome.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results/k15-bg-quick
+          if ! git diff --cached --quiet; then git commit -m 'Store K15 blue-green quick audit'; git push; fi
