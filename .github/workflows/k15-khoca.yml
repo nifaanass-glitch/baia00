@@ -1,4 +1,4 @@
-name: K15n25044 Khoca certificate
+name: K15n25044 friend rational s certificate
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
   compute:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 180
     steps:
       - name: Check out scratch repository
         uses: actions/checkout@v4
@@ -21,147 +21,163 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Install Khoca 1.5 and runtime dependency
+      - name: Install pinned Khoca runtime
         run: |
           python -m pip install --upgrade pip
           python -m pip install --no-cache-dir 'py==1.11.0' 'khoca==1.5'
-      - name: Compute calibrated Lee spectral sequences
+      - name: Compute calibrated rational Rasmussen invariant of friend
         id: compute
         continue-on-error: true
         env:
           OMP_NUM_THREADS: '4'
+          OPENBLAS_NUM_THREADS: '1'
         run: |
-          cat > /tmp/compute_k15.py <<'PY'
+          cat > /tmp/compute_friend.py <<'PY'
+          import ast
+          import csv
+          import io
           import json
           import platform
           import sys
           import time
+          import urllib.request
           from khoca import InteractiveCalculator
 
-          K15 = [
-              [4,2,5,1],[2,8,3,7],[8,4,9,3],[16,5,17,6],
-              [6,17,7,18],[9,21,10,20],[29,10,30,11],
-              [11,28,12,29],[27,12,28,13],[13,26,14,27],
-              [25,14,26,15],[15,22,16,23],[23,18,24,19],
-              [19,24,20,25],[21,1,22,30]
-          ]
-          TESTS = {
+          DATA_COMMIT = '9ed8f6ad0068d1959d94e8fb05f68407f1641cb6'
+          DATA_URL = (
+              'https://raw.githubusercontent.com/'
+              'EugeneFrancisco/plausibly_slice_v1/' + DATA_COMMIT +
+              '/Data/unknown_with_0-friend_final.csv')
+          raw = urllib.request.urlopen(DATA_URL, timeout=60).read()
+          rows = list(csv.DictReader(io.StringIO(raw.decode('utf-8'))))
+          row = next(r for r in rows if r['name'] == 'K15n25044_0')
+          friend_pd = ast.literal_eval(row['PD_code'])
+          if len(friend_pd) != 95:
+              raise SystemExit(f'fail closed: expected 95 crossings, got {len(friend_pd)}')
+          if row['base_knot'] != 'K15n25044' or row['s_3'] != '2.0':
+              raise SystemExit('fail closed: pinned candidate row does not match')
+
+          tests = {
               'positive_trefoil_braid': 'braidaaa',
               'negative_trefoil_braid': 'braidAAA',
               'figure_eight_braid': 'braidaBaB',
-              'K15n25044_PD': K15,
+              'K15n25044_0_friend_PD': friend_pd,
           }
 
           def extract_s(result):
-              unreduced = result[1]
               active = []
-              for row in unreduced:
-                  if len(row) != 4:
-                      continue
-                  t, q, torsion, coefficient = row
-                  if int(coefficient):
-                      active.extend([int(q)] * abs(int(coefficient)))
+              for t, q, torsion, coefficient in result[1]:
+                  coefficient = int(coefficient)
+                  if coefficient:
+                      active.extend([int(q)] * abs(coefficient))
               active.sort()
               if len(active) != 2 or active[1] - active[0] != 2:
-                  return {'ok': False, 'active_q': active,
-                          'reason': 'unexpected E_infinity shape'}
-              return {'ok': True, 'active_q': active,
-                      's': (active[0] + active[1]) // 2}
+                  return {
+                      'ok': False,
+                      'active_q': active,
+                      'reason': 'unexpected unreduced Lee E_infinity shape',
+                  }
+              return {
+                  'ok': True,
+                  'active_q': active,
+                  's': (active[0] + active[1]) // 2,
+              }
 
           output = {
               'python': sys.version,
               'platform': platform.platform(),
-              'khoca_version': None,
-              'input_PD': K15,
+              'data_commit': DATA_COMMIT,
+              'data_url': DATA_URL,
+              'row_name': row['name'],
+              'base_knot': row['base_knot'],
+              'recorded_s_F3': row['s_3'],
+              'crossings': len(friend_pd),
+              'input_PD': friend_pd,
               'calculations': {},
           }
           try:
               import importlib.metadata as metadata
               output['khoca_version'] = metadata.version('khoca')
+              output['py_version'] = metadata.version('py')
           except Exception as exc:
-              output['khoca_version_error'] = repr(exc)
+              output['metadata_error'] = repr(exc)
 
-          calculators = {
-              'Q_X2_minus_X': InteractiveCalculator(1, (0, -1), 0),
-              'F3_X2_minus_X': InteractiveCalculator(3, (0, -1), 0),
-          }
-
-          for calc_name, calculator in calculators.items():
-              output['calculations'][calc_name] = {}
-              for knot_name, knot in TESTS.items():
-                  start = time.time()
-                  try:
-                      result, messages = calculator(
-                          knot, print_messages=True, progress=True)
-                      rec = {
-                          'elapsed_seconds': time.time() - start,
-                          'result': result,
-                          'messages': messages,
-                          'extracted': extract_s(result),
-                      }
-                  except Exception as exc:
-                      rec = {
-                          'elapsed_seconds': time.time() - start,
-                          'error': repr(exc),
-                      }
-                  output['calculations'][calc_name][knot_name] = rec
-                  print('CERTIFICATE_RECORD', calc_name, knot_name,
-                        json.dumps(rec, sort_keys=True), flush=True)
-
-          with open('khoca-results.json', 'w', encoding='utf-8') as fh:
-              json.dump(output, fh, indent=2, sort_keys=True)
+          calculator = InteractiveCalculator(1, (0, -1), 0)
+          for name, knot in tests.items():
+              start = time.time()
+              try:
+                  result, messages = calculator(
+                      knot, print_messages=True, progress=True)
+                  rec = {
+                      'elapsed_seconds': time.time() - start,
+                      'result': result,
+                      'messages': messages,
+                      'extracted': extract_s(result),
+                  }
+              except BaseException as exc:
+                  rec = {
+                      'elapsed_seconds': time.time() - start,
+                      'error_type': type(exc).__name__,
+                      'error': repr(exc),
+                  }
+              output['calculations'][name] = rec
+              print('CERTIFICATE_RECORD', name,
+                    json.dumps(rec, sort_keys=True), flush=True)
+              with open('friend-khoca-results.json', 'w', encoding='utf-8') as fh:
+                  json.dump(output, fh, indent=2, sort_keys=True)
 
           failures = []
-          for calc_name in calculators:
-              rows = output['calculations'][calc_name]
-              ext = {k: rows[k].get('extracted', {}) for k in TESTS}
-              for key in TESTS:
-                  if not ext[key].get('ok'):
-                      failures.append(f'{calc_name}: {key}: {ext[key]}')
-              if all(ext[k].get('ok') for k in TESTS):
-                  sp = ext['positive_trefoil_braid']['s']
-                  sm = ext['negative_trefoil_braid']['s']
-                  sf = ext['figure_eight_braid']['s']
-                  if sp != -sm or abs(sp) != 2 or sf != 0:
-                      failures.append(
-                          f'{calc_name}: calibration unexpected: {sp},{sm},{sf}')
-
-          final = {
-              name: output['calculations'][name]['K15n25044_PD'].get(
-                  'extracted', {'ok': False})
-              for name in calculators
+          ext = {
+              k: output['calculations'][k].get('extracted', {})
+              for k in tests
           }
-          print('FINAL_K15_CERTIFICATE', json.dumps(final, sort_keys=True),
+          for name in tests:
+              if not ext[name].get('ok'):
+                  failures.append(f'{name}: {ext[name]}')
+          if all(ext[name].get('ok') for name in tests):
+              sp = ext['positive_trefoil_braid']['s']
+              sm = ext['negative_trefoil_braid']['s']
+              sf = ext['figure_eight_braid']['s']
+              if sp != 2 or sm != -2 or sf != 0:
+                  failures.append(
+                      f'calibration unexpected: trefoil={sp}, mirror={sm}, fig8={sf}')
+
+          final = ext['K15n25044_0_friend_PD']
+          print('FINAL_FRIEND_RATIONAL_S', json.dumps(final, sort_keys=True),
                 flush=True)
+          output['final'] = final
+          output['calibration_failures'] = failures
+          with open('friend-khoca-results.json', 'w', encoding='utf-8') as fh:
+              json.dump(output, fh, indent=2, sort_keys=True)
           if failures:
               print('FAIL_CLOSED', json.dumps(failures), flush=True)
               raise SystemExit(2)
           PY
           set -o pipefail
-          python /tmp/compute_k15.py 2>&1 | tee khoca-run.log
-      - name: Commit certificate back to scratch repository
+          python /tmp/compute_friend.py 2>&1 | tee friend-khoca-run.log
+      - name: Commit friend certificate to scratch repository
         if: always()
         env:
           COMPUTE_OUTCOME: ${{ steps.compute.outcome }}
         run: |
-          mkdir -p results
-          cp khoca-results.json results/khoca-results.json 2>/dev/null || true
-          cp khoca-run.log results/khoca-run.log 2>/dev/null || true
-          printf '%s\n' "$COMPUTE_OUTCOME" > results/compute-outcome.txt
-          printf '%s\n' "$GITHUB_RUN_ID" > results/run-id.txt
-          printf '%s\n' "$GITHUB_SHA" > results/input-commit.txt
+          mkdir -p results/friend
+          cp friend-khoca-results.json results/friend/friend-khoca-results.json 2>/dev/null || true
+          cp friend-khoca-run.log results/friend/friend-khoca-run.log 2>/dev/null || true
+          printf '%s\n' "$COMPUTE_OUTCOME" > results/friend/compute-outcome.txt
+          printf '%s\n' "$GITHUB_RUN_ID" > results/friend/run-id.txt
+          printf '%s\n' "$GITHUB_SHA" > results/friend/input-commit.txt
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add results
+          git add results/friend
           if ! git diff --cached --quiet; then
-            git commit -m 'Store K15n25044 Khoca certificate'
+            git commit -m 'Store K15n25044 friend rational s certificate'
             git push
           fi
-      - name: Upload certificate artifact
+      - name: Upload friend certificate artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: k15-khoca-certificate
-          path: results/
+          name: k15-friend-rational-s-certificate
+          path: results/friend/
           if-no-files-found: warn
           retention-days: 1
