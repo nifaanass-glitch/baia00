@@ -1,0 +1,69 @@
+name: K15 KnotJob LEO probe
+
+on:
+  push:
+    branches: [k15-knotjob-leo-audit]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Set up Java 23
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '23'
+      - name: Download and inspect KnotJob
+        shell: bash
+        run: |
+          set -euxo pipefail
+          curl --fail --location --retry 3 --output KnotJob.zip \
+            https://www.maths.dur.ac.uk/users/dirk.schuetz/KnotJob.zip
+          sha256sum KnotJob.zip | tee KnotJob.zip.sha256
+          mkdir KnotJob
+          unzip -q KnotJob.zip -d KnotJob
+          find KnotJob -maxdepth 4 -type f -printf '%p\t%s bytes\n' | sort | tee knotjob-files.txt
+          find KnotJob -type f \( -iname '*.txt' -o -iname '*.md' -o -iname '*.pdf' \) -print | tee knotjob-doc-files.txt
+          while IFS= read -r f; do
+            case "$f" in
+              *.txt|*.md)
+                echo "===== $f ====="
+                sed -n '1,260p' "$f" || true
+                ;;
+            esac
+          done < knotjob-doc-files.txt | tee knotjob-docs.txt
+          find KnotJob -type f -name '*.jar' -print | tee knotjob-jars.txt
+          while IFS= read -r jar; do
+            echo "===== JAR $jar =====" | tee -a knotjob-cli.txt
+            jar tf "$jar" | tee -a knotjob-jar-contents.txt
+            for arg in '--help' '-h' 'help' ''; do
+              echo "===== java -jar $jar $arg =====" | tee -a knotjob-cli.txt
+              timeout 20s java -Djava.awt.headless=true -jar "$jar" $arg \
+                >> knotjob-cli.txt 2>&1 || true
+            done
+          done < knotjob-jars.txt
+          grep -RniE 'command.?line|public static void main|Sq1|beta.?15|local equival|s.?invariant|PD.?code|Planar' KnotJob \
+            --include='*.java' --include='*.txt' --include='*.md' \
+            | head -4000 | tee knotjob-source-grep.txt || true
+          cat knotjob-cli.txt
+      - name: Upload probe
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k15-knotjob-probe
+          path: |
+            KnotJob.zip.sha256
+            knotjob-files.txt
+            knotjob-doc-files.txt
+            knotjob-docs.txt
+            knotjob-jars.txt
+            knotjob-jar-contents.txt
+            knotjob-cli.txt
+            knotjob-source-grep.txt
+          if-no-files-found: warn
+          retention-days: 2
