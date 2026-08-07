@@ -21,10 +21,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Install Khoca 1.5
+      - name: Install Khoca 1.5 and runtime dependency
         run: |
           python -m pip install --upgrade pip
-          python -m pip install --no-cache-dir 'khoca==1.5'
+          python -m pip install --no-cache-dir 'py==1.11.0' 'khoca==1.5'
       - name: Compute calibrated Lee spectral sequences
         id: compute
         continue-on-error: true
@@ -81,8 +81,6 @@ jobs:
           except Exception as exc:
               output['khoca_version_error'] = repr(exc)
 
-          # X^2-X is split over Q and F_3, and is the finite-field
-          # perturbation used in Khoca's documented spectral-sequence example.
           calculators = {
               'Q_X2_minus_X': InteractiveCalculator(1, (0, -1), 0),
               'F3_X2_minus_X': InteractiveCalculator(3, (0, -1), 0),
