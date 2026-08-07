@@ -1,0 +1,139 @@
+name: K15n25044 Khoca certificate
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install Khoca 1.5
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'khoca==1.5'
+      - name: Compute Lee spectral sequences
+        env:
+          OMP_NUM_THREADS: '4'
+        run: |
+          cat > /tmp/compute_k15.py <<'PY'
+          import json
+          import platform
+          import sys
+          import time
+          from khoca import InteractiveCalculator
+
+          K15 = [
+              [4,2,5,1],[2,8,3,7],[8,4,9,3],[16,5,17,6],
+              [6,17,7,18],[9,21,10,20],[29,10,30,11],
+              [11,28,12,29],[27,12,28,13],[13,26,14,27],
+              [25,14,26,15],[15,22,16,23],[23,18,24,19],
+              [19,24,20,25],[21,1,22,30]
+          ]
+
+          TESTS = {
+              'positive_trefoil_braid': 'braidaaa',
+              'negative_trefoil_braid': 'braidAAA',
+              'figure_eight_braid': 'braidaBaB',
+              'K15n25044_PD': K15,
+          }
+
+          def extract_s(result):
+              # For a knot and a split Lee-type potential, unreduced E_infinity
+              # consists of two t=0 generators in q-degrees s-1 and s+1.
+              unreduced = result[1]
+              active = []
+              for row in unreduced:
+                  if len(row) != 4:
+                      continue
+                  t, q, torsion, coefficient = row
+                  if coefficient:
+                      active.extend([int(q)] * abs(int(coefficient)))
+              active.sort()
+              if len(active) != 2 or active[1] - active[0] != 2:
+                  return {'ok': False, 'active_q': active, 'reason': 'unexpected E_infinity shape'}
+              return {'ok': True, 'active_q': active, 's': (active[0] + active[1]) // 2}
+
+          output = {
+              'python': sys.version,
+              'platform': platform.platform(),
+              'khoca_version': None,
+              'calculations': {},
+          }
+          try:
+              import importlib.metadata as metadata
+              output['khoca_version'] = metadata.version('khoca')
+          except Exception as exc:
+              output['khoca_version_error'] = repr(exc)
+
+          calculators = {
+              'Q_X2_plus_1': InteractiveCalculator(1, (1, 0), 0),
+              'Q_X2_minus_X': InteractiveCalculator(1, (0, -1), 0),
+              'F3_X2_minus_X': InteractiveCalculator(3, (0, -1), 0),
+          }
+
+          for calc_name, calculator in calculators.items():
+              output['calculations'][calc_name] = {}
+              for knot_name, knot in TESTS.items():
+                  start = time.time()
+                  try:
+                      result, messages = calculator(knot, print_messages=True, progress=True)
+                      rec = {
+                          'elapsed_seconds': time.time() - start,
+                          'result': result,
+                          'messages': messages,
+                          'extracted': extract_s(result),
+                      }
+                  except Exception as exc:
+                      rec = {
+                          'elapsed_seconds': time.time() - start,
+                          'error': repr(exc),
+                      }
+                  output['calculations'][calc_name][knot_name] = rec
+                  print('CERTIFICATE_RECORD', calc_name, knot_name, json.dumps(rec, sort_keys=True), flush=True)
+
+          with open('khoca-results.json', 'w', encoding='utf-8') as fh:
+              json.dump(output, fh, indent=2, sort_keys=True)
+
+          # Fail closed on calibration before accepting K15 output.
+          for calc_name in calculators:
+              rows = output['calculations'][calc_name]
+              extracted = {k: rows[k].get('extracted', {}) for k in TESTS}
+              if not extracted['positive_trefoil_braid'].get('ok'):
+                  raise SystemExit(f'{calc_name}: positive trefoil calibration failed')
+              if not extracted['negative_trefoil_braid'].get('ok'):
+                  raise SystemExit(f'{calc_name}: negative trefoil calibration failed')
+              if not extracted['figure_eight_braid'].get('ok'):
+                  raise SystemExit(f'{calc_name}: figure-eight calibration failed')
+              sp = extracted['positive_trefoil_braid']['s']
+              sm = extracted['negative_trefoil_braid']['s']
+              sf = extracted['figure_eight_braid']['s']
+              if sp != -sm or abs(sp) != 2 or sf != 0:
+                  raise SystemExit(f'{calc_name}: convention calibration unexpected: {sp}, {sm}, {sf}')
+              if not extracted['K15n25044_PD'].get('ok'):
+                  raise SystemExit(f'{calc_name}: K15 E_infinity shape failed')
+
+          print('FINAL_K15_CERTIFICATE', json.dumps({
+              name: output['calculations'][name]['K15n25044_PD']['extracted']
+              for name in calculators
+          }, sort_keys=True), flush=True)
+          PY
+          python /tmp/compute_k15.py 2>&1 | tee khoca-run.log
+      - name: Upload certificate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k15-khoca-certificate
+          path: |
+            khoca-results.json
+            khoca-run.log
+          if-no-files-found: warn
+          retention-days: 1
