@@ -1,0 +1,178 @@
+name: K15 RBG blue-green strong-ribbon search
+
+on:
+  push:
+    paths:
+      - '.github/workflows/k15-bg-strong-ribbon.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  search:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install topology packages
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'snappy==3.3.2' 'spherogram==2.4.1'
+      - name: Search for strong ribbon certificate
+        id: compute
+        continue-on-error: true
+        env:
+          OMP_NUM_THREADS: '4'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          cat > /tmp/search.py <<'PY'
+          import json, time, traceback
+          import snappy
+          from spherogram import Link
+          from spherogram.links.bands.core import Band, add_one_band, banded_links, normalize_crossing_labels
+          from spherogram.links.bands.search import is_unlink_exterior, verify_ribbon_to_unknot
+
+          BG_PD=[(28,24,29,23),(24,6,25,5),(25,10,26,11),(9,26,10,27),
+                 (6,28,7,27),(16,29,17,30),(30,13,31,14),(31,3,18,2),
+                 (1,19,2,18),(14,19,15,20),(20,15,21,16),(21,9,22,8),
+                 (7,23,8,22),(11,4,12,5),(12,0,13,17),(3,0,4,1)]
+          L0=Link(BG_PD); normalize_crossing_labels(L0)
+          output={'input_PD':BG_PD,'input_crossings':len(L0.crossings),
+                  'input_components':len(L0.link_components),'linking_matrix':L0.linking_matrix(),
+                  'searches':[],'certificate':None}
+          try:
+              E=L0.exterior()
+              output['exterior']={'isosig':E.triangulation_isosig(decorated=True),
+                                  'volume':float(E.volume()),'solution_type':E.solution_type(),
+                                  'homology':str(E.homology())}
+              try:
+                  output['identifications']=[str(x) for x in E.identify()]
+              except Exception as exc:
+                  output['identify_error']=repr(exc)
+          except Exception as exc:
+              output['exterior_error']=repr(exc)
+
+          def total_components(L):
+              return len(L.link_components)+getattr(L,'unlinked_unknot_components',0)
+
+          def normalize_simplify(L, rounds=4):
+              for i in range(rounds):
+                  L.simplify('pickup'); L.simplify('global')
+                  if len(L.crossings)==0: break
+                  if i+1<rounds:
+                      try: L.backtrack(30)
+                      except Exception: pass
+              normalize_crossing_labels(L)
+              return L
+
+          def exact_unlink(L, expected):
+              if total_components(L)!=expected:
+                  return False
+              if len(L.crossings)==0:
+                  return True
+              try:
+                  return is_unlink_exterior(L.exterior())
+              except Exception:
+                  return False
+
+          # Search first-stage bands, deduplicating exact exterior types.
+          stage1=[]; seen=set()
+          for paths,maxlen,twists in [('shortest',8,6),('simple',6,4)]:
+              start=time.time(); generated=admissible=0
+              for L,spec in banded_links(L0,max_twists=twists,max_band_len=maxlen,paths=paths):
+                  generated+=1
+                  if total_components(L)!=3: continue
+                  if any(x for row in L.linking_matrix() for x in row): continue
+                  admissible+=1
+                  normalize_simplify(L,3)
+                  if exact_unlink(L,3):
+                      cert=[BG_PD,spec,'unknot']
+                      output['certificate']=cert
+                      output['hit']={'depth':1,'specs':[spec]}
+                      with open('k15-bg-strong-ribbon.json','w') as f: json.dump(output,f,indent=2,sort_keys=True)
+                      print('STRONG_RIBBON_HIT',json.dumps(output['hit']),flush=True)
+                      raise SystemExit(0)
+                  try:key=L.exterior().triangulation_isosig(decorated=True)
+                  except Exception:key=repr(L.DT_code())
+                  if key not in seen:
+                      seen.add(key); stage1.append((len(L.crossings),spec,L.PD_code(),key))
+              output['searches'].append({'stage':1,'paths':paths,'maxlen':maxlen,'twists':twists,
+                                         'generated':generated,'admissible':admissible,
+                                         'unique_total':len(stage1),'elapsed':time.time()-start})
+              print('STAGE1',output['searches'][-1],flush=True)
+              with open('k15-bg-strong-ribbon.json','w') as f: json.dump(output,f,indent=2,sort_keys=True)
+
+          stage1.sort(key=lambda x:(x[0],len(x[1]),x[1]))
+          output['stage1_best']=[{'crossings':a,'spec':b,'PD':c,'key':d} for a,b,c,d in stage1[:300]]
+
+          # Exhaust second bands on the 300 smallest exact first-stage states.
+          stage2=[]; seen2=set()
+          for idx,(cross1,spec1,pd1,key1) in enumerate(stage1[:300]):
+              L1=Link([tuple(x) for x in pd1]); normalize_crossing_labels(L1)
+              start=time.time(); generated=admissible=0
+              for paths,maxlen,twists in [('shortest',10,6),('simple',7,4)]:
+                  for L,spec2 in banded_links(L1,max_twists=twists,max_band_len=maxlen,paths=paths):
+                      generated+=1
+                      if total_components(L)!=4: continue
+                      if any(x for row in L.linking_matrix() for x in row): continue
+                      admissible+=1
+                      normalize_simplify(L,4)
+                      if exact_unlink(L,4):
+                          cert=[BG_PD,spec1,pd1,spec2,'unknot']
+                          ok=verify_ribbon_to_unknot(L0,cert)
+                          output['certificate']=cert
+                          output['hit']={'depth':2,'specs':[spec1,spec2],'verified':bool(ok)}
+                          with open('k15-bg-strong-ribbon.json','w') as f: json.dump(output,f,indent=2,sort_keys=True)
+                          print('STRONG_RIBBON_HIT',json.dumps(output['hit']),flush=True)
+                          raise SystemExit(0 if ok else 3)
+                      try:key=L.exterior().triangulation_isosig(decorated=True)
+                      except Exception:key=repr(L.DT_code())
+                      if key not in seen2:
+                          seen2.add(key); stage2.append((len(L.crossings),spec1,pd1,spec2,L.PD_code(),key))
+              if idx%10==0:
+                  rec={'stage':2,'source_index':idx,'source_spec':spec1,'source_crossings':cross1,
+                       'generated':generated,'admissible':admissible,'unique_total':len(stage2),
+                       'elapsed':time.time()-start}
+                  output['searches'].append(rec); print('STAGE2',rec,flush=True)
+                  with open('k15-bg-strong-ribbon.json','w') as f: json.dump(output,f,indent=2,sort_keys=True)
+
+          stage2.sort(key=lambda x:(x[0],len(x[3]),x[3]))
+          output['stage2_best']=[{'crossings':a,'band1':b,'PD1':c,'band2':d,'PD2':e,'key':f}
+                                 for a,b,c,d,e,f in stage2[:200]]
+          output['conclusion']='No strong ribbon certificate found in the completed finite search.'
+          with open('k15-bg-strong-ribbon.json','w') as f: json.dump(output,f,indent=2,sort_keys=True)
+          print('NO_HIT',json.dumps({'stage1_unique':len(stage1),'stage2_unique':len(stage2)}),flush=True)
+          PY
+          set -o pipefail
+          python /tmp/search.py 2>&1 | tee k15-bg-strong-ribbon.log
+      - name: Commit search packet
+        if: always()
+        env:
+          COMPUTE_OUTCOME: ${{ steps.compute.outcome }}
+        run: |
+          mkdir -p results/k15-bg
+          cp k15-bg-strong-ribbon.json results/k15-bg/ 2>/dev/null || true
+          cp k15-bg-strong-ribbon.log results/k15-bg/ 2>/dev/null || true
+          printf '%s\n' "$COMPUTE_OUTCOME" > results/k15-bg/compute-outcome.txt
+          printf '%s\n' "$GITHUB_RUN_ID" > results/k15-bg/run-id.txt
+          printf '%s\n' "$GITHUB_SHA" > results/k15-bg/input-commit.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results/k15-bg
+          if ! git diff --cached --quiet; then
+            git commit -m 'Store K15 RBG blue-green strong-ribbon search'
+            git push
+          fi
+      - name: Upload packet
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k15-bg-strong-ribbon-search
+          path: results/k15-bg/
+          if-no-files-found: warn
+          retention-days: 1
