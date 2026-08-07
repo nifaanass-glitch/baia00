@@ -2,16 +2,21 @@ name: K15n25044 Khoca certificate
 
 on:
   push:
+    paths:
+      - '.github/workflows/k15-khoca.yml'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   compute:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
+      - name: Check out scratch repository
+        uses: actions/checkout@v4
       - name: Set up Python 3.13
         uses: actions/setup-python@v5
         with:
@@ -20,7 +25,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install --no-cache-dir 'khoca==1.5'
-      - name: Compute Lee spectral sequences
+      - name: Compute calibrated Lee spectral sequences
+        id: compute
+        continue-on-error: true
         env:
           OMP_NUM_THREADS: '4'
         run: |
@@ -38,7 +45,6 @@ jobs:
               [25,14,26,15],[15,22,16,23],[23,18,24,19],
               [19,24,20,25],[21,1,22,30]
           ]
-
           TESTS = {
               'positive_trefoil_braid': 'braidaaa',
               'negative_trefoil_braid': 'braidAAA',
@@ -47,25 +53,26 @@ jobs:
           }
 
           def extract_s(result):
-              # For a knot and a split Lee-type potential, unreduced E_infinity
-              # consists of two t=0 generators in q-degrees s-1 and s+1.
               unreduced = result[1]
               active = []
               for row in unreduced:
                   if len(row) != 4:
                       continue
                   t, q, torsion, coefficient = row
-                  if coefficient:
+                  if int(coefficient):
                       active.extend([int(q)] * abs(int(coefficient)))
               active.sort()
               if len(active) != 2 or active[1] - active[0] != 2:
-                  return {'ok': False, 'active_q': active, 'reason': 'unexpected E_infinity shape'}
-              return {'ok': True, 'active_q': active, 's': (active[0] + active[1]) // 2}
+                  return {'ok': False, 'active_q': active,
+                          'reason': 'unexpected E_infinity shape'}
+              return {'ok': True, 'active_q': active,
+                      's': (active[0] + active[1]) // 2}
 
           output = {
               'python': sys.version,
               'platform': platform.platform(),
               'khoca_version': None,
+              'input_PD': K15,
               'calculations': {},
           }
           try:
@@ -74,8 +81,9 @@ jobs:
           except Exception as exc:
               output['khoca_version_error'] = repr(exc)
 
+          # X^2-X is split over Q and F_3, and is the finite-field
+          # perturbation used in Khoca's documented spectral-sequence example.
           calculators = {
-              'Q_X2_plus_1': InteractiveCalculator(1, (1, 0), 0),
               'Q_X2_minus_X': InteractiveCalculator(1, (0, -1), 0),
               'F3_X2_minus_X': InteractiveCalculator(3, (0, -1), 0),
           }
@@ -85,7 +93,8 @@ jobs:
               for knot_name, knot in TESTS.items():
                   start = time.time()
                   try:
-                      result, messages = calculator(knot, print_messages=True, progress=True)
+                      result, messages = calculator(
+                          knot, print_messages=True, progress=True)
                       rec = {
                           'elapsed_seconds': time.time() - start,
                           'result': result,
@@ -98,42 +107,63 @@ jobs:
                           'error': repr(exc),
                       }
                   output['calculations'][calc_name][knot_name] = rec
-                  print('CERTIFICATE_RECORD', calc_name, knot_name, json.dumps(rec, sort_keys=True), flush=True)
+                  print('CERTIFICATE_RECORD', calc_name, knot_name,
+                        json.dumps(rec, sort_keys=True), flush=True)
 
           with open('khoca-results.json', 'w', encoding='utf-8') as fh:
               json.dump(output, fh, indent=2, sort_keys=True)
 
-          # Fail closed on calibration before accepting K15 output.
+          failures = []
           for calc_name in calculators:
               rows = output['calculations'][calc_name]
-              extracted = {k: rows[k].get('extracted', {}) for k in TESTS}
-              if not extracted['positive_trefoil_braid'].get('ok'):
-                  raise SystemExit(f'{calc_name}: positive trefoil calibration failed')
-              if not extracted['negative_trefoil_braid'].get('ok'):
-                  raise SystemExit(f'{calc_name}: negative trefoil calibration failed')
-              if not extracted['figure_eight_braid'].get('ok'):
-                  raise SystemExit(f'{calc_name}: figure-eight calibration failed')
-              sp = extracted['positive_trefoil_braid']['s']
-              sm = extracted['negative_trefoil_braid']['s']
-              sf = extracted['figure_eight_braid']['s']
-              if sp != -sm or abs(sp) != 2 or sf != 0:
-                  raise SystemExit(f'{calc_name}: convention calibration unexpected: {sp}, {sm}, {sf}')
-              if not extracted['K15n25044_PD'].get('ok'):
-                  raise SystemExit(f'{calc_name}: K15 E_infinity shape failed')
+              ext = {k: rows[k].get('extracted', {}) for k in TESTS}
+              for key in TESTS:
+                  if not ext[key].get('ok'):
+                      failures.append(f'{calc_name}: {key}: {ext[key]}')
+              if all(ext[k].get('ok') for k in TESTS):
+                  sp = ext['positive_trefoil_braid']['s']
+                  sm = ext['negative_trefoil_braid']['s']
+                  sf = ext['figure_eight_braid']['s']
+                  if sp != -sm or abs(sp) != 2 or sf != 0:
+                      failures.append(
+                          f'{calc_name}: calibration unexpected: {sp},{sm},{sf}')
 
-          print('FINAL_K15_CERTIFICATE', json.dumps({
-              name: output['calculations'][name]['K15n25044_PD']['extracted']
+          final = {
+              name: output['calculations'][name]['K15n25044_PD'].get(
+                  'extracted', {'ok': False})
               for name in calculators
-          }, sort_keys=True), flush=True)
+          }
+          print('FINAL_K15_CERTIFICATE', json.dumps(final, sort_keys=True),
+                flush=True)
+          if failures:
+              print('FAIL_CLOSED', json.dumps(failures), flush=True)
+              raise SystemExit(2)
           PY
+          set -o pipefail
           python /tmp/compute_k15.py 2>&1 | tee khoca-run.log
-      - name: Upload certificate
+      - name: Commit certificate back to scratch repository
+        if: always()
+        env:
+          COMPUTE_OUTCOME: ${{ steps.compute.outcome }}
+        run: |
+          mkdir -p results
+          cp khoca-results.json results/khoca-results.json 2>/dev/null || true
+          cp khoca-run.log results/khoca-run.log 2>/dev/null || true
+          printf '%s\n' "$COMPUTE_OUTCOME" > results/compute-outcome.txt
+          printf '%s\n' "$GITHUB_RUN_ID" > results/run-id.txt
+          printf '%s\n' "$GITHUB_SHA" > results/input-commit.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results
+          if ! git diff --cached --quiet; then
+            git commit -m 'Store K15n25044 Khoca certificate'
+            git push
+          fi
+      - name: Upload certificate artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: k15-khoca-certificate
-          path: |
-            khoca-results.json
-            khoca-run.log
+          path: results/
           if-no-files-found: warn
           retention-days: 1
