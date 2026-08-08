@@ -1,0 +1,63 @@
+name: Balanced RBG word-family sweep 20260808
+
+on:
+  push:
+    paths:
+      - '.github/workflows/balanced-rbg-word-sweep-20260808.yml'
+      - 'research/balanced_rbg_word_sweep.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sweep:
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include:
+          - {m: 1, b: 1}
+          - {m: 1, b: -1}
+          - {m: -1, b: 1}
+          - {m: -1, b: -1}
+          - {m: 2, b: 1}
+          - {m: 2, b: -1}
+          - {m: -2, b: 1}
+          - {m: -2, b: -1}
+          - {m: 3, b: 1}
+          - {m: 3, b: -1}
+          - {m: -3, b: 1}
+          - {m: -3, b: -1}
+          - {m: 4, b: 1}
+          - {m: 4, b: -1}
+          - {m: -4, b: 1}
+          - {m: -4, b: -1}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'snappy==3.3.2' 'knot_floer_homology==1.2.2'
+      - name: Screen one balanced RBG word
+        env:
+          COMMUTATOR_EXPONENT: ${{ matrix.m }}
+          B_SIGN: ${{ matrix.b }}
+          OUTPUT_DIR: out/rbg-word-m${{ matrix.m }}-b${{ matrix.b }}
+          PYTHONUNBUFFERED: '1'
+        run: |
+          mkdir -p "$OUTPUT_DIR"
+          set -o pipefail
+          timeout --signal=TERM --kill-after=30s 340m \
+            python research/balanced_rbg_word_sweep.py \
+            2>&1 | tee "$OUTPUT_DIR/run.log"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rbg-word-m${{ matrix.m }}-b${{ matrix.b }}
+          path: out/rbg-word-m${{ matrix.m }}-b${{ matrix.b }}
+          retention-days: 7
