@@ -1,0 +1,58 @@
+name: Receiver classical invariant audit 20260808
+
+on:
+  push:
+    paths:
+      - '.github/workflows/receiver-classical-audit-20260808.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  classical:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'snappy==3.3.2'
+      - name: Compute signature, determinant, Alexander and Fox-Milnor tests
+        run: |
+          mkdir -p results/receiver-classical-20260808
+          python - <<'PY' 2>&1 | tee results/receiver-classical-20260808/run.log
+          import json,time,traceback
+          from spherogram import Link
+          data=json.load(open('research/receiver_candidates_20260808.json'))
+          out={}
+          for name,rec in data.items():
+              t=time.time(); L=Link(rec['pd']); r={'crossings':len(L.crossings)}
+              for key,fn in [
+                  ('signature',lambda:L.signature()),
+                  ('determinant',lambda:L.determinant()),
+                  ('alexander',lambda:str(L.alexander_polynomial())),
+                  ('fox_milnor',lambda:L.exterior().fox_milnor_test()),
+                  ('linking_matrix',lambda:L.linking_matrix()),
+              ]:
+                  try:r[key]=fn()
+                  except BaseException as e:r[key+'_error']=repr(e)
+              try:
+                  E=L.exterior(); r['solution_type']=E.solution_type(); r['volume']=float(E.volume()); r['homology']=str(E.homology())
+              except BaseException as e:r['exterior_error']=repr(e)
+              r['elapsed_seconds']=time.time()-t; out[name]=r
+              print(name,json.dumps(r,sort_keys=True,default=str),flush=True)
+          with open('results/receiver-classical-20260808/results.json','w') as f:json.dump(out,f,indent=2,sort_keys=True,default=str)
+          PY
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase || true
+          git add results/receiver-classical-20260808
+          git commit -m 'Store receiver classical invariant audit 20260808' || exit 0
+          git push
