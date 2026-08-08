@@ -1,0 +1,79 @@
+name: Valid trefoil receiver ribbon-first audit 20260808
+
+on:
+  push:
+    paths:
+      - '.github/workflows/valid-trefoil-ribbon-first-20260808.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  ribbon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'snappy==3.3.2'
+      - name: Search cache, simplifications, one- and two-band ribbon movies
+        env:
+          PYTHONHASHSEED: '2'
+        run: |
+          mkdir -p results/valid-trefoil-ribbon-20260808
+          cat > /tmp/run.py <<'PY'
+          import json,time,traceback
+          import snappy
+          from spherogram import Link
+          from spherogram.links.bands.search import ribbon_concordant_links, verify_ribbon_to_unknot
+          pd=json.load(open('research/receiver_candidates_20260808.json'))['valid_trefoil_seed1']['pd']
+          out={'candidate':'valid_trefoil_seed1','input_crossings':len(pd)}; start=time.time()
+          L=Link(pd); best=L.copy(); history=[]
+          for i in range(25):
+              A=L.copy()
+              try:
+                  A.backtrack(30); A.simplify('basic'); A.simplify('pickup'); A.simplify('global')
+                  if len(A.crossings)<len(best.crossings): best=A.copy()
+                  history.append({'round':i,'crossings':len(A.crossings),'best':len(best.crossings)})
+              except BaseException as e: history.append({'round':i,'error':repr(e)})
+          out['simplification_history']=history; out['best_crossings']=len(best.crossings); out['best_pd']=[list(x) for x in best.PD_code()]
+          print('BEST',len(best.crossings),flush=True)
+          try:
+              E=best.exterior(); F=snappy.RibbonLinks.identify(E,extends_to_link=True)
+              out['ribbon_cache_match']=F.name() if F else None
+              print('CACHE',out['ribbon_cache_match'],flush=True)
+          except BaseException as e: out['ribbon_cache_error']=repr(e); print('CACHE_ERROR',repr(e),flush=True)
+          for label,kwargs in [
+              ('one_band_l6',dict(max_bands=1,max_twists=2,max_band_len=6,paths='shortest')),
+              ('two_band_l4',dict(max_bands=2,max_twists=2,max_band_len=4,paths='shortest')),
+          ]:
+              t=time.time()
+              try:
+                  ans=ribbon_concordant_links(best,stop_at_unlink=True,certify=True,print_progress=True,use_ribbon_link_cache=True,filter_for_plausibly_slice=False,**kwargs)
+                  cert=ans.get('unknot') if isinstance(ans,dict) else None
+                  rec={'elapsed_seconds':time.time()-t,'found':bool(cert),'certificate':cert}
+                  if cert: rec['verified']=bool(verify_ribbon_to_unknot(best,cert))
+                  out[label]=rec; print(label,json.dumps({'found':rec['found'],'verified':rec.get('verified')},sort_keys=True),flush=True)
+                  if cert: break
+              except BaseException as e:
+                  out[label]={'elapsed_seconds':time.time()-t,'error':repr(e),'traceback':traceback.format_exc()}; print(label,'ERROR',repr(e),flush=True)
+              with open('results/valid-trefoil-ribbon-20260808/result.json','w') as f:json.dump(out,f,indent=2,sort_keys=True)
+          out['elapsed_seconds']=time.time()-start
+          with open('results/valid-trefoil-ribbon-20260808/result.json','w') as f:json.dump(out,f,indent=2,sort_keys=True)
+          PY
+          set -o pipefail
+          timeout --signal=TERM --kill-after=30s 340m python /tmp/run.py 2>&1 | tee results/valid-trefoil-ribbon-20260808/run.log
+      - name: Commit result
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase || true
+          git add results/valid-trefoil-ribbon-20260808
+          git commit -m 'Store valid trefoil receiver ribbon-first result 20260808' || exit 0
+          git push
