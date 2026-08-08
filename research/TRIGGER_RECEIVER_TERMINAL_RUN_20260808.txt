@@ -1,0 +1,8 @@
+Trackable pull-request trigger for terminal receiver computations on the valid trefoil redesign and the alternative marked dual.
+Second trigger after fixing the Khoca module-shadowing error.
+Third trigger for the exact balanced-receiver reconstruction calibration.
+Fourth trigger for direct screening of twelve preserved low-complexity marked exteriors.
+Fifth trigger for the companion-infection sweep in the valid balanced-receiver family.
+Sixth trigger after correcting the true dotted-circle roles and adding higher positive and negative companions.
+Seventh trigger for the new winding-one receiver with attaching vector (1,1), testing both marked duals.
+Eighth trigger for the corrected proof-carrying winding-one v2 screen.
