@@ -7,13 +7,15 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   bundle:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
@@ -36,3 +38,14 @@ jobs:
           name: local-snappy-dependency-wheels
           path: wheelhouse
           retention-days: 7
+      - name: Commit run identifier
+        if: always()
+        run: |
+          mkdir -p results/local-snappy-dependency-bundle
+          printf '%s\n' "$GITHUB_RUN_ID" > results/local-snappy-dependency-bundle/run-id.txt
+          printf '%s\n' "$GITHUB_SHA" > results/local-snappy-dependency-bundle/input-commit.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results/local-snappy-dependency-bundle
+          git commit -m 'Store local SnapPy dependency bundle metadata' || exit 0
+          git push
