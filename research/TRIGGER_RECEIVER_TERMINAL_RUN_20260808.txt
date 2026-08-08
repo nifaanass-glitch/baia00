@@ -3,3 +3,4 @@ Second trigger after fixing the Khoca module-shadowing error.
 Third trigger for the exact balanced-receiver reconstruction calibration.
 Fourth trigger for direct screening of twelve preserved low-complexity marked exteriors.
 Fifth trigger for the companion-infection sweep in the valid balanced-receiver family.
+Sixth trigger after correcting the true dotted-circle roles and adding higher positive and negative companions.
