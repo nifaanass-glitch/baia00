@@ -1,0 +1,175 @@
+name: Winding-one balanced receiver redesign 20260808
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sweep:
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        companion: [unknot, T2_3, T2_5, T2_7, mirror_T2_3, mirror_T2_5, T3_4, trefoil_sum2]
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'snappy==3.3.2' 'knot_floer_homology==1.2.2'
+      - name: Build the (1,1)-attaching-vector receiver and screen both marked duals
+        env:
+          COMPANION: ${{ matrix.companion }}
+          PYTHONUNBUFFERED: '1'
+        run: |
+          mkdir -p "out/winding-one-${COMPANION}"
+          cat > /tmp/winding_one.py <<'PY'
+          import json,math,os,time,traceback
+          import snappy
+          from spherogram import ClosedBraid, Link
+          from snappy.exterior_to_link import exterior_to_link
+          from snappy.exterior_to_link.main import filled_is_3sphere
+          import knot_floer_homology as hfk
+
+          name=os.environ['COMPANION']; out={'companion':name,'construction':'beta_11=A*B*[A,B]^2'}; start=time.time()
+          def inv(w): return [-x for x in w[::-1]]
+          A=[2,1,1,-2]; B=[2,2]; comm=A+B+inv(A)+inv(B)
+          beta11=A+B+comm+comm
+          base=Link(ClosedBraid(*beta11).PD_code())
+
+          if name=='unknot': J=None
+          elif name.startswith('T2_'):
+              n=int(name.split('_')[1]); J=ClosedBraid(*([1]*n))
+          elif name.startswith('mirror_T2_'):
+              n=int(name.split('_')[-1]); J=ClosedBraid(*([-1]*n))
+          elif name=='T3_4': J=ClosedBraid(*([1,2]*4))
+          elif name=='trefoil_sum2':
+              T=Link(ClosedBraid(*([1]*3)).PD_code()); J=T.connected_sum(T)
+          else: raise ValueError(name)
+
+          def component_sum(link, ci, knot):
+              first=link.copy(); second=knot.copy()
+              a=first.link_components[ci][0]; f1,i1=a.crossing,a.strand_index; f2,i2=f1.adjacent[i1]
+              g1,j1=second.crossings[0],0; g2,j2=g1.adjacent[j1]
+              f1[i1]=g2[j2]; f2[i2]=g1[j1]
+              for c in second.crossings: first.crossings.append(c)
+              return Link(first.crossings)
+
+          def simplify_link(L, rounds=5):
+              for _ in range(rounds):
+                  for mode in ('basic','pickup','global'):
+                      try: L.simplify(mode)
+                      except BaseException: pass
+              return L
+
+          try:
+              L=base if J is None else component_sum(base,0,J)
+              L=simplify_link(L,4)
+              lm=L.linking_matrix(); out['handle_link_crossings']=len(L.crossings); out['linking_matrix']=lm
+              print('HANDLE',name,len(L.crossings),lm,flush=True)
+              if len(L.link_components)!=3: raise RuntimeError(f'expected three components, got {len(L.link_components)}')
+
+              degrees=[sum(1 for x in row if x!=0) for row in lm]
+              handles=[i for i,d in enumerate(degrees) if d==2]
+              if len(handles)!=1: raise RuntimeError(f'expected unique component linking both dotted circles, degrees={degrees}')
+              handle=handles[0]; dotted=[i for i in range(3) if i!=handle]
+              out['two_handle_component']=handle; out['dotted_components']=dotted
+              vector=[lm[handle][d] for d in dotted]; out['attaching_vector']=vector
+              if sorted(abs(x) for x in vector)!=[1,1]: raise RuntimeError(f'expected primitive vector (±1,±1), got {vector}')
+
+              D=simplify_link(L.sublink(dotted),6)
+              out['dotted_pair_crossings_after_simplify']=len(D.crossings)
+              out['dotted_pair_drawn_components']=len(D.link_components)
+              out['dotted_pair_detached_unlinks']=getattr(D,'unlinked_unknot_components',0)
+              out['dotted_unlink_combinatorial']=bool(len(D.crossings)==0 and len(D.link_components)==0 and getattr(D,'unlinked_unknot_components',0)==2)
+              print('DOTTED',dotted,out['dotted_unlink_combinatorial'],flush=True)
+              if not out['dotted_unlink_combinatorial']: raise RuntimeError('dotted pair is not the exact 2-component unlink')
+
+              all_candidates=[]
+              for keep in dotted:
+                  cand={'keep_cusp':keep,'fill_cusps':[i for i in range(3) if i!=keep]}; print('KEEP',keep,flush=True)
+                  try:
+                      M=L.exterior()
+                      for c in cand['fill_cusps']: M.dehn_fill((0,1),c)
+                      E=snappy.Manifold(M.filled_triangulation())
+                      cand['candidate_tets']=E.num_tetrahedra(); cand['candidate_homology']=str(E.homology()); cand['candidate_cusps']=E.num_cusps()
+                      try: cand['candidate_signature']=str(E.isometry_signature(of_link=True))
+                      except BaseException as e: cand['candidate_signature_error']=repr(e)
+                      print('EXTERIOR',keep,cand['candidate_cusps'],cand['candidate_tets'],cand['candidate_homology'],flush=True)
+
+                      slopes=[]
+                      try:
+                          for s in E.short_slopes(length=8.0)[0]:
+                              s=tuple(map(int,s))
+                              if s not in slopes: slopes.append(s)
+                      except BaseException as e: cand['short_slopes_error']=repr(e)
+                      for r in (4,8,12):
+                          for p in range(-r,r+1):
+                              for q in range(-r,r+1):
+                                  if math.gcd(p,q)==1 and (p,q) not in slopes: slopes.append((p,q))
+                      s3=[]
+                      for slope in slopes:
+                          F=E.copy(); F.dehn_fill(slope)
+                          try:
+                              if str(F.homology())!='0': continue
+                          except BaseException: continue
+                          methods=[]
+                          try:
+                              if filled_is_3sphere(F): methods.append('filled_is_3sphere')
+                          except BaseException: pass
+                          try:
+                              G=F.fundamental_group(); G.simplify()
+                              if G.num_generators()==0: methods.append('trivial_group')
+                          except BaseException: pass
+                          if methods:
+                              s3.append({'slope':slope,'methods':methods}); print('S3',keep,slope,methods,flush=True)
+                      cand['s3_slopes']=s3
+                      if not s3: raise RuntimeError('no certified S3 meridian found')
+
+                      diagrams=[]; best=None
+                      for srec in s3[:3]:
+                          slope=tuple(srec['slope']); F=E.copy(); F.dehn_fill(slope)
+                          for seed in range(6):
+                              t=time.time()
+                              try:
+                                  K=exterior_to_link(F,verbose=False,check_input=True,check_answer=True,careful_perturbation=True,simplify_link=True,pachner_search_tries=40,seed=seed)
+                                  simplify_link(K,10)
+                                  pd=[list(x) for x in K.PD_code()]; morse=hfk.pd_to_morse(pd)
+                                  item={'slope':slope,'seed':seed,'crossings':len(K.crossings),'pd':pd,'dt':str(K.DT_code()),'morse_girth':morse.get('girth'),'morse_events':len(morse.get('events',[])),'elapsed_seconds':time.time()-t}
+                                  diagrams.append(item); print('DIAGRAM',keep,slope,seed,item['crossings'],item['morse_girth'],flush=True)
+                                  if best is None or (item['morse_girth'],item['crossings'])<(best['morse_girth'],best['crossings']): best=item
+                              except BaseException as e:
+                                  diagrams.append({'slope':slope,'seed':seed,'error':repr(e),'traceback':traceback.format_exc()}); print('DIAGRAM_ERROR',keep,slope,seed,repr(e),flush=True)
+                      cand['diagrams']=diagrams; cand['best_diagram']=best
+                      if best is None: raise RuntimeError('no marked diagram extracted')
+                      if best['morse_girth']>20: raise RuntimeError(f"Morse girth {best['morse_girth']} too large for terminal HFK in this run")
+                      ans=hfk.pd_to_hfk(best['pd'],prime=2,complex=False)
+                      cand['hfk_summary']={k:ans.get(k) for k in ['tau','nu','epsilon','seifert_genus','fibered','L_space_knot','total_rank','modulus']}
+                      cand['terminal_nonslice_hfk']=bool(cand['hfk_summary'].get('tau') or cand['hfk_summary'].get('nu') or cand['hfk_summary'].get('epsilon'))
+                      print('HFK',keep,json.dumps(cand['hfk_summary'],sort_keys=True),flush=True)
+                  except BaseException as e:
+                      cand['fatal_error']=repr(e); cand['traceback']=traceback.format_exc(); print('CANDIDATE_FATAL',keep,repr(e),flush=True)
+                  all_candidates.append(cand)
+              out['marked_duals']=all_candidates
+              out['terminal_hits']=[c for c in all_candidates if c.get('terminal_nonslice_hfk')]
+          except BaseException as e:
+              out['fatal_error']=repr(e); out['traceback']=traceback.format_exc(); print('FATAL',repr(e),flush=True)
+          out['elapsed_seconds']=time.time()-start
+          json.dump(out,open(f"out/winding-one-{name}/result.json",'w'),indent=2,sort_keys=True)
+          PY
+          set -o pipefail
+          timeout --signal=TERM --kill-after=30s 340m python /tmp/winding_one.py 2>&1 | tee "out/winding-one-${COMPANION}/run.log"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: winding-one-receiver-${{ matrix.companion }}
+          path: out/winding-one-${{ matrix.companion }}
+          retention-days: 7
