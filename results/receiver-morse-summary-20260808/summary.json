@@ -1,0 +1,26 @@
+{
+  "original_receiver_alt_dual79": {
+    "cap_count": 10,
+    "cross_event_count": 184,
+    "cup_count": 10,
+    "elapsed_seconds": 0.657503604888916,
+    "event_count": 204,
+    "girth": 18
+  },
+  "valid_trefoil_seed1": {
+    "cap_count": 10,
+    "cross_event_count": 173,
+    "cup_count": 10,
+    "elapsed_seconds": 0.590648889541626,
+    "event_count": 193,
+    "girth": 16
+  },
+  "valid_trefoil_seed12": {
+    "cap_count": 11,
+    "cross_event_count": 183,
+    "cup_count": 11,
+    "elapsed_seconds": 0.6034848690032959,
+    "event_count": 205,
+    "girth": 16
+  }
+}
