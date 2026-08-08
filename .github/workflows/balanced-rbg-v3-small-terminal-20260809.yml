@@ -1,0 +1,72 @@
+name: Balanced RBG v3 small terminal audit 20260809
+
+on:
+  push:
+    paths:
+      - '.github/workflows/balanced-rbg-v3-small-terminal-20260809.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  terminal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'snappy==3.3.2' 'knot_floer_homology==1.2.2'
+          python -m knot_floer_homology.test
+      - name: Run m plus or minus one cases
+        run: |
+          set -o pipefail
+          mkdir -p results/balanced-rbg-v3-small-terminal-20260809/cases
+          for m in -1 1; do
+            for b in -1 1; do
+              out="results/balanced-rbg-v3-small-terminal-20260809/cases/m${m}_b${b}"
+              mkdir -p "$out"
+              echo "=== m=$m b=$b ==="
+              COMMUTATOR_EXPONENT="$m" B_SIGN="$b" OUTPUT_DIR="$out" \
+              PYTHONHASHSEED=2 PYTHONUNBUFFERED=1 \
+              timeout --signal=TERM --kill-after=30s 80m \
+              python research/balanced_rbg_word_sweep_v3.py \
+              2>&1 | tee "$out/run.log" || true
+            done
+          done
+          python - <<'PY'
+          import glob,json
+          records=[]
+          for path in sorted(glob.glob('results/balanced-rbg-v3-small-terminal-20260809/cases/**/result.json',recursive=True)):
+              try:
+                  rec=json.load(open(path)); rec['_path']=path; records.append(rec)
+              except Exception as exc:
+                  records.append({'_path':path,'parse_error':repr(exc)})
+          hits=[{'label':r.get('label'),'marked_dual':c} for r in records for c in r.get('terminal_hits',[])]
+          out={
+              'records':records,
+              'terminal_hits':hits,
+              'summary':{
+                  'records':len(records),
+                  'marked_records':sum(len(r.get('marked_duals',[])) for r in records),
+                  'marked_without_fatal_error':sum('fatal_error' not in c for r in records for c in r.get('marked_duals',[])),
+                  'terminal_hits':len(hits),
+              },
+          }
+          json.dump(out,open('results/balanced-rbg-v3-small-terminal-20260809/summary.json','w'),indent=2,sort_keys=True)
+          print(json.dumps(out['summary'],sort_keys=True))
+          if hits: print('TERMINAL_HITS',json.dumps(hits,sort_keys=True))
+          PY
+      - name: Commit terminal results
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase || true
+          git add results/balanced-rbg-v3-small-terminal-20260809
+          git commit -m 'Store corrected small balanced receiver terminal audit 20260809' || exit 0
+          git push
