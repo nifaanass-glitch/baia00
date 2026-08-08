@@ -9,8 +9,6 @@ on:
 permissions:
   contents: write
 
-actions:
-
 jobs:
   bundle:
     runs-on: ubuntu-latest
