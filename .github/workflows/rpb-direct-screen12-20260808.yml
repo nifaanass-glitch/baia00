@@ -1,0 +1,119 @@
+name: Direct balanced-receiver screen 12 20260808
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  screen:
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0,1,2,3,4,5,6,7,8,9,10,11]
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'snappy==3.3.2' 'knot_floer_homology==1.2.2'
+      - name: Decode catalog and screen exact marked exterior
+        env:
+          INDEX: ${{ matrix.index }}
+          PYTHONUNBUFFERED: '1'
+          PYTHONHASHSEED: '2'
+        run: |
+          mkdir -p "out/rpb-screen-${INDEX}"
+          base64 -d research/rpb_direct_screen12.json.gz.b64 | gzip -d > /tmp/candidates.json
+          cat > /tmp/screen.py <<'PY'
+          import json,math,os,time,traceback
+          import snappy
+          from snappy.exterior_to_link import exterior_to_link
+          from snappy.exterior_to_link.main import filled_is_3sphere
+          from spherogram.links.bands.search import ribbon_concordant_links, verify_ribbon_to_unknot
+          import knot_floer_homology as hfk
+
+          i=int(os.environ['INDEX']); rec=json.load(open('/tmp/candidates.json'))[i]
+          od=f'out/rpb-screen-{i}'; out={'index':i,'signature_expected':rec['signature'],'tets_expected':rec['tets'],'refs':rec['refs']}; start=time.time()
+          try:
+              E=snappy.Manifold(rec['triangulation']); out['num_cusps']=E.num_cusps(); out['tets']=E.num_tetrahedra(); out['homology']=str(E.homology()); out['solution_type']=E.solution_type(); print('EXTERIOR',i,out['num_cusps'],out['tets'],out['homology'],flush=True)
+              for key,fn in [('triangulation_isosig',lambda:E.triangulation_isosig(decorated=True)),('isometry_signature',lambda:E.isometry_signature(of_link=True))]:
+                  try: out[key]=str(fn()); print(key,out[key],flush=True)
+                  except BaseException as e: out[key+'_error']=repr(e)
+              slopes=[]
+              try:
+                  for s in E.short_slopes(length=8.0)[0]:
+                      s=tuple(map(int,s))
+                      if s not in slopes: slopes.append(s)
+              except BaseException as e: out['short_slopes_error']=repr(e)
+              for radius in [4,8,12,20]:
+                  for p in range(-radius,radius+1):
+                      for q in range(-radius,radius+1):
+                          if math.gcd(p,q)==1 and (p,q) not in slopes: slopes.append((p,q))
+              s3=[]; homology_sphere_slopes=[]
+              for slope in slopes:
+                  F=E.copy(); F.dehn_fill(slope)
+                  try:
+                      if str(F.homology())!='0': continue
+                  except BaseException: continue
+                  homology_sphere_slopes.append(slope)
+                  ok=False; methods=[]
+                  try:
+                      if filled_is_3sphere(F): ok=True; methods.append('filled_is_3sphere')
+                  except BaseException: pass
+                  try:
+                      G=F.fundamental_group(); G.simplify()
+                      if G.num_generators()==0: ok=True; methods.append('trivial_simplified_group')
+                  except BaseException: pass
+                  if ok:
+                      s3.append({'slope':slope,'methods':methods}); print('S3',slope,methods,flush=True)
+              out['homology_sphere_slopes']=homology_sphere_slopes; out['s3_slopes']=s3
+              diagrams=[]
+              for srec in s3[:4]:
+                  slope=tuple(srec['slope']); F=E.copy(); F.dehn_fill(slope)
+                  for seed in range(4):
+                      t=time.time()
+                      try:
+                          K=exterior_to_link(F,verbose=False,check_input=True,check_answer=True,careful_perturbation=True,simplify_link=True,pachner_search_tries=25,seed=seed)
+                          for _ in range(8):
+                              try: K.backtrack(20); K.simplify('basic'); K.simplify('pickup'); K.simplify('global')
+                              except BaseException: pass
+                          pd=[list(x) for x in K.PD_code()]; m=hfk.pd_to_morse(pd); item={'slope':slope,'seed':seed,'crossings':len(K.crossings),'pd':pd,'dt':str(K.DT_code()),'morse_girth':m.get('girth'),'morse_event_count':len(m.get('events',[])),'elapsed_seconds':time.time()-t}; print('DIAGRAM',slope,seed,item['crossings'],item['morse_girth'],flush=True)
+                          try:
+                              R=snappy.RibbonLinks.identify(K.exterior(),extends_to_link=True); item['ribbon_cache_match']=R.name() if R else None
+                          except BaseException as e: item['ribbon_cache_error']=repr(e)
+                          if item['crossings']<=80:
+                              try:
+                                  ans=ribbon_concordant_links(K,max_bands=1,max_twists=2,max_band_len=6,paths='shortest',stop_at_unlink=True,certify=True,print_progress=False,use_ribbon_link_cache=True,filter_for_plausibly_slice=False); cert=ans.get('unknot') if isinstance(ans,dict) else None; item['one_band_certificate']=cert; item['one_band_verified']=bool(cert and verify_ribbon_to_unknot(K,cert))
+                              except BaseException as e: item['one_band_error']=repr(e)
+                          if item['morse_girth'] is not None and item['morse_girth']<=16:
+                              try:
+                                  ans=hfk.pd_to_hfk(pd,prime=2,complex=False); item['hfk_summary']={k:ans.get(k) for k in ['tau','nu','epsilon','seifert_genus','fibered','L_space_knot','total_rank','modulus']}; item['terminal_nonslice_hfk']=bool(item['hfk_summary'].get('tau') or item['hfk_summary'].get('nu') or item['hfk_summary'].get('epsilon')); print('HFK',slope,seed,json.dumps(item['hfk_summary'],sort_keys=True),flush=True)
+                              except BaseException as e: item['hfk_error']=repr(e)
+                          diagrams.append(item)
+                          if item.get('one_band_verified') or item.get('terminal_nonslice_hfk'): break
+                      except BaseException as e:
+                          diagrams.append({'slope':slope,'seed':seed,'error':repr(e),'traceback':traceback.format_exc(),'elapsed_seconds':time.time()-t}); print('DIAGRAM_ERROR',slope,seed,repr(e),flush=True)
+                  if any(x.get('one_band_verified') or x.get('terminal_nonslice_hfk') for x in diagrams): break
+              out['diagrams']=diagrams
+          except BaseException as e:
+              out['fatal_error']=repr(e); out['traceback']=traceback.format_exc(); print('FATAL',repr(e),flush=True)
+          out['elapsed_seconds']=time.time()-start
+          json.dump(out,open(f'{od}/result.json','w'),indent=2,sort_keys=True)
+          PY
+          set -o pipefail
+          timeout --signal=TERM --kill-after=30s 340m python /tmp/screen.py 2>&1 | tee "out/rpb-screen-${INDEX}/run.log"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rpb-direct-screen-${{ matrix.index }}
+          path: out/rpb-screen-${{ matrix.index }}
+          retention-days: 7
