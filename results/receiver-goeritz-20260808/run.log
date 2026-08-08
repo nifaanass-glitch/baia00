@@ -1,4 +1,3 @@
-Traceback (most recent call last):
-  File "/tmp/goeritz.py", line 2, in <module>
-    import numpy as np
-ModuleNotFoundError: No module named 'numpy'
+valid_trefoil_seed1 {"component_sizes": [57, 64], "crossings": 119, "elapsed_seconds": 0.5708551406860352, "goeritz": [{"correction": 4, "determinant": 25, "inertia": [26, 30, 0], "knot_signature_new_convention": 0, "matrix_signature": -4, "rank": 56}, {"correction": 13, "determinant": 25, "inertia": [25, 38, 0], "knot_signature_new_convention": 0, "matrix_signature": -13, "rank": 63}]}
+valid_trefoil_seed12 {"component_sizes": [57, 64], "crossings": 119, "elapsed_seconds": 0.5319252014160156, "goeritz": [{"correction": 6, "determinant": 25, "inertia": [25, 31, 0], "knot_signature_new_convention": 0, "matrix_signature": -6, "rank": 56}, {"correction": 11, "determinant": 25, "inertia": [26, 37, 0], "knot_signature_new_convention": 0, "matrix_signature": -11, "rank": 63}]}
+original_receiver_alt_dual79 {"component_sizes": [66, 66], "crossings": 130, "elapsed_seconds": 0.7211451530456543, "goeritz": [{"correction": 3, "determinant": 25, "inertia": [31, 34, 0], "knot_signature_new_convention": 0, "matrix_signature": -3, "rank": 65}, {"correction": 7, "determinant": 25, "inertia": [29, 36, 0], "knot_signature_new_convention": 0, "matrix_signature": -7, "rank": 65}]}
