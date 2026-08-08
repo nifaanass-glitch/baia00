@@ -1,0 +1,1324 @@
+{
+  "records": [
+    {
+      "B_sign": -1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m-1-b-1/result.json",
+      "attaching_vector": [
+        -1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.02275991439819336,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 7,
+      "label": "mn1_bn1",
+      "linking_matrix": [
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": -1,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": 1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m-1-b1/result.json",
+      "attaching_vector": [
+        1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.023083925247192383,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 7,
+      "label": "mn1_bp1",
+      "linking_matrix": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": -1,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": -1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m-2-b-1/result.json",
+      "attaching_vector": [
+        -1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.0454258918762207,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 15,
+      "label": "mn2_bn1",
+      "linking_matrix": [
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": -2,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": 1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m-2-b1/result.json",
+      "attaching_vector": [
+        1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.04291224479675293,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 15,
+      "label": "mn2_bp1",
+      "linking_matrix": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": -2,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": -1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m-3-b-1/result.json",
+      "attaching_vector": [
+        -1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.06828474998474121,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 23,
+      "label": "mn3_bn1",
+      "linking_matrix": [
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": -3,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": 1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m-3-b1/result.json",
+      "attaching_vector": [
+        1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.06192898750305176,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 23,
+      "label": "mn3_bp1",
+      "linking_matrix": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": -3,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": -1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m-4-b-1/result.json",
+      "attaching_vector": [
+        -1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.07989645004272461,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 31,
+      "label": "mn4_bn1",
+      "linking_matrix": [
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": -4,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": 1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m-4-b1/result.json",
+      "attaching_vector": [
+        1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.0787508487701416,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 31,
+      "label": "mn4_bp1",
+      "linking_matrix": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": -4,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": -1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m1-b-1/result.json",
+      "attaching_vector": [
+        -1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.0318143367767334,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 15,
+      "label": "mp1_bn1",
+      "linking_matrix": [
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": 1,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": 1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m1-b1/result.json",
+      "attaching_vector": [
+        1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.03507351875305176,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 15,
+      "label": "mp1_bp1",
+      "linking_matrix": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": 1,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": -1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m2-b-1/result.json",
+      "attaching_vector": [
+        -1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.050437211990356445,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 23,
+      "label": "mp2_bn1",
+      "linking_matrix": [
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": 2,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": 1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m2-b1/result.json",
+      "attaching_vector": [
+        1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.04909157752990723,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 23,
+      "label": "mp2_bp1",
+      "linking_matrix": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": 2,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": -1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m3-b-1/result.json",
+      "attaching_vector": [
+        -1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.05949997901916504,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 31,
+      "label": "mp3_bn1",
+      "linking_matrix": [
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": 3,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": 1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m3-b1/result.json",
+      "attaching_vector": [
+        1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.0683128833770752,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 31,
+      "label": "mp3_bp1",
+      "linking_matrix": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": 3,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": -1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m4-b-1/result.json",
+      "attaching_vector": [
+        -1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.06066250801086426,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 39,
+      "label": "mp4_bn1",
+      "linking_matrix": [
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": 4,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    },
+    {
+      "B_sign": 1,
+      "_artifact_path": "/tmp/rbg-word-artifacts/rbg-word-m4-b1/result.json",
+      "attaching_vector": [
+        1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2,
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -2,
+        -2,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certified": false,
+        "crossings_after": 0,
+        "detached_counter_after": 0,
+        "drawn_components_after": 0,
+        "initial_components": 0
+      },
+      "elapsed_seconds": 0.09209346771240234,
+      "fatal_error": "RuntimeError('blue-green sublink did not reduce to the two-component unlink')",
+      "handle_link_crossings": 39,
+      "label": "mp4_bp1",
+      "linking_matrix": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": 4,
+      "red_component": 0,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep.py\", line 151, in main\n    raise RuntimeError(\"blue-green sublink did not reduce to the two-component unlink\")\nRuntimeError: blue-green sublink did not reduce to the two-component unlink\n"
+    }
+  ],
+  "source_head_sha": "4dd6bdb47da5daa3766a1c15170545253637781b",
+  "source_run_id": "31256987815",
+  "summary": {
+    "completed_without_fatal_error": 0,
+    "records": 16,
+    "terminal_hits": 0
+  },
+  "terminal_hits": []
+}
