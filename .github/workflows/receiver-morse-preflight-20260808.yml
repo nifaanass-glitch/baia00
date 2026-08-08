@@ -1,0 +1,49 @@
+name: Receiver Morse preflight 20260808
+
+on:
+  push:
+    paths:
+      - '.github/workflows/receiver-morse-preflight-20260808.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'knot_floer_homology==1.2.2'
+      - name: Compute Morse presentations
+        run: |
+          mkdir -p results/receiver-morse-20260808
+          python - <<'PY' 2>&1 | tee results/receiver-morse-20260808/run.log
+          import json,time,traceback
+          import knot_floer_homology as hfk
+          data=json.load(open('research/receiver_candidates_20260808.json'))
+          out={}
+          for name,rec in data.items():
+              print('START',name,flush=True); t=time.time()
+              try:
+                  m=hfk.pd_to_morse(rec['pd'])
+                  out[name]={'crossings':len(rec['pd']),'elapsed_seconds':time.time()-t,'morse':m}
+                  print('DONE',name,json.dumps(m,sort_keys=True),flush=True)
+              except BaseException as e:
+                  out[name]={'crossings':len(rec['pd']),'elapsed_seconds':time.time()-t,'error':repr(e),'traceback':traceback.format_exc()}
+                  print('ERROR',name,repr(e),flush=True)
+              with open('results/receiver-morse-20260808/results.json','w') as f: json.dump(out,f,indent=2,sort_keys=True)
+          PY
+      - name: Commit preflight results
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results/receiver-morse-20260808
+          git commit -m 'Store receiver Morse preflight 20260808' || exit 0
+          git push
