@@ -1,0 +1,59 @@
+name: Valid trefoil receiver terminal HFK 20260808
+
+on:
+  push:
+    paths:
+      - '.github/workflows/valid-trefoil-hfk-terminal-20260808.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  hfk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'knot_floer_homology==1.2.2'
+          python -m knot_floer_homology.test
+      - name: Compute HFK for valid trefoil receiver marked dual
+        run: |
+          mkdir -p results/valid-trefoil-hfk-20260808
+          cat > /tmp/run.py <<'PY'
+          import json,time,traceback,sys,platform
+          import knot_floer_homology as hfk
+          data=json.load(open('research/receiver_candidates_20260808.json'))['valid_trefoil_seed1']
+          pd=data['pd']; out={'candidate':'valid_trefoil_seed1','crossings':len(pd),'python':sys.version,'platform':platform.platform()}
+          t=time.time()
+          try:
+              m=hfk.pd_to_morse(pd)
+              out['morse_summary']={k:v for k,v in m.items() if k!='events'}
+              out['morse_summary']['event_count']=len(m.get('events',[]))
+              print('MORSE',json.dumps(out['morse_summary'],sort_keys=True),flush=True)
+              ans=hfk.pd_to_hfk(pd,prime=2,complex=False)
+              out['hfk']=ans
+              out['summary']={k:ans.get(k) for k in ['tau','nu','epsilon','seifert_genus','fibered','L_space_knot','total_rank','modulus']}
+              out['terminal_nonslice']=bool(out['summary'].get('tau') or out['summary'].get('nu') or out['summary'].get('epsilon'))
+              print('SUMMARY',json.dumps(out['summary'],sort_keys=True),flush=True)
+          except BaseException as e:
+              out['error']={'type':type(e).__name__,'repr':repr(e),'traceback':traceback.format_exc()}
+              print('ERROR',repr(e),flush=True)
+          out['elapsed_seconds']=time.time()-t
+          with open('results/valid-trefoil-hfk-20260808/result.json','w') as f: json.dump(out,f,indent=2,sort_keys=True)
+          PY
+          set -o pipefail
+          timeout --signal=TERM --kill-after=30s 340m python /tmp/run.py 2>&1 | tee results/valid-trefoil-hfk-20260808/run.log
+      - name: Commit result
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results/valid-trefoil-hfk-20260808
+          git commit -m 'Store valid trefoil receiver HFK result 20260808' || exit 0
+          git push
