@@ -50,19 +50,20 @@ def extract_s(result):
 def run(field, pd):
     started = time.time()
     calculator = InteractiveCalculator(field, (0, -1), 0)
-    result, messages = calculator(pd, print_messages=True, progress=False)
+    # verbose=True bypasses Khoca's optional legacy `py.io.StdCaptureFD`
+    # dependency and sends native progress directly to the workflow log.
+    result = calculator(pd, verbose=True, progress=False)
     return {
         "field": field,
         "elapsed_seconds": time.time() - started,
         "extracted": extract_s(result),
         "result": result,
-        "messages": messages,
     }
 
 
 def main():
     output = {
-        "schema": "cork-amplified-2r-khoca-terminal-v2",
+        "schema": "cork-amplified-2r-khoca-terminal-v3",
         "frobenius_algebra": "F[X]/(X^2-X)",
         "candidates": {},
     }
