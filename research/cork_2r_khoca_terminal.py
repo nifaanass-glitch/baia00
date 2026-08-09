@@ -17,6 +17,17 @@ CANDIDATES = {
         [26, 22, 27, 21], [2, 7, 3, 8], [5, 17, 6, 16],
         [24, 11, 25, 12], [23, 19, 24, 18],
     ],
+    "m_n2_b_p1_T2_3_keep1_exact_cocore": [
+        [29, 48, 30, 49], [37, 33, 38, 32], [38, 21, 39, 22],
+        [41, 13, 42, 12], [16, 31, 17, 32], [28, 4, 29, 3],
+        [0, 25, 1, 26], [15, 23, 16, 22], [24, 1, 25, 2],
+        [46, 8, 47, 7], [20, 14, 21, 13], [19, 40, 20, 41],
+        [33, 45, 34, 44], [34, 9, 35, 10], [11, 43, 12, 42],
+        [26, 6, 27, 5], [2, 0, 3, 49], [8, 46, 9, 45],
+        [47, 37, 48, 36], [14, 40, 15, 39], [6, 35, 7, 36],
+        [30, 17, 31, 18], [23, 19, 24, 18], [43, 11, 44, 10],
+        [4, 28, 5, 27],
+    ],
 }
 
 
@@ -51,7 +62,7 @@ def run(field, pd):
 
 def main():
     output = {
-        "schema": "cork-amplified-2r-khoca-terminal-v1",
+        "schema": "cork-amplified-2r-khoca-terminal-v2",
         "frobenius_algebra": "F[X]/(X^2-X)",
         "candidates": {},
     }
@@ -69,13 +80,23 @@ def main():
     controls = output["candidates"]
     assert controls["positive_trefoil"]["Q"]["extracted"]["s"] in (2, -2)
     assert controls["figure_eight"]["Q"]["extracted"]["s"] == 0
-    target = controls["K14n3411_exact_cocore"]
     output["terminal"] = {
         "calibrated": True,
-        "s_Q": target["Q"]["extracted"]["s"],
-        "s_F3": target["F3"]["extracted"]["s"],
-        "nonzero_ordinary_rasmussen": target["Q"]["extracted"]["s"] not in (None, 0),
+        "targets": {},
+        "nonzero_ordinary_rasmussen_targets": [],
     }
+    for name in CANDIDATES:
+        if name in ("positive_trefoil", "figure_eight"):
+            continue
+        target = controls[name]
+        target_result = {
+            "s_Q": target["Q"]["extracted"]["s"],
+            "s_F3": target["F3"]["extracted"]["s"],
+            "nonzero_ordinary_rasmussen": target["Q"]["extracted"]["s"] not in (None, 0),
+        }
+        output["terminal"]["targets"][name] = target_result
+        if target_result["nonzero_ordinary_rasmussen"]:
+            output["terminal"]["nonzero_ordinary_rasmussen_targets"].append(name)
     Path("cork-2r-khoca-result.json").write_text(
         json.dumps(output, indent=2, sort_keys=True)
     )
