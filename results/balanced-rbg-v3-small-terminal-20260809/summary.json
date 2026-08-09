@@ -1,0 +1,1911 @@
+{
+  "records": [
+    {
+      "B_sign": -1,
+      "_path": "results/balanced-rbg-v3-small-terminal-20260809/cases/m-1_b-1/result.json",
+      "attaching_vector": [
+        -1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certificate_rule": "the induced sublink consists of two distinct parent components and simplifies to a crossing-free diagram",
+        "certified": true,
+        "crossings_after": 0,
+        "crossings_before": 0,
+        "selected_parent_components": 2
+      },
+      "elapsed_seconds": 0.31061434745788574,
+      "handle_PD": [
+        [
+          7,
+          13,
+          8,
+          12
+        ],
+        [
+          11,
+          6,
+          10,
+          7
+        ],
+        [
+          5,
+          10,
+          6,
+          11
+        ],
+        [
+          4,
+          2,
+          5,
+          1
+        ],
+        [
+          0,
+          4,
+          1,
+          3
+        ],
+        [
+          2,
+          0,
+          3,
+          9
+        ],
+        [
+          13,
+          9,
+          12,
+          8
+        ]
+      ],
+      "handle_link_crossings": 7,
+      "label": "mn1_bn1",
+      "linking_matrix": [
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": -1,
+      "marked_duals": [
+        {
+          "best_diagram": null,
+          "diagrams": [
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 0,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 1,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 2,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 3,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 4,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 0,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 1,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 2,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 3,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 4,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            }
+          ],
+          "fatal_error": "RuntimeError('no marked knot diagram')",
+          "fill_cusps": [
+            0,
+            2
+          ],
+          "homology": "Z",
+          "inherited_zero_surgery_slope": [
+            0,
+            1
+          ],
+          "keep_cusp": 1,
+          "longitude_certificate": {
+            "exterior_homology": "Z",
+            "longitude_filling_homology": "Z",
+            "proof": "H1(exterior)=Z and filling the primitive inherited slope leaves H1=Z; therefore its image in H1(exterior) is zero and it is the primitive homological longitude",
+            "slope": [
+              0,
+              1
+            ]
+          },
+          "s3_slopes": [
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                0
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                0
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -8
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                8
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -8
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                8
+              ]
+            }
+          ],
+          "signature_error": "RuntimeError('SnapPea failed to find the canonical triangulation.')",
+          "tets": 3,
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 218, in main\n    raise RuntimeError(\"no marked knot diagram\")\nRuntimeError: no marked knot diagram\n"
+        },
+        {
+          "best_diagram": null,
+          "diagrams": [
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 0,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 1,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 2,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 3,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 4,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 0,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 1,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 2,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 3,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 4,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            }
+          ],
+          "fatal_error": "RuntimeError('no marked knot diagram')",
+          "fill_cusps": [
+            0,
+            1
+          ],
+          "homology": "Z",
+          "inherited_zero_surgery_slope": [
+            0,
+            1
+          ],
+          "keep_cusp": 2,
+          "longitude_certificate": {
+            "exterior_homology": "Z",
+            "longitude_filling_homology": "Z",
+            "proof": "H1(exterior)=Z and filling the primitive inherited slope leaves H1=Z; therefore its image in H1(exterior) is zero and it is the primitive homological longitude",
+            "slope": [
+              0,
+              1
+            ]
+          },
+          "s3_slopes": [
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                0
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                0
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -8
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                8
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -8
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                8
+              ]
+            }
+          ],
+          "signature_error": "RuntimeError('SnapPea failed to find the canonical triangulation.')",
+          "tets": 3,
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 218, in main\n    raise RuntimeError(\"no marked knot diagram\")\nRuntimeError: no marked knot diagram\n"
+        }
+      ],
+      "red_component": 0,
+      "schema": "balanced-rbg-word-sweep-v3",
+      "terminal_hits": []
+    },
+    {
+      "B_sign": 1,
+      "_path": "results/balanced-rbg-v3-small-terminal-20260809/cases/m-1_b1/result.json",
+      "attaching_vector": [
+        1,
+        1
+      ],
+      "braid_word": [
+        2,
+        1,
+        1,
+        -2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        -1,
+        -2
+      ],
+      "companion": "positive_trefoil",
+      "dotted_components": [
+        1,
+        2
+      ],
+      "dotted_unlink": {
+        "certificate_rule": "the induced sublink consists of two distinct parent components and simplifies to a crossing-free diagram",
+        "certified": true,
+        "crossings_after": 0,
+        "crossings_before": 0,
+        "selected_parent_components": 2
+      },
+      "elapsed_seconds": 0.3199121952056885,
+      "handle_PD": [
+        [
+          11,
+          1,
+          10,
+          0
+        ],
+        [
+          13,
+          9,
+          12,
+          8
+        ],
+        [
+          6,
+          4,
+          7,
+          3
+        ],
+        [
+          2,
+          6,
+          3,
+          5
+        ],
+        [
+          4,
+          2,
+          5,
+          1
+        ],
+        [
+          7,
+          13,
+          8,
+          12
+        ],
+        [
+          9,
+          11,
+          0,
+          10
+        ]
+      ],
+      "handle_link_crossings": 7,
+      "label": "mn1_bp1",
+      "linking_matrix": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "m": -1,
+      "marked_duals": [
+        {
+          "best_diagram": null,
+          "diagrams": [
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 0,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 1,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 2,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 3,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 4,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 0,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 1,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 2,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 3,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            },
+            {
+              "error": "ValueError('Move would effect invariant tets')",
+              "seed": 4,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 141, in exterior_to_link\n    tris_with_moves = good_simplification(manifold,\n                                          max_tries=pachner_search_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 102, in good_simplification\n    tris_with_moves = simplifications(manifold, max_tries)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/simplify_to_base_tri.py\", line 68, in simplifications\n    T = link_triangulation(manifold, add_arcs=False,\n                           jiggle_limit=jiggle,\n                           randomize=rand_steps,\n                           easy_simplify=True,\n                           simplify=False)\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_link.py\", line 662, in link_triangulation\n    MC.easy_simplify()\n    ~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/mcomplex_with_memory.py\", line 157, in easy_simplify\n    return Mcomplex.easy_simplify(self)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 860, in easy_simplify\n    while self.attack_valence_one():\n          ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 803, in attack_valence_one\n    self.two_to_three(face, tet, must_succeed=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/snap/t3mlite/mcomplex.py\", line 547, in two_to_three\n    raise ValueError(reason)\nValueError: Move would effect invariant tets\n"
+            }
+          ],
+          "fatal_error": "RuntimeError('no marked knot diagram')",
+          "fill_cusps": [
+            0,
+            2
+          ],
+          "homology": "Z",
+          "inherited_zero_surgery_slope": [
+            0,
+            1
+          ],
+          "keep_cusp": 1,
+          "longitude_certificate": {
+            "exterior_homology": "Z",
+            "longitude_filling_homology": "Z",
+            "proof": "H1(exterior)=Z and filling the primitive inherited slope leaves H1=Z; therefore its image in H1(exterior) is zero and it is the primitive homological longitude",
+            "slope": [
+              0,
+              1
+            ]
+          },
+          "s3_slopes": [
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                0
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                0
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -8
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                8
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -8
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                8
+              ]
+            }
+          ],
+          "signature_error": "RuntimeError('SnapPea failed to find the canonical triangulation.')",
+          "tets": 6,
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 218, in main\n    raise RuntimeError(\"no marked knot diagram\")\nRuntimeError: no marked knot diagram\n"
+        },
+        {
+          "best_diagram": null,
+          "diagrams": [
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 0,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 1,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 2,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 3,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 4,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 0,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 1,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 2,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 3,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            },
+            {
+              "error": "ExteriorToLinkError('Could not simplify to standard triangulation of S^3')",
+              "seed": 4,
+              "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 158, in main\n    knot = exterior_to_link(\n        filling,\n    ...<6 lines>...\n        seed=seed,\n    )\n  File \"/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/snappy/exterior_to_link/main.py\", line 146, in exterior_to_link\n    raise ExteriorToLinkError('Could not simplify to standard triangulation of S^3')\nsnappy.exterior_to_link.exceptions.ExteriorToLinkError: Could not simplify to standard triangulation of S^3\n"
+            }
+          ],
+          "fatal_error": "RuntimeError('no marked knot diagram')",
+          "fill_cusps": [
+            0,
+            1
+          ],
+          "homology": "Z",
+          "inherited_zero_surgery_slope": [
+            0,
+            1
+          ],
+          "keep_cusp": 2,
+          "longitude_certificate": {
+            "exterior_homology": "Z",
+            "longitude_filling_homology": "Z",
+            "proof": "H1(exterior)=Z and filling the primitive inherited slope leaves H1=Z; therefore its image in H1(exterior) is zero and it is the primitive homological longitude",
+            "slope": [
+              0,
+              1
+            ]
+          },
+          "s3_slopes": [
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                0
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                0
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                1
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                2
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                3
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                4
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -8
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                -5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                -1,
+                8
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -8
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                -5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                5
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                6
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                7
+              ]
+            },
+            {
+              "intersection_with_longitude": 1,
+              "methods": [
+                "filled_is_3sphere"
+              ],
+              "slope": [
+                1,
+                8
+              ]
+            }
+          ],
+          "signature_error": "RuntimeError('SnapPea failed to find the canonical triangulation.')",
+          "tets": 3,
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/baia00/baia00/research/balanced_rbg_word_sweep_v3.py\", line 218, in main\n    raise RuntimeError(\"no marked knot diagram\")\nRuntimeError: no marked knot diagram\n"
+        }
+      ],
+      "red_component": 0,
+      "schema": "balanced-rbg-word-sweep-v3",
+      "terminal_hits": []
+    }
+  ],
+  "summary": {
+    "marked_records": 4,
+    "marked_without_fatal_error": 0,
+    "records": 2,
+    "terminal_hits": 0
+  },
+  "terminal_hits": []
+}
