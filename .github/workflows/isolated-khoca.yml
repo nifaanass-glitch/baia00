@@ -4,6 +4,8 @@ name: Isolated cork 2R Rasmussen matrix
 on:
   push:
     branches: [cork-2r-khoca-isolated]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
