@@ -7,3 +7,4 @@ Sixth trigger after correcting the true dotted-circle roles and adding higher po
 Seventh trigger for the new winding-one receiver with attaching vector (1,1), testing both marked duals.
 Eighth trigger for the corrected proof-carrying winding-one v2 screen.
 Ninth trigger for calibrated ordinary Rasmussen invariants of the four explicit m=1 cocore knots.
+Tenth trigger after enabling the cork 2R Khoca workflow on pull requests.
