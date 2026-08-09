@@ -5,6 +5,8 @@ on:
     paths:
       - '.github/workflows/cork-2r-small-khoca-20260809.yml'
       - 'research/cork_2r_small_candidates_20260809.json'
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
