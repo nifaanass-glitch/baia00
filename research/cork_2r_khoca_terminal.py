@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+import time
+from pathlib import Path
+
+from khoca import InteractiveCalculator
+
+CANDIDATES = {
+    "positive_trefoil": [[4, 2, 5, 1], [6, 4, 1, 3], [2, 6, 3, 5]],
+    "figure_eight": [[4, 2, 5, 1], [2, 7, 3, 8], [8, 3, 1, 4], [6, 5, 7, 6]],
+    "K14n3411_exact_cocore": [
+        [20, 26, 21, 25], [19, 10, 20, 11], [17, 5, 18, 4],
+        [13, 7, 14, 6], [1, 14, 2, 15], [15, 0, 16, 1],
+        [9, 22, 10, 23], [8, 27, 9, 0], [12, 3, 13, 4],
+        [26, 22, 27, 21], [2, 7, 3, 8], [5, 17, 6, 16],
+        [24, 11, 25, 12], [23, 19, 24, 18],
+    ],
+}
+
+
+def extract_s(result):
+    active_q = []
+    for t, q, torsion, coefficient in result[1]:
+        coefficient = int(coefficient)
+        if coefficient:
+            active_q.extend([int(q)] * abs(coefficient))
+    active_q.sort()
+    if len(active_q) != 2 or active_q[1] - active_q[0] != 2:
+        return {"ok": False, "active_q": active_q, "s": None}
+    return {
+        "ok": True,
+        "active_q": active_q,
+        "s": (active_q[0] + active_q[1]) // 2,
+    }
+
+
+def run(field, pd):
+    started = time.time()
+    calculator = InteractiveCalculator(field, (0, -1), 0)
+    result, messages = calculator(pd, print_messages=True, progress=False)
+    return {
+        "field": field,
+        "elapsed_seconds": time.time() - started,
+        "extracted": extract_s(result),
+        "result": result,
+        "messages": messages,
+    }
+
+
+def main():
+    output = {
+        "schema": "cork-amplified-2r-khoca-terminal-v1",
+        "frobenius_algebra": "F[X]/(X^2-X)",
+        "candidates": {},
+    }
+    for name, pd in CANDIDATES.items():
+        record = {"crossings": len(pd), "pd": pd}
+        for label, field in (("Q", 1), ("F3", 3)):
+            print("START", name, label, flush=True)
+            record[label] = run(field, pd)
+            print("DONE", name, label, record[label]["extracted"], flush=True)
+        output["candidates"][name] = record
+        Path("cork-2r-khoca-result.json").write_text(
+            json.dumps(output, indent=2, sort_keys=True)
+        )
+
+    controls = output["candidates"]
+    assert controls["positive_trefoil"]["Q"]["extracted"]["s"] in (2, -2)
+    assert controls["figure_eight"]["Q"]["extracted"]["s"] == 0
+    target = controls["K14n3411_exact_cocore"]
+    output["terminal"] = {
+        "calibrated": True,
+        "s_Q": target["Q"]["extracted"]["s"],
+        "s_F3": target["F3"]["extracted"]["s"],
+        "nonzero_ordinary_rasmussen": target["Q"]["extracted"]["s"] not in (None, 0),
+    }
+    Path("cork-2r-khoca-result.json").write_text(
+        json.dumps(output, indent=2, sort_keys=True)
+    )
+    print(json.dumps(output["terminal"], sort_keys=True), flush=True)
+
+
+if __name__ == "__main__":
+    main()
