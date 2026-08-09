@@ -1,6 +1,14 @@
 name: Cork-amplified 2R Khoca terminal gate
 
 on:
+  push:
+    branches:
+      - cork-2r-khoca-20260809
+    paths:
+      - 'research/cork_2r_khoca_terminal.py'
+      - 'research/cork_2r_khoca_terminal_v2.py'
+      - 'research/cork_2r_extra_candidates.json'
+      - '.github/workflows/cork-2r-khoca-terminal.yml'
   pull_request:
     paths:
       - 'research/cork_2r_khoca_terminal.py'
