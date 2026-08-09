@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'research/cork_2r_khoca_terminal.py'
+      - 'research/cork_2r_khoca_terminal_v2.py'
+      - 'research/cork_2r_extra_candidates.json'
       - '.github/workflows/cork-2r-khoca-terminal.yml'
   workflow_dispatch:
 
@@ -13,7 +15,7 @@ permissions:
 jobs:
   rasmussen:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -25,7 +27,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          python research/cork_2r_khoca_terminal.py 2>&1 | tee cork-2r-khoca-run.log
+          python research/cork_2r_khoca_terminal_v2.py 2>&1 | tee cork-2r-khoca-run.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
