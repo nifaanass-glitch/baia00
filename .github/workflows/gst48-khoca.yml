@@ -6,6 +6,8 @@ on:
     paths:
       - 'gst48_khoca.py'
       - '.github/workflows/gst48-khoca.yml'
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
