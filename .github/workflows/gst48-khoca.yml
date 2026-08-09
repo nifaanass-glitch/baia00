@@ -1,0 +1,39 @@
+name: GST 48-crossing calibrated Rasmussen audit
+
+on:
+  push:
+    branches: [cork-2r-khoca-isolated]
+    paths:
+      - 'gst48_khoca.py'
+      - '.github/workflows/gst48-khoca.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rasmussen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install calibrated Lee engine
+        run: python -m pip install --upgrade pip 'py==1.11.0' 'khoca==1.5'
+      - name: Compute ordinary rational Rasmussen invariant
+        env:
+          OMP_NUM_THREADS: '4'
+          OPENBLAS_NUM_THREADS: '1'
+          PYTHONUNBUFFERED: '1'
+        run: python gst48_khoca.py 2>&1 | tee gst48_run.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gst48-khoca
+          path: |
+            gst48_result.json
+            gst48_run.log
+          if-no-files-found: warn
+          retention-days: 7
