@@ -1,7 +1,9 @@
 name: Cork-amplified 2R Khoca terminal gate
 
 on:
-  pull_request:
+  push:
+    branches:
+      - 'cork-2r-khoca-20260809'
     paths:
       - 'research/cork_2r_khoca_terminal.py'
       - '.github/workflows/cork-2r-khoca-terminal.yml'
@@ -20,7 +22,7 @@ jobs:
         with:
           python-version: '3.13'
       - name: Install Khoca
-        run: python -m pip install --upgrade pip py khoca==1.5
+        run: python -m pip install --upgrade pip khoca==1.5
       - name: Compute calibrated rational and F3 Rasmussen invariants
         shell: bash
         run: |
