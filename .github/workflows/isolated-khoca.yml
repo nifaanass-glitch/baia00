@@ -1,5 +1,6 @@
 name: Isolated cork 2R Rasmussen matrix
 
+# isolated trigger 2026-08-09T04:12Z
 on:
   push:
     branches: [cork-2r-khoca-isolated]
