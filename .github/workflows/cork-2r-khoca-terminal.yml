@@ -20,13 +20,17 @@ jobs:
         with:
           python-version: '3.13'
       - name: Install Khoca
-        run: python -m pip install --upgrade pip khoca==1.5
+        run: python -m pip install --upgrade pip py khoca==1.5
       - name: Compute calibrated rational and F3 Rasmussen invariants
-        run: python research/cork_2r_khoca_terminal.py 2>&1 | tee cork-2r-khoca-run.log
+        shell: bash
+        run: |
+          set -o pipefail
+          python research/cork_2r_khoca_terminal.py 2>&1 | tee cork-2r-khoca-run.log
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: cork-2r-khoca-terminal
           path: |
             cork-2r-khoca-result.json
             cork-2r-khoca-run.log
-          if-no-files-found: error
+          if-no-files-found: warn
