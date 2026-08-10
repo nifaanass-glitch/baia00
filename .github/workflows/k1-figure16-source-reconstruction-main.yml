@@ -16,6 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      - name: Record reconstruction target
+        run: echo 'arXiv 2102.04391, Figure 16, page 20'
+
       - name: Install PDF tools
         run: |
           sudo apt-get update
