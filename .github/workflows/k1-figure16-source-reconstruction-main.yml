@@ -1,0 +1,78 @@
+name: K1 Figure 16 source reconstruction isolated
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/k1-figure16-source-reconstruction-main.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Install PDF tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils imagemagick file ripgrep
+
+      - name: Fetch arXiv source, paper, and Figure 16 image
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p artifact/source artifact/renders artifact/logs
+          curl -L --fail --retry 5 -A 'Mozilla/5.0' \
+            https://arxiv.org/e-print/2102.04391 \
+            -o artifact/source/arxiv-source.tar
+          curl -L --fail --retry 5 -A 'Mozilla/5.0' \
+            https://arxiv.org/pdf/2102.04391.pdf \
+            -o artifact/source/paper.pdf
+          curl -L --fail --retry 5 -A 'Mozilla/5.0' \
+            'https://www.researchgate.net/figure/publication/373031258/figure/fig16/AS%3A11431281472256139%401748517703677/A-Seifert-surface-for-the-knot-KBa-b-c-d-e-fK-Ba-b-c-d-e-f.png' \
+            -o artifact/renders/researchgate-figure16.png || true
+          file artifact/source/* artifact/renders/* | tee artifact/logs/file-types.txt
+
+      - name: Extract source and locate Figure 16 assets
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p artifact/source/extracted
+          tar -xf artifact/source/arxiv-source.tar -C artifact/source/extracted
+          find artifact/source/extracted -maxdepth 5 -type f -printf '%P\n' \
+            | sort | tee artifact/logs/source-file-list.txt
+          rg -n -i 'Figure 16|fig:.*16|Seifert surface|seifert.*surface|alpha.*beta.*gamma.*delta' \
+            artifact/source/extracted \
+            | tee artifact/logs/figure16-source-hits.txt || true
+          python - <<'PY'
+          from pathlib import Path
+          root = Path('artifact/source/extracted')
+          keys = ('seifert', 'surface', 'figure16', 'fig16', 'genus2', 'genus_2')
+          hits = [p for p in root.rglob('*') if p.is_file() and any(k in p.name.lower() for k in keys)]
+          Path('artifact/logs/figure16-name-hits.txt').write_text('\n'.join(str(p.relative_to(root)) for p in hits) + ('\n' if hits else ''))
+          PY
+
+      - name: Render and extract page 20 assets
+        shell: bash
+        run: |
+          set -euxo pipefail
+          pdftocairo -f 20 -l 20 -r 600 -png \
+            artifact/source/paper.pdf artifact/renders/paper-page
+          pdfimages -f 20 -l 20 -png -j \
+            artifact/source/paper.pdf artifact/renders/page20-image || true
+          pdfseparate -f 20 -l 20 \
+            artifact/source/paper.pdf artifact/renders/page20.pdf
+          identify artifact/renders/* > artifact/logs/image-identify.txt || true
+          sha256sum $(find artifact -type f | sort) > artifact/logs/SHA256SUMS.txt
+
+      - name: Upload reconstruction packet
+        uses: actions/upload-artifact@v4
+        with:
+          name: k1-figure16-source-reconstruction
+          path: artifact
+          if-no-files-found: error
+          compression-level: 6
