@@ -1,0 +1,134 @@
+name: K1 Figure 16 source extraction
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/k1-figure16-extract.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install extraction utilities
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils ghostscript imagemagick libimage-exiftool-perl
+
+      - name: Download primary and supplementary sources
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p recovered/downloads recovered/arxiv recovered/selected
+          UA='Mozilla/5.0 (compatible; mathematical-source-audit/1.0)'
+          curl --fail --location --retry 5 --retry-all-errors --user-agent "$UA" \
+            https://arxiv.org/src/2102.04391 -o recovered/downloads/2102.04391-source
+          curl --fail --location --retry 5 --retry-all-errors --user-agent "$UA" \
+            https://web.stanford.edu/~cm5/RBG/DTcodes.nb -o recovered/downloads/DTcodes.nb
+          curl --fail --location --retry 5 --retry-all-errors --user-agent "$UA" \
+            https://web.stanford.edu/~cm5/RBG/PromisingKnots.txt -o recovered/downloads/PromisingKnots.txt
+          file recovered/downloads/* | tee recovered/FILE_TYPES.txt
+          sha256sum recovered/downloads/* | tee recovered/SHA256SUMS.txt
+
+      - name: Extract arXiv source and locate Figure 16 assets
+        shell: bash
+        run: |
+          set -euxo pipefail
+          src=recovered/downloads/2102.04391-source
+          if tar -tf "$src" >/dev/null 2>&1; then
+            tar -xf "$src" -C recovered/arxiv
+          elif gzip -dc "$src" | tar -tf - >/dev/null 2>&1; then
+            gzip -dc "$src" | tar -xf - -C recovered/arxiv
+          else
+            echo 'Unable to extract arXiv source archive' >&2
+            exit 1
+          fi
+          find recovered/arxiv -type f -printf '%P\n' | sort | tee recovered/ARXIV_FILE_LIST.txt
+          grep -RniE 'Figure[[:space:]~]*16|fig(ure)?[^\n]*(seifert|surface)|Seifert surface|alpha|beta|gamma|delta' recovered/arxiv \
+            > recovered/FIGURE16_GREP.txt || true
+          grep -RniE '\\includegraphics|\\begin\{tikzpicture\}|\\input\{|\\epsfig' recovered/arxiv \
+            > recovered/GRAPHICS_REFERENCES.txt || true
+          while IFS= read -r f; do
+            case "$f" in
+              *.tex|*.sty|*.cls|*.bib|*.txt|*.eps|*.ps|*.pdf|*.png|*.jpg|*.jpeg|*.svg|*.tikz)
+                cp --parents "$f" recovered/selected/ ;;
+            esac
+          done < <(find recovered/arxiv -type f)
+
+      - name: Decode Mathematica notebook and extract K1 records
+        shell: bash
+        run: |
+          set -euxo pipefail
+          cp recovered/downloads/DTcodes.nb recovered/selected/DTcodes.nb
+          strings -a -n 4 recovered/downloads/DTcodes.nb > recovered/DTcodes.strings.txt
+          grep -niE 'K1([^0-9]|$)|K_B|0,1,0,1,2,-1|Figure 16|Seifert|alpha|beta|gamma|delta' \
+            recovered/DTcodes.strings.txt > recovered/DTcodes_K1_GREP.txt || true
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('recovered/downloads/DTcodes.nb')
+          b = p.read_bytes()
+          out = Path('recovered/DTcodes_utf8_replacement.txt')
+          out.write_text(b.decode('utf-8', errors='replace'))
+          print({'bytes': len(b), 'nul_bytes': b.count(b'\0'), 'prefix': b[:80].hex()})
+          PY
+          grep -niE 'K1([^0-9]|$)|K_B|0,1,0,1,2,-1|PD|DT' \
+            recovered/DTcodes_utf8_replacement.txt > recovered/DTcodes_UTF8_K1_GREP.txt || true
+
+      - name: Render candidate Figure 16 graphics when possible
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p recovered/rendered
+          while IFS= read -r f; do
+            base=$(basename "$f")
+            stem=${base%.*}
+            case "$f" in
+              *.pdf)
+                pdftoppm -png -f 1 -singlefile -r 300 "$f" "recovered/rendered/${stem}" || true ;;
+              *.eps|*.ps)
+                gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pngalpha -r300 \
+                  -sOutputFile="recovered/rendered/${stem}.png" "$f" || true ;;
+              *.svg)
+                convert -density 300 "$f" "recovered/rendered/${stem}.png" || true ;;
+            esac
+          done < <(find recovered/arxiv -type f \( -iname '*fig*16*' -o -iname '*seifert*' -o -iname '*surface*' \))
+          find recovered/rendered -type f -printf '%P\n' | sort > recovered/RENDERED_FILE_LIST.txt
+
+      - name: Build machine-readable extraction summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('recovered')
+          files = []
+          for p in sorted(root.rglob('*')):
+              if p.is_file():
+                  files.append({
+                      'path': str(p.relative_to(root)),
+                      'size': p.stat().st_size,
+                      'sha256': hashlib.sha256(p.read_bytes()).hexdigest(),
+                  })
+          summary = {
+              'arxiv_id': '2102.04391v3',
+              'supplementary_notebook': 'https://web.stanford.edu/~cm5/RBG/DTcodes.nb',
+              'file_count': len(files),
+              'files': files,
+          }
+          (root / 'EXTRACTION_SUMMARY.json').write_text(json.dumps(summary, indent=2))
+          PY
+
+      - name: Upload recovered source packet
+        uses: actions/upload-artifact@v4
+        with:
+          name: k1-figure16-source-packet
+          path: recovered/
+          if-no-files-found: error
+          retention-days: 30
