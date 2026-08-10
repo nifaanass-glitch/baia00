@@ -4,116 +4,104 @@ on:
   push:
     branches:
       - k1-exact-gate-20260810
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 env:
   ARXIV_ID: "2102.04391v3"
 
 jobs:
   extract:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: k1-exact-gate-20260810
 
       - name: Install extraction utilities
         run: |
           sudo apt-get update
           sudo apt-get install -y poppler-utils imagemagick ghostscript file tree
 
-      - name: Download and extract arXiv source and supporting files
+      - name: Download exact source packet
         shell: bash
         run: |
           set -euxo pipefail
-          mkdir -p artifact/arxiv artifact/support artifact/report
+          rm -rf research/k1_exact_gate_source
+          mkdir -p research/k1_exact_gate_source/{arxiv,support,report,rendered}
           curl --fail --location --retry 5 --retry-delay 2 \
             "https://arxiv.org/e-print/${ARXIV_ID}" \
-            -o artifact/arxiv-source.tar.gz
-          file artifact/arxiv-source.tar.gz | tee artifact/report/source-filetype.txt
-          tar -xzf artifact/arxiv-source.tar.gz -C artifact/arxiv
+            -o /tmp/arxiv-source.tar.gz
+          file /tmp/arxiv-source.tar.gz | tee research/k1_exact_gate_source/report/source-filetype.txt
+          tar -xzf /tmp/arxiv-source.tar.gz -C research/k1_exact_gate_source/arxiv
           curl --fail --location --retry 5 --retry-delay 2 \
             "https://web.stanford.edu/~cm5/RBG/DTcodes.nb" \
-            -o artifact/support/DTcodes.nb
+            -o research/k1_exact_gate_source/support/DTcodes.nb
           curl --fail --location --retry 5 --retry-delay 2 \
-            "https://web.stanford.edu/~cm5/RBG/knots.txt" \
-            -o artifact/support/knots.txt || true
-          tree -a artifact/arxiv > artifact/report/source-tree.txt
+            "https://web.stanford.edu/~cm5/RBG/PromisingKnots.txt" \
+            -o research/k1_exact_gate_source/support/PromisingKnots.txt
+          tree -a research/k1_exact_gate_source/arxiv > research/k1_exact_gate_source/report/source-tree.txt
 
-      - name: Locate Figure 16 source and K1 data
+      - name: Locate Figure 16 source, render graphics, and preserve TeX context
         shell: bash
         run: |
           set -euxo pipefail
-          grep -RniE "A Seifert surface for the knot|Seifert surface.*K_B|fig.*16|K_B\(a,b,c,d,e,f\)" artifact/arxiv \
-            > artifact/report/figure16-grep.txt || true
-          grep -RniE "K_B\(0,1,0,1,2,-1\)|K1|K_1" artifact/arxiv artifact/support \
-            > artifact/report/K1-grep.txt || true
-          find artifact/arxiv -type f \( -iname '*.pdf' -o -iname '*.eps' -o -iname '*.ps' -o -iname '*.svg' -o -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) \
-            -print > artifact/report/graphics-files.txt
-
-      - name: Render every vector/raster source to inspectable PNG
-        shell: bash
-        run: |
-          set -euxo pipefail
-          mkdir -p artifact/rendered
+          ROOT=research/k1_exact_gate_source
+          grep -RniE "A Seifert surface for the knot|Seifert surface.*K_B|fig.*16|K_B\(a,b,c,d,e,f\)" "$ROOT/arxiv" \
+            > "$ROOT/report/figure16-grep.txt" || true
+          grep -RniE "K_B\(0, *1, *0, *1, *2, *-1\)|K1|K_1" "$ROOT/arxiv" "$ROOT/support" \
+            > "$ROOT/report/K1-grep.txt" || true
+          find "$ROOT/arxiv" -type f \( -iname '*.pdf' -o -iname '*.eps' -o -iname '*.ps' -o -iname '*.svg' -o -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) \
+            -print > "$ROOT/report/graphics-files.txt"
           i=0
           while IFS= read -r f; do
             i=$((i+1))
             base=$(printf '%04d_%s' "$i" "$(basename "$f" | tr ' /' '__')")
             case "${f,,}" in
-              *.pdf)
-                pdftocairo -singlefile -png -r 300 "$f" "artifact/rendered/${base%.*}" || true
-                ;;
-              *.eps|*.ps)
-                convert -density 300 "$f" -background white -alpha remove "artifact/rendered/${base%.*}.png" || true
-                ;;
-              *.svg)
-                convert -density 300 "$f" -background white -alpha remove "artifact/rendered/${base%.*}.png" || true
-                ;;
-              *.png|*.jpg|*.jpeg)
-                cp "$f" "artifact/rendered/${base}"
-                ;;
+              *.pdf) pdftocairo -singlefile -png -r 300 "$f" "$ROOT/rendered/${base%.*}" || true ;;
+              *.eps|*.ps|*.svg) convert -density 300 "$f" -background white -alpha remove "$ROOT/rendered/${base%.*}.png" || true ;;
+              *.png|*.jpg|*.jpeg) cp "$f" "$ROOT/rendered/${base}" ;;
             esac
-          done < artifact/report/graphics-files.txt
-          find artifact/rendered -type f -maxdepth 1 -print > artifact/report/rendered-files.txt
+          done < "$ROOT/report/graphics-files.txt"
+          find "$ROOT/rendered" -type f -maxdepth 1 -print > "$ROOT/report/rendered-files.txt"
+          python - <<'PY'
+          from pathlib import Path
+          import re, shutil
+          root=Path('research/k1_exact_gate_source/arxiv')
+          out=Path('research/k1_exact_gate_source/report/figure16-context.txt')
+          chunks=[]; mentioned=set()
+          pats=[re.compile(r'A Seifert surface for the knot',re.I),re.compile(r'K_B\(a,b,c,d,e,f\)',re.I),re.compile(r'Figure\s*16',re.I)]
+          incpat=re.compile(r'\\includegraphics(?:\[[^]]*\])?\{([^}]+)\}')
+          for p in root.rglob('*'):
+              if not p.is_file() or p.suffix.lower() not in {'.tex','.txt','.sty'}: continue
+              lines=p.read_text(errors='replace').splitlines()
+              for i,line in enumerate(lines):
+                  if any(q.search(line) for q in pats):
+                      lo=max(0,i-50); hi=min(len(lines),i+51)
+                      block=lines[lo:hi]
+                      chunks.append(f'===== {p}:{i+1} =====\n'+'\n'.join(f'{j+1}: {lines[j]}' for j in range(lo,hi)))
+                      for s in block:
+                          for m in incpat.finditer(s): mentioned.add(m.group(1))
+          out.write_text('\n\n'.join(chunks))
+          rel=Path('research/k1_exact_gate_source/relevant')
+          rel.mkdir(exist_ok=True)
+          for stem in sorted(mentioned):
+              candidates=list(root.rglob(stem))+[q for ext in ('.pdf','.eps','.ps','.svg','.png','.jpg','.jpeg') for q in root.rglob(stem+ext)]
+              for q in candidates:
+                  if q.is_file(): shutil.copy2(q,rel/q.name)
+          Path('research/k1_exact_gate_source/report/mentioned-graphics.txt').write_text('\n'.join(sorted(mentioned))+'\n')
+          PY
 
-      - name: Preserve relevant TeX neighborhoods
+      - name: Commit exact extracted data to research branch
         shell: bash
         run: |
           set -euxo pipefail
-          python - <<'PY'
-          from pathlib import Path
-          import re
-          root = Path('artifact/arxiv')
-          out = Path('artifact/report/figure16-context.txt')
-          chunks = []
-          pats = [re.compile(r'A Seifert surface for the knot', re.I),
-                  re.compile(r'K_B\(a,b,c,d,e,f\)', re.I),
-                  re.compile(r'Figure\s*16', re.I)]
-          for p in root.rglob('*'):
-              if not p.is_file() or p.suffix.lower() not in {'.tex','.txt','.sty'}:
-                  continue
-              try:
-                  lines = p.read_text(errors='replace').splitlines()
-              except Exception:
-                  continue
-              for i, line in enumerate(lines):
-                  if any(q.search(line) for q in pats):
-                      lo=max(0,i-35); hi=min(len(lines),i+36)
-                      chunks.append(f'===== {p}:{i+1} =====\n'+'\n'.join(f'{j+1}: {lines[j]}' for j in range(lo,hi)))
-          out.write_text('\n\n'.join(chunks))
-          print(out.read_text()[:10000])
-          PY
-
-      - name: Upload exact source packet
-        uses: actions/upload-artifact@v4
-        with:
-          name: k1-exact-gate-source-packet
-          path: artifact
-          compression-level: 9
-          if-no-files-found: error
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add research/k1_exact_gate_source
+          git commit -m "Store exact K1 Figure 16 source packet" || exit 0
+          git push origin HEAD:k1-exact-gate-20260810
