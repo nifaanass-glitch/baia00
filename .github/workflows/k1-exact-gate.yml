@@ -1,0 +1,116 @@
+name: K1 exact gate source extraction
+
+on:
+  push:
+    branches:
+      - k1-exact-gate-20260810
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  ARXIV_ID: "2102.04391v3"
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install extraction utilities
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils imagemagick ghostscript file tree
+
+      - name: Download and extract arXiv source and supporting files
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p artifact/arxiv artifact/support artifact/report
+          curl --fail --location --retry 5 --retry-delay 2 \
+            "https://arxiv.org/e-print/${ARXIV_ID}" \
+            -o artifact/arxiv-source.tar.gz
+          file artifact/arxiv-source.tar.gz | tee artifact/report/source-filetype.txt
+          tar -xzf artifact/arxiv-source.tar.gz -C artifact/arxiv
+          curl --fail --location --retry 5 --retry-delay 2 \
+            "https://web.stanford.edu/~cm5/RBG/DTcodes.nb" \
+            -o artifact/support/DTcodes.nb
+          curl --fail --location --retry 5 --retry-delay 2 \
+            "https://web.stanford.edu/~cm5/RBG/knots.txt" \
+            -o artifact/support/knots.txt || true
+          tree -a artifact/arxiv > artifact/report/source-tree.txt
+
+      - name: Locate Figure 16 source and K1 data
+        shell: bash
+        run: |
+          set -euxo pipefail
+          grep -RniE "A Seifert surface for the knot|Seifert surface.*K_B|fig.*16|K_B\(a,b,c,d,e,f\)" artifact/arxiv \
+            > artifact/report/figure16-grep.txt || true
+          grep -RniE "K_B\(0,1,0,1,2,-1\)|K1|K_1" artifact/arxiv artifact/support \
+            > artifact/report/K1-grep.txt || true
+          find artifact/arxiv -type f \( -iname '*.pdf' -o -iname '*.eps' -o -iname '*.ps' -o -iname '*.svg' -o -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) \
+            -print > artifact/report/graphics-files.txt
+
+      - name: Render every vector/raster source to inspectable PNG
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p artifact/rendered
+          i=0
+          while IFS= read -r f; do
+            i=$((i+1))
+            base=$(printf '%04d_%s' "$i" "$(basename "$f" | tr ' /' '__')")
+            case "${f,,}" in
+              *.pdf)
+                pdftocairo -singlefile -png -r 300 "$f" "artifact/rendered/${base%.*}" || true
+                ;;
+              *.eps|*.ps)
+                convert -density 300 "$f" -background white -alpha remove "artifact/rendered/${base%.*}.png" || true
+                ;;
+              *.svg)
+                convert -density 300 "$f" -background white -alpha remove "artifact/rendered/${base%.*}.png" || true
+                ;;
+              *.png|*.jpg|*.jpeg)
+                cp "$f" "artifact/rendered/${base}"
+                ;;
+            esac
+          done < artifact/report/graphics-files.txt
+          find artifact/rendered -type f -maxdepth 1 -print > artifact/report/rendered-files.txt
+
+      - name: Preserve relevant TeX neighborhoods
+        shell: bash
+        run: |
+          set -euxo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root = Path('artifact/arxiv')
+          out = Path('artifact/report/figure16-context.txt')
+          chunks = []
+          pats = [re.compile(r'A Seifert surface for the knot', re.I),
+                  re.compile(r'K_B\(a,b,c,d,e,f\)', re.I),
+                  re.compile(r'Figure\s*16', re.I)]
+          for p in root.rglob('*'):
+              if not p.is_file() or p.suffix.lower() not in {'.tex','.txt','.sty'}:
+                  continue
+              try:
+                  lines = p.read_text(errors='replace').splitlines()
+              except Exception:
+                  continue
+              for i, line in enumerate(lines):
+                  if any(q.search(line) for q in pats):
+                      lo=max(0,i-35); hi=min(len(lines),i+36)
+                      chunks.append(f'===== {p}:{i+1} =====\n'+'\n'.join(f'{j+1}: {lines[j]}' for j in range(lo,hi)))
+          out.write_text('\n\n'.join(chunks))
+          print(out.read_text()[:10000])
+          PY
+
+      - name: Upload exact source packet
+        uses: actions/upload-artifact@v4
+        with:
+          name: k1-exact-gate-source-packet
+          path: artifact
+          compression-level: 9
+          if-no-files-found: error
