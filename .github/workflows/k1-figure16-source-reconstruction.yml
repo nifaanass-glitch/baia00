@@ -1,7 +1,9 @@
 name: K1 Figure 16 source reconstruction
 
 on:
-  pull_request:
+  push:
+    branches:
+      - k1-figure16-source-reconstruction-20260810
     paths:
       - '.github/workflows/k1-figure16-source-reconstruction.yml'
   workflow_dispatch:
