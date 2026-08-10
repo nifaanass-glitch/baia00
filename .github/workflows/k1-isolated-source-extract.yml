@@ -1,0 +1,58 @@
+name: K1 isolated source extraction
+
+on:
+  pull_request:
+    branches: [k1-extract-base-20260810]
+    paths:
+      - '.k1-extract-trigger'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recover exact source assets
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p recovered/downloads recovered/arxiv recovered/selected recovered/rendered
+          UA='Mozilla/5.0 (compatible; mathematical-source-audit/1.0)'
+          curl --fail --location --retry 5 --retry-all-errors --user-agent "$UA" https://arxiv.org/src/2102.04391 -o recovered/downloads/2102.04391-source
+          curl --fail --location --retry 5 --retry-all-errors --user-agent "$UA" https://web.stanford.edu/~cm5/RBG/DTcodes.nb -o recovered/downloads/DTcodes.nb
+          curl --fail --location --retry 5 --retry-all-errors --user-agent "$UA" https://web.stanford.edu/~cm5/RBG/PromisingKnots.txt -o recovered/downloads/PromisingKnots.txt
+          file recovered/downloads/* | tee recovered/FILE_TYPES.txt
+          sha256sum recovered/downloads/* | tee recovered/SHA256SUMS.txt
+          src=recovered/downloads/2102.04391-source
+          if tar -tf "$src" >/dev/null 2>&1; then tar -xf "$src" -C recovered/arxiv; else gzip -dc "$src" | tar -xf - -C recovered/arxiv; fi
+          find recovered/arxiv -type f -printf '%P\n' | sort | tee recovered/ARXIV_FILE_LIST.txt
+          grep -RniE 'Figure[[:space:]~]*16|Seifert surface|K_B|alpha|beta|gamma|delta' recovered/arxiv > recovered/FIGURE16_GREP.txt || true
+          grep -RniE '\\includegraphics|\\begin\{tikzpicture\}|\\input\{|\\epsfig' recovered/arxiv > recovered/GRAPHICS_REFERENCES.txt || true
+          cp recovered/downloads/DTcodes.nb recovered/selected/
+          strings -a -n 4 recovered/downloads/DTcodes.nb > recovered/DTcodes.strings.txt
+          grep -niE 'K1([^0-9]|$)|K_B|0,1,0,1,2,-1|PD|DT' recovered/DTcodes.strings.txt > recovered/DTcodes_K1_GREP.txt || true
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('recovered/downloads/DTcodes.nb'); b=p.read_bytes()
+          Path('recovered/DTcodes_utf8_replacement.txt').write_text(b.decode('utf-8',errors='replace'))
+          PY
+          grep -niE 'K1([^0-9]|$)|K_B|0,1,0,1,2,-1|PD|DT' recovered/DTcodes_utf8_replacement.txt > recovered/DTcodes_UTF8_K1_GREP.txt || true
+          while IFS= read -r f; do case "$f" in *.tex|*.sty|*.cls|*.bib|*.txt|*.eps|*.ps|*.pdf|*.png|*.jpg|*.jpeg|*.svg|*.tikz) cp --parents "$f" recovered/selected/;; esac; done < <(find recovered/arxiv -type f)
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          r=Path('recovered'); fs=[]
+          for p in sorted(r.rglob('*')):
+              if p.is_file(): fs.append({'path':str(p.relative_to(r)),'size':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+          (r/'EXTRACTION_SUMMARY.json').write_text(json.dumps({'arxiv_id':'2102.04391v3','files':fs},indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: k1-figure16-source-packet-isolated
+          path: recovered/
+          if-no-files-found: error
+          retention-days: 30
