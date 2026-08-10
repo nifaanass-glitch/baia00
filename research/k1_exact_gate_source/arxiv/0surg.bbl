@@ -1,0 +1,267 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{AJLO}
+T.~Abe, I.~D. Jong, J.~Luecke, and J.~Osoinach, \emph{Infinitely many knots
+  admitting the same integer surgery and a four-dimensional extension}, Int.
+  Math. Res. Not. IMRN, (2015), no.~22, 11667--11693.
+
+\bibitem{AJOT}
+T.~Abe, I.~D. Jong, Y.~Omae, and M.~Takeuchi, \emph{Annulus twist and
+  diffeomorphic 4-manifolds}, Math. Proc. Cambridge Philos. Soc.,
+  \textbf{155}(2013), no.~2, 219--235.
+
+\bibitem{AbeTange}
+T.~Abe and M.~Tange, \emph{A construction of slice knots via annulus twists},
+  Michigan Math. J., \textbf{65}(2016), no.~3, 573--597.
+
+\bibitem{Akb2Dhom}
+S.~Akbulut, \emph{On {$2$}-dimensional homology classes of {$4$}-manifolds},
+  Math. Proc. Cambridge Philos. Soc., \textbf{82}(1977), no.~1, 99--106.
+
+\bibitem{akbulutCS}
+S.~Akbulut, \emph{Cappell-{S}haneson homotopy spheres are standard}, Ann. of
+  Math. (2), \textbf{171}(2010), no.~3, 2171--2175.
+
+\bibitem{BGL}
+K.~L. Baker, C.~Gordon, and J.~Luecke, \emph{Bridge number and integral {D}ehn
+  surgery}, Algebr. Geom. Topol., \textbf{16}(2016), no.~1, 1--40.
+
+\bibitem{BakerMotegi}
+K.~L. Baker and K.~Motegi, \emph{Noncharacterizing slopes for hyperbolic
+  knots}, Algebr. Geom. Topol., \textbf{18}(2018), no.~3, 1461--1480.
+
+\bibitem{KnotTheory}
+D.~Bar-Natan and S.~Morrison, \emph{The {M}athematica package
+  {K}not{T}heory\!\`{}}, available at \url{http://katlas.org/wiki/KnotTheory}.
+
+\bibitem{Boyer}
+S.~Boyer, \emph{Simply-connected {$4$}-manifolds with a given boundary}, Trans.
+  Amer. Math. Soc., \textbf{298}(1986), no.~1, 331--357.
+
+\bibitem{Brakes}
+W.~R. Brakes, \emph{Manifolds with multiple knot-surgery descriptions}, Math.
+  Proc. Cambridge Philos. Soc., \textbf{87}(1980), no.~3, 443--448.
+
+\bibitem{Cerf}
+J.~Cerf, \emph{Sur les diff\'{e}omorphismes de la sph\`ere de dimension trois
+  {$(\Gamma _{4}=0)$}}, Lecture Notes in Mathematics, No. 53, Springer-Verlag,
+  Berlin-New York, 1968.
+
+\bibitem{CochranHarveyHorn}
+T.~D. Cochran, S.~Harvey, and P.~Horn, \emph{Filtering smooth concordance
+  classes of topologically slice knots}, Geom. Topol., \textbf{17}(2013),
+  no.~4, 2103--2162.
+
+\bibitem{CochranTweedy}
+T.~D. Cochran and E.~Tweedy, \emph{Positive links}, Algebr. Geom. Topol.,
+  \textbf{14}(2014), no.~4, 2259--2298.
+
+\bibitem{SnapPy}
+M.~Culler, N.~M. Dunfield, M.~Goerner, and J.~R. Weeks, \emph{Snap{P}y, a
+  computer program for studying the geometry and topology of $3$-manifolds},
+  available at \url{http://snappy.computop.org}.
+
+\bibitem{DaemiScaduto}
+A.~Daemi and C.~Scaduto, \emph{{C}hern-{S}imons functional, singular
+  instantons, and the four-dimensional clasp number}, preprint,
+  \href{https://arxiv.org/pdf/2007.13160.pdf}{arXiv:2007.13160}, 2020.
+
+\bibitem{Donaldson}
+S.~K. Donaldson, \emph{An application of gauge theory to four-dimensional
+  topology}, J. Differential Geom., \textbf{18}(1983), no.~2, 279--315.
+
+\bibitem{DG2}
+N.~Dunfield, \emph{Using metabelian representations to obstruct slicing},
+  software, available at
+  \url{https://github.com/3-manifolds/SnapPy/blob/master/python/snap/slice_obs_HKL.py}.
+
+\bibitem{DG}
+N.~Dunfield and S.~Gong, personal communication.
+
+\bibitem{DHL}
+N.~M. Dunfield, N.~R. Hoffman, and J.~E. Licata, \emph{Asymmetric hyperbolic
+  {$L$}-spaces, {H}eegaard genus, and {D}ehn filling}, Math. Res. Lett.,
+  \textbf{22}(2015), no.~6, 1679--1698.
+
+\bibitem{FoxMilnor}
+R.~H. Fox and J.~W. Milnor, \emph{Singularities of {$2$}-spheres in {$4$}-space
+  and cobordism of knots}, Osaka Math. J., \textbf{3}(1966), 257--267.
+
+\bibitem{FGMW}
+M.~Freedman, R.~Gompf, S.~Morrison, and K.~Walker, \emph{Man and machine
+  thinking about the smooth 4-dimensional {P}oincar\'{e} conjecture}, Quantum
+  Topol., \textbf{1}(2010), no.~2, 171--208.
+
+\bibitem{Freedman}
+M.~H. Freedman, \emph{The topology of four-dimensional manifolds}, J.
+  Differential Geom., \textbf{17}(1982), no.~3, 357--453.
+
+\bibitem{GabaiR}
+D.~Gabai, \emph{Foliations and the topology of {$3$}-manifolds}, Bull. Amer.
+  Math. Soc. (N.S.), \textbf{8}(1983), no.~1, 77--80.
+
+\bibitem{gluck}
+H.~Gluck, \emph{The embedding of two-spheres in the four-sphere}, Trans. Amer.
+  Math. Soc., \textbf{104}(1962), 308--333.
+
+\bibitem{GM}
+R.~E. Gompf and K.~Miyazaki, \emph{Some well-disguised ribbon knots}, Topology
+  Appl., \textbf{64}(1995), no.~2, 117--131.
+
+\bibitem{GS}
+R.~E. Gompf and A.~I. Stipsicz, \emph{{$4$}-manifolds and {K}irby calculus},
+  volume~20 of \emph{Graduate Studies in Mathematics}, American Mathematical
+  Society, Providence, RI, 1999.
+
+\bibitem{Gong}
+S.~Gong, \emph{Adding bands}, software, in preparation.
+
+\bibitem{HMP19}
+K.~Hayden, T.~E. Mark, and L.~Piccirillo, \emph{Exotic {M}azur manifolds and
+  knot trace invariants}, Adv. Math., \textbf{391}(2021), Paper No. 107994, 30.
+
+\bibitem{HP19}
+K.~Hayden and L.~Piccirillo, \emph{The trace embedding lemma and
+  spinelessness}, preprint,
+  \href{https://arxiv.org/pdf/1912.13021.pdf}{arXiv:1912.13021}, 2019.
+
+\bibitem{HKL}
+C.~Herald, P.~Kirk, and C.~Livingston, \emph{Metabelian representations,
+  twisted {A}lexander polynomials, knot slicing, and mutation}, Math. Z.,
+  \textbf{265}(2010), no.~4, 925--949.
+
+\bibitem{Hom}
+J.~Hom, \emph{Bordered {H}eegaard {F}loer homology and the tau-invariant of
+  cable knots}, J. Topol., \textbf{7}(2014), no.~2, 287--326.
+
+\bibitem{IMT}
+N.~Iida, A.~Mukherjee, and M.~Taniguchi, \emph{An adjunction inequality for
+  {B}auer {F}uruta type invariants, with applications to sliceness and
+  $4$-manifold topology}, preprint,
+  \href{https://arxiv.org/pdf/22102.02076.pdf}{arXiv:2102.02076}, 2021.
+
+\bibitem{KirbyList}
+R.~Kirby, \emph{Problems in low dimensional manifold theory}, in
+  \emph{Algebraic and geometric topology ({P}roc. {S}ympos. {P}ure {M}ath.,
+  {S}tanford {U}niv., {S}tanford, {C}alif., 1976), {P}art 2}, Amer. Math. Soc.,
+  Providence, R.I., Proc. Sympos. Pure Math., XXXII, pp. 273--312, 1978.
+
+\bibitem{km}
+P.~B. Kronheimer and T.~S. Mrowka, \emph{Gauge theory and {R}asmussen's
+  invariant}, J. Topol., \textbf{6}(2013), no.~3, 659--674, corrigendum
+  available at \url{arxiv:1110.1297v3}.
+
+\bibitem{Levinealg}
+J.~Levine, \emph{Invariants of knot cobordism}, Invent. Math.,
+  \textbf{8}(1969), 98--110; addendum, ibid. 8 (1969), 355.
+
+\bibitem{Lickorish1}
+W.~B.~R. Lickorish, \emph{Surgery on knots}, Proc. Amer. Math. Soc.,
+  \textbf{60}(1976), 296--298 (1977).
+
+\bibitem{Lickorish2}
+W.~B.~R. Lickorish, \emph{Shake-slice knots}, in \emph{Topology of
+  low-dimensional manifolds ({P}roc. {S}econd {S}ussex {C}onf., {C}helwood
+  {G}ate, 1977)}, Springer, Berlin, volume 722 of \emph{Lecture Notes in
+  Math.}, pp. 67--70, 1979.
+
+\bibitem{LS}
+R.~Lipshitz and S.~Sarkar, \emph{A refinement of {R}asmussen's $s$-invariant},
+  Duke Math. J., \textbf{163}(2014), no.~5, 923--952.
+
+\bibitem{MMP}
+C.~Manolescu, M.~Marengon, and L.~Piccirillo, \emph{Relative genus bounds in
+  indefinite four-manifolds}, preprint,
+  \href{https://arxiv.org/pdf/2012.12270.pdf}{arXiv:2012.12270}, 2020.
+
+\bibitem{MMSW}
+C.~Manolescu, M.~Marengon, S.~Sarkar, and M.~Willis, \emph{A generalization of
+  {R}asmussen's invariant, with applications to surfaces in some
+  four-manifolds}, Duke Math. J., \textbf{172}(2023), no.~2, 231--311.
+
+\bibitem{MP17}
+A.~N. Miller and L.~Piccirillo, \emph{Knot traces and concordance}, J. Topol.,
+  \textbf{11}(2018), no.~1, 201--220.
+
+\bibitem{MilnorSBF}
+J.~Milnor and D.~Husemoller, \emph{Symmetric bilinear forms}, Springer-Verlag,
+  New York-Heidelberg, ergebnisse der Mathematik und ihrer Grenzgebiete, Band
+  73, 1973.
+
+\bibitem{Nakamura}
+K.~Nakamura, \emph{Trace embeddings from zero surgery homeomorphisms},
+  preprint, \href{https://arxiv.org/pdf/2203.14270.pdf}{arXiv:2203.14270},
+  2022.
+
+\bibitem{Osoinach}
+J.~K. Osoinach, Jr., \emph{Manifolds obtained by surgery on an infinite number
+  of knots in {$S^3$}}, Topology, \textbf{45}(2006), no.~4, 725--733.
+
+\bibitem{OStau}
+P.~Ozsv\'{a}th and Z.~Szab\'{o}, \emph{Knot {F}loer homology and the four-ball
+  genus}, Geom. Topol., \textbf{7}(2003), 615--639.
+
+\bibitem{RatSurg}
+P.~S. Ozsv\'{a}th and Z.~Szab\'{o}, \emph{Knot {F}loer homology and rational
+  surgeries}, Algebr. Geom. Topol., \textbf{11}(2011), no.~1, 1--68.
+
+\bibitem{Pic1}
+L.~Piccirillo, \emph{Shake genus and slice genus}, Geom. Topol.,
+  \textbf{23}(2019), no.~5, 2665--2684.
+
+\bibitem{Pic2}
+L.~Piccirillo, \emph{The {C}onway knot is not slice}, Ann. of Math. (2),
+  \textbf{191}(2020), no.~2, 581--591.
+
+\bibitem{Rasmussen}
+J.~Rasmussen, \emph{Khovanov homology and the slice genus}, Invent. Math.,
+  \textbf{182}(2010), no.~2, 419--447.
+
+\bibitem{robertello}
+R.~A. Robertello, \emph{An invariant of knot cobordism}, Comm. Pure Appl.
+  Math., \textbf{18}(1965), 543--555.
+
+\bibitem{SarkarSq}
+S.~Sarkar, \emph{new{S}invariants}, software, available at
+  \url{https://www.math.ucla.edu/~sucharit/programs/newSinvariants}.
+
+\bibitem{SKnotJob}
+D.~Sch\"utz, \emph{{SK}not{J}ob}, software, available at
+  \url{http://www.maths.dur.ac.uk/~dma0ds/knotjob.html}.
+
+\bibitem{Sage}
+W.~Stein \emph{et~al.}, \emph{{S}age {M}athematics {S}oftware ({V}ersion 9.2)},
+  The Sage Development Team, available at {\tt http://www.sagemath.org}, 2020.
+
+\bibitem{Suz}
+S.~Suzuki, \emph{Local knots of {$2$}-spheres in {$4$}-manifolds}, Proc. Japan
+  Acad., \textbf{45}(1969), 34--38.
+
+\bibitem{HFK}
+Z.~Szab\'o, \emph{{K}not {F}loer homology calculator}, software, available at
+  \url{https://web.math.princeton.edu/~szabo/HFKcalc.html}.
+
+\bibitem{Tagami20}
+K.~Tagami, \emph{Notes on constructions of knots with the same trace},
+  Hiroshima Math. J., \textbf{52}(2022), no.~1, 1--15.
+
+\bibitem{Trotter}
+H.~F. Trotter, \emph{On {$S$}-equivalence of {S}eifert matrices}, Invent.
+  Math., \textbf{20}(1973), 173--207.
+
+\bibitem{mathematica}
+{Wolfram Research, Inc.}, \emph{Mathematica, {V}ersion 11.0},
+  \urlprefix\url{https://www.wolfram.com/mathematica}, {C}hampaign, IL, 2016.
+
+\bibitem{Yasui}
+K.~Yasui, \emph{Corks, exotic 4-manifolds and knot concordance}, preprint,
+  \href{https://arxiv.org/pdf/1505.02551.pdf}{arXiv:1505.02551}, 2015.
+
+\end{thebibliography}

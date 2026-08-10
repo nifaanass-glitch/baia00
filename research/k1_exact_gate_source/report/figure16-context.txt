@@ -1,0 +1,308 @@
+===== research/k1_exact_gate_source/arxiv/0surg.tex:841 =====
+791:    $K_8$ & $ K_B(1, 1, 2, 1, -1, -1)$ & 36 & 21.768651216 & $ 4t^2 - 20t +33 - 20t^{-1} + 4 t^{-2}$\\
+792:    $K_9$ & $K_G(1, 1, -1, -1, 2, 1)$ & 32 & 21.917877366 & $t^2 - 2t+ 3-2t^{-1} + t^{-2}$ \\
+793:    $K_{10}$ & $K_G(1,1,1,-1,0,1)$ & 32 &  23.276452522 & $t^2 -6t + 11 -6t^{-1} + t^{-2}$\\
+794:    $K_{11}$ & $K_G(1, 1, 2, -1, -1, 1)$ & 41 & 25.720923264 & $4t^2 -20t + 33 -20t^{-1} + 4t^{-2}$\\
+795:    $K_{12}$ & $K_G(1, 1, 2, 0, -1, 1)$ & 20 & 20.032239211 & $2t^2-12t+21-12t^{-1}+2t^{-2}$\\
+796:    $K_{13}$ & $K_B(2, 1,-2, 1, 2, -1)$ & 35 &  18.623983982 & $2t^2-6t+9-6t^{-1}+2t^{-2}$\\
+797:    $K_{14}$ & $K_B(2, 1, 0, 1, 0, -1)$ & 31 & 16.662235002 & $-2t+5 - 2t^{-1}$ \\
+798:    $K_{15}$ & $K_B(2, 1, 1, 1, -1, -1)$ & 33 & 20.505101934 & $2t^2-12t+21-12t^{-1}+2t^{-2}$ \\
+799:    $K_{16}$ &  $K_B(2, 1, 2, 1, -2, -1)$ & 37 & 22.919098178 & $6t^2 - 30t + 49 -30t^{-1} + 6t^{-2}$ \\
+800:    $K_{17}$ & $K_G(2,1,-2,-1,2,1)$ &37 &23.396805316 &  $2t^2-6t+9-6t^{-1}+2t^{-2}$ \\
+801:    $K_{18}$ & $K_G(2,1,-2,0,2,1)$ & 16 & 17.009749601 & $t^2 -2t+ 3 -2t^{-1} + t^{-2}$ \\
+802:    $K_{19}$ & $K_G(2, 1, 0, -1, 0, 1)$ & 34 & 22.384645541 & $-2t+5 - 2t^{-1}$\\ 
+803:    $K_{20}$ & $K_G(2, 1, 1, -1, -1, 1)$ & 36 & 24.655381040 & $2t^2-12t+21-12t^{-1}+2t^{-2}$ \\
+804:    $K_{21}$ & $K_G(2, 1, 2, -1, -2, 1)$ & 42 & 26.731842490 & $2t^2-12t+21-12t^{-1}+2t^{-2}$ \\
+805:    $K_{22}$ & $K_G(2, 1, 1, 0, -1, 1)$ & 18 & 19.113083865 & $t^2 -8t+15 - 8t^{-1} + t^{-2}$\\
+806:    $K_{23}$ & $K_G(2, 1, 2, 0, -2, 1)$ & 22 & 21.642574192 & $5t^2 - 26t + 43 - 26t^{-1} + 5t^{-2}$\\   \hline
+807:     \end{tabular}
+808:   \end{center}
+809:   \caption{Examples coming out of our computer experiments.} 
+810:      \label{tab:table1}
+811: \end{table}
+812: 
+813: The knots $K_1$ through $K_5$ have trivial Alexander polynomial, and are therefore topologically slice by Freedman's theorem \cite{Freedman}; they are candidates for being slice. The knots $K_6$ through $K_{21}$ satisfy the Fox-Milnor condition on the Alexander polynomial, but were shown to not be topologically slice by Dunfield and Gong \cite{DG}, using the program \cite{DG2} for computing twisted Alexander polynomials. The last two knots $K_{22}$ and $K_{23}$ do not satisfy the Fox-Milnor condition. Still, all of these knots are candidates for being H-slice in $\#^n \CP$.
+814: 
+815: 
+816: \begin{proof}[Proofs of Theorems~\ref{thm:21} and \ref{thm:23}] If $K_i$ ($i=1,\dots, 23$) is a knot from our list, then there is a companion knot $K'_i$ such that $S^3_0(K) \cong S^3_0(K'_i)$ and $s(K'_i)=-2$. Therefore, $K'_i$ is not H-slice in $\#^n \CP$ by the inequality \eqref{eq:sless}. Suppose $K_i$ were H-slice in $W=\#^n \CP$ for some $n$. (The case $n=0$ corresponds to $S^4$.)  Then Lemma~\ref{lem:slicehomeo} would show that $K'$ is H-slice in a $4$-manifold $X$ that is homotopy equivalent to $W$, and therefore homeomorphic to it by Freedman's theorem \cite{Freedman}. On the other hand, $X$ could not be diffeomorphic to $W$, because $K'_i$ is not H-slice in $W$.
+817: \end{proof}
+818: 
+819: Note that if any of the $23$ knots were H-slice in $\#^n \CP$, they would actually be BPH-slice, in view of the following lemma.
+820: \begin{lemma}
+821: The $23$ knots in Figures~\ref{fig:21a} and \ref{fig:2} are all H-slice in $\#^3 \bCP$. 
+822: \end{lemma}
+823: 
+824: \begin{proof}
+825: Observe that for all our knots, we have $b+c+e\in \{1,2,3\}$. When $b+c+e=0$, the RBG link in Figure~\ref{fig:RBGforbigdata} has the property that its $B$ and $G$ components are split. By Lemma~\ref{lem:splitslice}, the corresponding knots $K_B$ and $K_G$  (with $b+c+e=0$) are slice. Increasing $b$, $c$ or $e$ by one corresponds to an annular cobordism in $\bCP \setminus (\intB \sqcup \intB)$ between the respective knots. Therefore, if $n:=b+c+e > 0$, the knots $K_B(a, b, c, d, e, f)$ and $K_G(a, b, c, d, e, f)$ are H-slice in $\#^n \bCP$. \end{proof} 
+826: 
+827: \begin{remark}\label{rem:sign}
+828: We also searched in our data for pairs of knots such that one has $s > 0$ and the other $s=\sigma=0$ (which would be relevant for H-sliceness in $\#^n \bCP$ instead of $\#^n \CP$), but we found no pairs of this type. Of course, we can obtain such pairs by taking the mirrors of the $23$ knots in our table. 
+829: \end{remark}
+830: 
+831: We analyzed the $23$ knots from Table~\ref{tab:table1} further, to make sure they pass some well-known obstructions to being slice (or BPH-slice, as the case may be).
+832: 
+833: First, we looked at algebraic obstructions coming from the Seifert matrix.
+834: \begin{proposition}
+835: \label{prop:algslice}
+836: The knots $K_6$ through $K_{21}$ from Figure \ref{fig:21a} are algebraically slice.
+837: \end{proposition}
+838: 
+839: \noindent {\em Proof.} Recall that the algebraic concordance class of a knot is given by its Seifert matrix up to S-equivalence \cite{Levinealg, Trotter}. Since the Seifert matrix can be read from the 0-surgery, any two knots with the same 0-surgery are algebraically concordant. Thus, for the knots in our table of the form $K_G$, it suffices to check algebraic sliceness for their companions $K_B$.
+840: 
+841: A genus $2$ Seifert surface for the knot $K_B(a,b,c,d,e,f)$ is shown in Figure~\ref{fig:SeifertSurface}. The associated Seifert matrix with respect to the basis $(\alpha, \beta, \gamma, \delta)$ is
+842: \begin{equation}
+843: \label{eq:A}
+844: A = \begin{pmatrix} 0 & 0 & 0 & -1 \\ 1 & a+c+d+f & c+1 & f+c+d+1 \\
+845: 0 & c & b+c+e & b+c+1 \\ 0 & f+c+d & b+c+1 & b+c+d+f
+846: \end{pmatrix}.
+847: \end{equation}
+848: To show that a knot $K_B(a,b,c,d,e,f)$ is algebraically slice, we will explicitly find a two-dimensional subspace $V$ on which the Seifert form $A$ restricts to the zero matrix. In other words, if we form a $4 \times 2$ matrix $S$ whose columns are the basis vectors of $V$, we should have
+849: $$ S^T \! A \, S = 0.$$
+850: Looking at the knots $K_1$ through $K_{21}$ in Table~\ref{tab:table1}, we see that with the exception of $K_{12}$ and $K_{18}$, all the other values $(a, b, c, d, e, f)$ satisfy $b=1, d+f=0, a+c+e=2$. In these cases, we can take
+851: $$ V=\Span\{ (0,1,1,-1), (e-2,1,0,0)\}.$$
+852: \begin{figure}
+853: {
+854:    \fontsize{9pt}{11pt}\selectfont
+855:    \def\svgwidth{3.5in}
+856:    \input{seifertsurface.pdf_tex}
+857: }
+858: \caption{A Seifert surface for the knot $K_B(a,b,c,d,e,f)$.}
+859: \label{fig:SeifertSurface}
+860: \end{figure}
+861: 
+862: For $K_{12}$ we have $(a, b, c, d, e, f)=(1,1,2,0,-1,1)$ and we choose
+863: $$ V=\Span\{ (2,0,1,-1), (2,-2,0,1)\}.$$
+864: 
+865: For $K_{18}$ we have $(a, b, c, d, e, f)=(2,1,-2,0,2,1)$ and we choose
+866: \[
+867: \pushQED{\qed} 
+868:  V=\Span\{ (1,1,1,0), (2,1,0,1)\}.\qedhere
+869: \popQED
+870: \] 
+871: 
+872: Recall from Section~\ref{sec:BPH} that a necessary condition for a knot to be BPH slice is that it its Levine-Tristram signature function $\sigmaTL$ vanishes. Algebraically slice knots satisfy this, so Proposition~\ref{prop:algslice} ensures that $K_6$ through $K_{21}$ have $\sigmaTL=0$. Of course, we also have $\sigmaTL=0$ for the topologically slice examples $K_1$ through $K_5$. For the two remaining knots $K_{22}$ and $K_{23}$, the Alexander polynomial has no roots on the unit circle, and therefore $\sigmaTL$ is a constant function. Using the Seifert matrix \eqref{eq:A}, we checked that $\sigmaTL(-1) = \sigma=0$ and hence $\sigmaTL=0$. 
+873: 
+874: Second, for each of the $23$ knots, we computed the knot Floer homology using the {\em Knot Floer homology calculator} \cite{HFK}. The concordance invariants $\tau$ from \cite{OStau}, $\nu$ from \cite{RatSurg} and $\epsilon$ from \cite{Hom} vanish. As an aside, the program indicated that all the knots from our list are non-fibered, non-L-space, and have Seifert genus equal to $2$.
+875: 
+876: Third, we used the program \emph{SKnotJob} \cite{SKnotJob} to minimize the girth of the diagrams, and compute several Ramussen-type concordance invariants. Apart from the usual $s$ (which is defined from Khovanov homology over $\Q$), the program computed $s^{\F_2}$ and $s^{\F_3}$ (from Khovanov homology over $\F_2$ and $\F_3$), as well as the Lipshitz-Sarkar $s^{\operatorname{Sq}^1}$ invariant (from the first Steenrod square on Khovanov homology \cite{LS}). All the knots had girth at most $10$, and each calculation lasted only a few seconds. All the invariants turned out to be $0$. (On the other hand, computing the Lipshitz-Sarkar $s^{\operatorname{Sq}^2}_{\pm}$ invariants using a program such as \cite{SarkarSq} did not seem feasible, because our knots have at least $16$ crossings.)
+877: 
+878: Finally, from Lemma~\ref{lem:specialeven} we see that $14$ knots in Table~\ref{tab:table1} (namely, $K_1$, $K_4$, $K_5$, and $K_{13}$ through $K_{23}$) correspond to odd RBG links, because $r=a+b$ is odd. In such a case, Theorem~\ref{thm:Boyer} shows that the 0-surgery homeomorphism relating the knot and its companion does not extend to traces. Therefore, for those $14$ knots, sliceness and BPH-sliceness cannot be immediately excluded by the fact that we have obstructed their companion knot (which we knew not to be BPH-slice because $s=-2$). Moreover, modulo the caveat in footnote\footref{snap}, {\em SnapPy} indicates that the $0$-surgeries on all our $23$ knots are hyperbolic and have trivial isometry group (and hence trivial homeomorphism group, by Mostow rigidity). Hence, we expect that for the $14$ examples with $r$ odd, the trace of the knot is not even homeomorphic to that of its companion knot.
+879: 
+880: We also attempted (unsuccessfully) to show the $5$ topologically slice knots are slice. We searched for ribbon bands using Gong's program \cite{Gong}, but we could not found any simple bands that produce a strongly slice link. For one example, namely $K=K_2$, we also tried to find a slice derivative as follows: we wrote down a (genus 2) Seifert surface $F$ for $K$ and the associated Seifert matrix $A$, and then classified all dimension 2 subspaces of $H_1(F)$ on which $A$ restricts to the 0-matrix. For each such half-basis, we drew a 2-component link $L\subset S^3$ embedded on $F$ representing that basis; such a link is usually called a \emph{derivative} of $K$. It is well known (see \cite{Levinealg}) that if $K$ admits a strongly slice derivative then $K$ is slice. Unfortunately, none of the links $L$ that came out of this example were strongly slice; this was checked using Levine-Tristram signatures or covering link calculus.
+881: 
+882: Furthermore, for all $23$ knots, we tried to use Lemma~\ref{lem:ConstructBPH} to prove BPH-sliceness. However, changing any positive to a negative crossing in our diagrams resulted in knots with $\sigma=2$, which cannot be BPH-slice.
+883: 
+884: 
+885: 
+886: 
+887: 
+888: 
+889: \section{Homotopy $4$-spheres from annulus twisting} \label{sec:annulus}
+890: Annulus twisting is a construction of 0-surgery homeomorphisms which stands out for its ability to naturally produce infinitely many knots with the same 0-surgery. In view of Theorem~\ref{thm:RBG}, there are RBG links associated to annulus twisting; see Section~\ref{sec:annulusRBG} for their description. In this section we will discuss some homotopy $4$-spheres  that arise from annulus twisting, without explicit reference to the corresponding RBG links.
+891: 
+
+===== research/k1_exact_gate_source/arxiv/0surg.tex:848 =====
+798:    $K_{15}$ & $K_B(2, 1, 1, 1, -1, -1)$ & 33 & 20.505101934 & $2t^2-12t+21-12t^{-1}+2t^{-2}$ \\
+799:    $K_{16}$ &  $K_B(2, 1, 2, 1, -2, -1)$ & 37 & 22.919098178 & $6t^2 - 30t + 49 -30t^{-1} + 6t^{-2}$ \\
+800:    $K_{17}$ & $K_G(2,1,-2,-1,2,1)$ &37 &23.396805316 &  $2t^2-6t+9-6t^{-1}+2t^{-2}$ \\
+801:    $K_{18}$ & $K_G(2,1,-2,0,2,1)$ & 16 & 17.009749601 & $t^2 -2t+ 3 -2t^{-1} + t^{-2}$ \\
+802:    $K_{19}$ & $K_G(2, 1, 0, -1, 0, 1)$ & 34 & 22.384645541 & $-2t+5 - 2t^{-1}$\\ 
+803:    $K_{20}$ & $K_G(2, 1, 1, -1, -1, 1)$ & 36 & 24.655381040 & $2t^2-12t+21-12t^{-1}+2t^{-2}$ \\
+804:    $K_{21}$ & $K_G(2, 1, 2, -1, -2, 1)$ & 42 & 26.731842490 & $2t^2-12t+21-12t^{-1}+2t^{-2}$ \\
+805:    $K_{22}$ & $K_G(2, 1, 1, 0, -1, 1)$ & 18 & 19.113083865 & $t^2 -8t+15 - 8t^{-1} + t^{-2}$\\
+806:    $K_{23}$ & $K_G(2, 1, 2, 0, -2, 1)$ & 22 & 21.642574192 & $5t^2 - 26t + 43 - 26t^{-1} + 5t^{-2}$\\   \hline
+807:     \end{tabular}
+808:   \end{center}
+809:   \caption{Examples coming out of our computer experiments.} 
+810:      \label{tab:table1}
+811: \end{table}
+812: 
+813: The knots $K_1$ through $K_5$ have trivial Alexander polynomial, and are therefore topologically slice by Freedman's theorem \cite{Freedman}; they are candidates for being slice. The knots $K_6$ through $K_{21}$ satisfy the Fox-Milnor condition on the Alexander polynomial, but were shown to not be topologically slice by Dunfield and Gong \cite{DG}, using the program \cite{DG2} for computing twisted Alexander polynomials. The last two knots $K_{22}$ and $K_{23}$ do not satisfy the Fox-Milnor condition. Still, all of these knots are candidates for being H-slice in $\#^n \CP$.
+814: 
+815: 
+816: \begin{proof}[Proofs of Theorems~\ref{thm:21} and \ref{thm:23}] If $K_i$ ($i=1,\dots, 23$) is a knot from our list, then there is a companion knot $K'_i$ such that $S^3_0(K) \cong S^3_0(K'_i)$ and $s(K'_i)=-2$. Therefore, $K'_i$ is not H-slice in $\#^n \CP$ by the inequality \eqref{eq:sless}. Suppose $K_i$ were H-slice in $W=\#^n \CP$ for some $n$. (The case $n=0$ corresponds to $S^4$.)  Then Lemma~\ref{lem:slicehomeo} would show that $K'$ is H-slice in a $4$-manifold $X$ that is homotopy equivalent to $W$, and therefore homeomorphic to it by Freedman's theorem \cite{Freedman}. On the other hand, $X$ could not be diffeomorphic to $W$, because $K'_i$ is not H-slice in $W$.
+817: \end{proof}
+818: 
+819: Note that if any of the $23$ knots were H-slice in $\#^n \CP$, they would actually be BPH-slice, in view of the following lemma.
+820: \begin{lemma}
+821: The $23$ knots in Figures~\ref{fig:21a} and \ref{fig:2} are all H-slice in $\#^3 \bCP$. 
+822: \end{lemma}
+823: 
+824: \begin{proof}
+825: Observe that for all our knots, we have $b+c+e\in \{1,2,3\}$. When $b+c+e=0$, the RBG link in Figure~\ref{fig:RBGforbigdata} has the property that its $B$ and $G$ components are split. By Lemma~\ref{lem:splitslice}, the corresponding knots $K_B$ and $K_G$  (with $b+c+e=0$) are slice. Increasing $b$, $c$ or $e$ by one corresponds to an annular cobordism in $\bCP \setminus (\intB \sqcup \intB)$ between the respective knots. Therefore, if $n:=b+c+e > 0$, the knots $K_B(a, b, c, d, e, f)$ and $K_G(a, b, c, d, e, f)$ are H-slice in $\#^n \bCP$. \end{proof} 
+826: 
+827: \begin{remark}\label{rem:sign}
+828: We also searched in our data for pairs of knots such that one has $s > 0$ and the other $s=\sigma=0$ (which would be relevant for H-sliceness in $\#^n \bCP$ instead of $\#^n \CP$), but we found no pairs of this type. Of course, we can obtain such pairs by taking the mirrors of the $23$ knots in our table. 
+829: \end{remark}
+830: 
+831: We analyzed the $23$ knots from Table~\ref{tab:table1} further, to make sure they pass some well-known obstructions to being slice (or BPH-slice, as the case may be).
+832: 
+833: First, we looked at algebraic obstructions coming from the Seifert matrix.
+834: \begin{proposition}
+835: \label{prop:algslice}
+836: The knots $K_6$ through $K_{21}$ from Figure \ref{fig:21a} are algebraically slice.
+837: \end{proposition}
+838: 
+839: \noindent {\em Proof.} Recall that the algebraic concordance class of a knot is given by its Seifert matrix up to S-equivalence \cite{Levinealg, Trotter}. Since the Seifert matrix can be read from the 0-surgery, any two knots with the same 0-surgery are algebraically concordant. Thus, for the knots in our table of the form $K_G$, it suffices to check algebraic sliceness for their companions $K_B$.
+840: 
+841: A genus $2$ Seifert surface for the knot $K_B(a,b,c,d,e,f)$ is shown in Figure~\ref{fig:SeifertSurface}. The associated Seifert matrix with respect to the basis $(\alpha, \beta, \gamma, \delta)$ is
+842: \begin{equation}
+843: \label{eq:A}
+844: A = \begin{pmatrix} 0 & 0 & 0 & -1 \\ 1 & a+c+d+f & c+1 & f+c+d+1 \\
+845: 0 & c & b+c+e & b+c+1 \\ 0 & f+c+d & b+c+1 & b+c+d+f
+846: \end{pmatrix}.
+847: \end{equation}
+848: To show that a knot $K_B(a,b,c,d,e,f)$ is algebraically slice, we will explicitly find a two-dimensional subspace $V$ on which the Seifert form $A$ restricts to the zero matrix. In other words, if we form a $4 \times 2$ matrix $S$ whose columns are the basis vectors of $V$, we should have
+849: $$ S^T \! A \, S = 0.$$
+850: Looking at the knots $K_1$ through $K_{21}$ in Table~\ref{tab:table1}, we see that with the exception of $K_{12}$ and $K_{18}$, all the other values $(a, b, c, d, e, f)$ satisfy $b=1, d+f=0, a+c+e=2$. In these cases, we can take
+851: $$ V=\Span\{ (0,1,1,-1), (e-2,1,0,0)\}.$$
+852: \begin{figure}
+853: {
+854:    \fontsize{9pt}{11pt}\selectfont
+855:    \def\svgwidth{3.5in}
+856:    \input{seifertsurface.pdf_tex}
+857: }
+858: \caption{A Seifert surface for the knot $K_B(a,b,c,d,e,f)$.}
+859: \label{fig:SeifertSurface}
+860: \end{figure}
+861: 
+862: For $K_{12}$ we have $(a, b, c, d, e, f)=(1,1,2,0,-1,1)$ and we choose
+863: $$ V=\Span\{ (2,0,1,-1), (2,-2,0,1)\}.$$
+864: 
+865: For $K_{18}$ we have $(a, b, c, d, e, f)=(2,1,-2,0,2,1)$ and we choose
+866: \[
+867: \pushQED{\qed} 
+868:  V=\Span\{ (1,1,1,0), (2,1,0,1)\}.\qedhere
+869: \popQED
+870: \] 
+871: 
+872: Recall from Section~\ref{sec:BPH} that a necessary condition for a knot to be BPH slice is that it its Levine-Tristram signature function $\sigmaTL$ vanishes. Algebraically slice knots satisfy this, so Proposition~\ref{prop:algslice} ensures that $K_6$ through $K_{21}$ have $\sigmaTL=0$. Of course, we also have $\sigmaTL=0$ for the topologically slice examples $K_1$ through $K_5$. For the two remaining knots $K_{22}$ and $K_{23}$, the Alexander polynomial has no roots on the unit circle, and therefore $\sigmaTL$ is a constant function. Using the Seifert matrix \eqref{eq:A}, we checked that $\sigmaTL(-1) = \sigma=0$ and hence $\sigmaTL=0$. 
+873: 
+874: Second, for each of the $23$ knots, we computed the knot Floer homology using the {\em Knot Floer homology calculator} \cite{HFK}. The concordance invariants $\tau$ from \cite{OStau}, $\nu$ from \cite{RatSurg} and $\epsilon$ from \cite{Hom} vanish. As an aside, the program indicated that all the knots from our list are non-fibered, non-L-space, and have Seifert genus equal to $2$.
+875: 
+876: Third, we used the program \emph{SKnotJob} \cite{SKnotJob} to minimize the girth of the diagrams, and compute several Ramussen-type concordance invariants. Apart from the usual $s$ (which is defined from Khovanov homology over $\Q$), the program computed $s^{\F_2}$ and $s^{\F_3}$ (from Khovanov homology over $\F_2$ and $\F_3$), as well as the Lipshitz-Sarkar $s^{\operatorname{Sq}^1}$ invariant (from the first Steenrod square on Khovanov homology \cite{LS}). All the knots had girth at most $10$, and each calculation lasted only a few seconds. All the invariants turned out to be $0$. (On the other hand, computing the Lipshitz-Sarkar $s^{\operatorname{Sq}^2}_{\pm}$ invariants using a program such as \cite{SarkarSq} did not seem feasible, because our knots have at least $16$ crossings.)
+877: 
+878: Finally, from Lemma~\ref{lem:specialeven} we see that $14$ knots in Table~\ref{tab:table1} (namely, $K_1$, $K_4$, $K_5$, and $K_{13}$ through $K_{23}$) correspond to odd RBG links, because $r=a+b$ is odd. In such a case, Theorem~\ref{thm:Boyer} shows that the 0-surgery homeomorphism relating the knot and its companion does not extend to traces. Therefore, for those $14$ knots, sliceness and BPH-sliceness cannot be immediately excluded by the fact that we have obstructed their companion knot (which we knew not to be BPH-slice because $s=-2$). Moreover, modulo the caveat in footnote\footref{snap}, {\em SnapPy} indicates that the $0$-surgeries on all our $23$ knots are hyperbolic and have trivial isometry group (and hence trivial homeomorphism group, by Mostow rigidity). Hence, we expect that for the $14$ examples with $r$ odd, the trace of the knot is not even homeomorphic to that of its companion knot.
+879: 
+880: We also attempted (unsuccessfully) to show the $5$ topologically slice knots are slice. We searched for ribbon bands using Gong's program \cite{Gong}, but we could not found any simple bands that produce a strongly slice link. For one example, namely $K=K_2$, we also tried to find a slice derivative as follows: we wrote down a (genus 2) Seifert surface $F$ for $K$ and the associated Seifert matrix $A$, and then classified all dimension 2 subspaces of $H_1(F)$ on which $A$ restricts to the 0-matrix. For each such half-basis, we drew a 2-component link $L\subset S^3$ embedded on $F$ representing that basis; such a link is usually called a \emph{derivative} of $K$. It is well known (see \cite{Levinealg}) that if $K$ admits a strongly slice derivative then $K$ is slice. Unfortunately, none of the links $L$ that came out of this example were strongly slice; this was checked using Levine-Tristram signatures or covering link calculus.
+881: 
+882: Furthermore, for all $23$ knots, we tried to use Lemma~\ref{lem:ConstructBPH} to prove BPH-sliceness. However, changing any positive to a negative crossing in our diagrams resulted in knots with $\sigma=2$, which cannot be BPH-slice.
+883: 
+884: 
+885: 
+886: 
+887: 
+888: 
+889: \section{Homotopy $4$-spheres from annulus twisting} \label{sec:annulus}
+890: Annulus twisting is a construction of 0-surgery homeomorphisms which stands out for its ability to naturally produce infinitely many knots with the same 0-surgery. In view of Theorem~\ref{thm:RBG}, there are RBG links associated to annulus twisting; see Section~\ref{sec:annulusRBG} for their description. In this section we will discuss some homotopy $4$-spheres  that arise from annulus twisting, without explicit reference to the corresponding RBG links.
+891: 
+892: \subsection{Annulus twisting}
+893: 
+894: Annulus twisting was defined by Osoinach \cite{Osoinach}, and extended to other framings and to Klein bottle twisting by Abe-Jong-Luecke-Osoinach \cite{AJLO}. Since we will need to discuss it in some detail, we reproduce the proof that annulus twisting gives rise to $0$-surgery homeomorphisms.
+895: 
+896: Let $A:S^1\times I\to S^3$ be an embedding (by the standard abuse, we will conflate the embedding and its image) and let $\ell_1\cup\ell_2=\partial A$ a framed oriented link in $S^3$, where both the framing and the orientation are inherited from $A$; when $A$ is thought of an an oriented cobordism from $S^1\to S^1$, we are setting $\ell_2=\partial^+A$. Now let $\gamma$ denote a pair of pants and let $\Gamma:\gamma\to S^3$ be an embedding such that the framed oriented boundary of $\Gamma$ is $\ell_1\cup\ell_2\cup J$ for some 0-framed knot $J$. We can think of $J$ as obtained by joining a parallel copy of $\ell_1$ to a parallel copy of $\ell_2$ using a band.  See the left hand side of Figure \ref{fig:annulustwist} for examples of links $\ell_1\cup\ell_2\cup J$; there, the $K$ box represents  parallel strands that are tied in some 0-framed knot $K$, and the $k$ box represents $k$ positive full twists. See also Figure~\ref{fig:Jmk} for examples of knots $J$ that arise this way, when $K$ is the unknot.
+897: 
+898: 
+
+===== research/k1_exact_gate_source/arxiv/0surg.tex:858 =====
+808:   \end{center}
+809:   \caption{Examples coming out of our computer experiments.} 
+810:      \label{tab:table1}
+811: \end{table}
+812: 
+813: The knots $K_1$ through $K_5$ have trivial Alexander polynomial, and are therefore topologically slice by Freedman's theorem \cite{Freedman}; they are candidates for being slice. The knots $K_6$ through $K_{21}$ satisfy the Fox-Milnor condition on the Alexander polynomial, but were shown to not be topologically slice by Dunfield and Gong \cite{DG}, using the program \cite{DG2} for computing twisted Alexander polynomials. The last two knots $K_{22}$ and $K_{23}$ do not satisfy the Fox-Milnor condition. Still, all of these knots are candidates for being H-slice in $\#^n \CP$.
+814: 
+815: 
+816: \begin{proof}[Proofs of Theorems~\ref{thm:21} and \ref{thm:23}] If $K_i$ ($i=1,\dots, 23$) is a knot from our list, then there is a companion knot $K'_i$ such that $S^3_0(K) \cong S^3_0(K'_i)$ and $s(K'_i)=-2$. Therefore, $K'_i$ is not H-slice in $\#^n \CP$ by the inequality \eqref{eq:sless}. Suppose $K_i$ were H-slice in $W=\#^n \CP$ for some $n$. (The case $n=0$ corresponds to $S^4$.)  Then Lemma~\ref{lem:slicehomeo} would show that $K'$ is H-slice in a $4$-manifold $X$ that is homotopy equivalent to $W$, and therefore homeomorphic to it by Freedman's theorem \cite{Freedman}. On the other hand, $X$ could not be diffeomorphic to $W$, because $K'_i$ is not H-slice in $W$.
+817: \end{proof}
+818: 
+819: Note that if any of the $23$ knots were H-slice in $\#^n \CP$, they would actually be BPH-slice, in view of the following lemma.
+820: \begin{lemma}
+821: The $23$ knots in Figures~\ref{fig:21a} and \ref{fig:2} are all H-slice in $\#^3 \bCP$. 
+822: \end{lemma}
+823: 
+824: \begin{proof}
+825: Observe that for all our knots, we have $b+c+e\in \{1,2,3\}$. When $b+c+e=0$, the RBG link in Figure~\ref{fig:RBGforbigdata} has the property that its $B$ and $G$ components are split. By Lemma~\ref{lem:splitslice}, the corresponding knots $K_B$ and $K_G$  (with $b+c+e=0$) are slice. Increasing $b$, $c$ or $e$ by one corresponds to an annular cobordism in $\bCP \setminus (\intB \sqcup \intB)$ between the respective knots. Therefore, if $n:=b+c+e > 0$, the knots $K_B(a, b, c, d, e, f)$ and $K_G(a, b, c, d, e, f)$ are H-slice in $\#^n \bCP$. \end{proof} 
+826: 
+827: \begin{remark}\label{rem:sign}
+828: We also searched in our data for pairs of knots such that one has $s > 0$ and the other $s=\sigma=0$ (which would be relevant for H-sliceness in $\#^n \bCP$ instead of $\#^n \CP$), but we found no pairs of this type. Of course, we can obtain such pairs by taking the mirrors of the $23$ knots in our table. 
+829: \end{remark}
+830: 
+831: We analyzed the $23$ knots from Table~\ref{tab:table1} further, to make sure they pass some well-known obstructions to being slice (or BPH-slice, as the case may be).
+832: 
+833: First, we looked at algebraic obstructions coming from the Seifert matrix.
+834: \begin{proposition}
+835: \label{prop:algslice}
+836: The knots $K_6$ through $K_{21}$ from Figure \ref{fig:21a} are algebraically slice.
+837: \end{proposition}
+838: 
+839: \noindent {\em Proof.} Recall that the algebraic concordance class of a knot is given by its Seifert matrix up to S-equivalence \cite{Levinealg, Trotter}. Since the Seifert matrix can be read from the 0-surgery, any two knots with the same 0-surgery are algebraically concordant. Thus, for the knots in our table of the form $K_G$, it suffices to check algebraic sliceness for their companions $K_B$.
+840: 
+841: A genus $2$ Seifert surface for the knot $K_B(a,b,c,d,e,f)$ is shown in Figure~\ref{fig:SeifertSurface}. The associated Seifert matrix with respect to the basis $(\alpha, \beta, \gamma, \delta)$ is
+842: \begin{equation}
+843: \label{eq:A}
+844: A = \begin{pmatrix} 0 & 0 & 0 & -1 \\ 1 & a+c+d+f & c+1 & f+c+d+1 \\
+845: 0 & c & b+c+e & b+c+1 \\ 0 & f+c+d & b+c+1 & b+c+d+f
+846: \end{pmatrix}.
+847: \end{equation}
+848: To show that a knot $K_B(a,b,c,d,e,f)$ is algebraically slice, we will explicitly find a two-dimensional subspace $V$ on which the Seifert form $A$ restricts to the zero matrix. In other words, if we form a $4 \times 2$ matrix $S$ whose columns are the basis vectors of $V$, we should have
+849: $$ S^T \! A \, S = 0.$$
+850: Looking at the knots $K_1$ through $K_{21}$ in Table~\ref{tab:table1}, we see that with the exception of $K_{12}$ and $K_{18}$, all the other values $(a, b, c, d, e, f)$ satisfy $b=1, d+f=0, a+c+e=2$. In these cases, we can take
+851: $$ V=\Span\{ (0,1,1,-1), (e-2,1,0,0)\}.$$
+852: \begin{figure}
+853: {
+854:    \fontsize{9pt}{11pt}\selectfont
+855:    \def\svgwidth{3.5in}
+856:    \input{seifertsurface.pdf_tex}
+857: }
+858: \caption{A Seifert surface for the knot $K_B(a,b,c,d,e,f)$.}
+859: \label{fig:SeifertSurface}
+860: \end{figure}
+861: 
+862: For $K_{12}$ we have $(a, b, c, d, e, f)=(1,1,2,0,-1,1)$ and we choose
+863: $$ V=\Span\{ (2,0,1,-1), (2,-2,0,1)\}.$$
+864: 
+865: For $K_{18}$ we have $(a, b, c, d, e, f)=(2,1,-2,0,2,1)$ and we choose
+866: \[
+867: \pushQED{\qed} 
+868:  V=\Span\{ (1,1,1,0), (2,1,0,1)\}.\qedhere
+869: \popQED
+870: \] 
+871: 
+872: Recall from Section~\ref{sec:BPH} that a necessary condition for a knot to be BPH slice is that it its Levine-Tristram signature function $\sigmaTL$ vanishes. Algebraically slice knots satisfy this, so Proposition~\ref{prop:algslice} ensures that $K_6$ through $K_{21}$ have $\sigmaTL=0$. Of course, we also have $\sigmaTL=0$ for the topologically slice examples $K_1$ through $K_5$. For the two remaining knots $K_{22}$ and $K_{23}$, the Alexander polynomial has no roots on the unit circle, and therefore $\sigmaTL$ is a constant function. Using the Seifert matrix \eqref{eq:A}, we checked that $\sigmaTL(-1) = \sigma=0$ and hence $\sigmaTL=0$. 
+873: 
+874: Second, for each of the $23$ knots, we computed the knot Floer homology using the {\em Knot Floer homology calculator} \cite{HFK}. The concordance invariants $\tau$ from \cite{OStau}, $\nu$ from \cite{RatSurg} and $\epsilon$ from \cite{Hom} vanish. As an aside, the program indicated that all the knots from our list are non-fibered, non-L-space, and have Seifert genus equal to $2$.
+875: 
+876: Third, we used the program \emph{SKnotJob} \cite{SKnotJob} to minimize the girth of the diagrams, and compute several Ramussen-type concordance invariants. Apart from the usual $s$ (which is defined from Khovanov homology over $\Q$), the program computed $s^{\F_2}$ and $s^{\F_3}$ (from Khovanov homology over $\F_2$ and $\F_3$), as well as the Lipshitz-Sarkar $s^{\operatorname{Sq}^1}$ invariant (from the first Steenrod square on Khovanov homology \cite{LS}). All the knots had girth at most $10$, and each calculation lasted only a few seconds. All the invariants turned out to be $0$. (On the other hand, computing the Lipshitz-Sarkar $s^{\operatorname{Sq}^2}_{\pm}$ invariants using a program such as \cite{SarkarSq} did not seem feasible, because our knots have at least $16$ crossings.)
+877: 
+878: Finally, from Lemma~\ref{lem:specialeven} we see that $14$ knots in Table~\ref{tab:table1} (namely, $K_1$, $K_4$, $K_5$, and $K_{13}$ through $K_{23}$) correspond to odd RBG links, because $r=a+b$ is odd. In such a case, Theorem~\ref{thm:Boyer} shows that the 0-surgery homeomorphism relating the knot and its companion does not extend to traces. Therefore, for those $14$ knots, sliceness and BPH-sliceness cannot be immediately excluded by the fact that we have obstructed their companion knot (which we knew not to be BPH-slice because $s=-2$). Moreover, modulo the caveat in footnote\footref{snap}, {\em SnapPy} indicates that the $0$-surgeries on all our $23$ knots are hyperbolic and have trivial isometry group (and hence trivial homeomorphism group, by Mostow rigidity). Hence, we expect that for the $14$ examples with $r$ odd, the trace of the knot is not even homeomorphic to that of its companion knot.
+879: 
+880: We also attempted (unsuccessfully) to show the $5$ topologically slice knots are slice. We searched for ribbon bands using Gong's program \cite{Gong}, but we could not found any simple bands that produce a strongly slice link. For one example, namely $K=K_2$, we also tried to find a slice derivative as follows: we wrote down a (genus 2) Seifert surface $F$ for $K$ and the associated Seifert matrix $A$, and then classified all dimension 2 subspaces of $H_1(F)$ on which $A$ restricts to the 0-matrix. For each such half-basis, we drew a 2-component link $L\subset S^3$ embedded on $F$ representing that basis; such a link is usually called a \emph{derivative} of $K$. It is well known (see \cite{Levinealg}) that if $K$ admits a strongly slice derivative then $K$ is slice. Unfortunately, none of the links $L$ that came out of this example were strongly slice; this was checked using Levine-Tristram signatures or covering link calculus.
+881: 
+882: Furthermore, for all $23$ knots, we tried to use Lemma~\ref{lem:ConstructBPH} to prove BPH-sliceness. However, changing any positive to a negative crossing in our diagrams resulted in knots with $\sigma=2$, which cannot be BPH-slice.
+883: 
+884: 
+885: 
+886: 
+887: 
+888: 
+889: \section{Homotopy $4$-spheres from annulus twisting} \label{sec:annulus}
+890: Annulus twisting is a construction of 0-surgery homeomorphisms which stands out for its ability to naturally produce infinitely many knots with the same 0-surgery. In view of Theorem~\ref{thm:RBG}, there are RBG links associated to annulus twisting; see Section~\ref{sec:annulusRBG} for their description. In this section we will discuss some homotopy $4$-spheres  that arise from annulus twisting, without explicit reference to the corresponding RBG links.
+891: 
+892: \subsection{Annulus twisting}
+893: 
+894: Annulus twisting was defined by Osoinach \cite{Osoinach}, and extended to other framings and to Klein bottle twisting by Abe-Jong-Luecke-Osoinach \cite{AJLO}. Since we will need to discuss it in some detail, we reproduce the proof that annulus twisting gives rise to $0$-surgery homeomorphisms.
+895: 
+896: Let $A:S^1\times I\to S^3$ be an embedding (by the standard abuse, we will conflate the embedding and its image) and let $\ell_1\cup\ell_2=\partial A$ a framed oriented link in $S^3$, where both the framing and the orientation are inherited from $A$; when $A$ is thought of an an oriented cobordism from $S^1\to S^1$, we are setting $\ell_2=\partial^+A$. Now let $\gamma$ denote a pair of pants and let $\Gamma:\gamma\to S^3$ be an embedding such that the framed oriented boundary of $\Gamma$ is $\ell_1\cup\ell_2\cup J$ for some 0-framed knot $J$. We can think of $J$ as obtained by joining a parallel copy of $\ell_1$ to a parallel copy of $\ell_2$ using a band.  See the left hand side of Figure \ref{fig:annulustwist} for examples of links $\ell_1\cup\ell_2\cup J$; there, the $K$ box represents  parallel strands that are tied in some 0-framed knot $K$, and the $k$ box represents $k$ positive full twists. See also Figure~\ref{fig:Jmk} for examples of knots $J$ that arise this way, when $K$ is the unknot.
+897: 
+898: 
+899: 
+900: \begin{figure}
+901: {
+902:    \fontsize{9pt}{11pt}\selectfont
+903:    \def\svgwidth{6in}
+904:    \input{annulustwist.pdf_tex}
+905: \vspace*{3mm}
+906: }
+907: \caption{Annulus twisting a link $\ell_1\cup\ell_2\cup J$, with $\ell_1$ and $\ell_2$ drawn in purple and $J$ in green. Here $n=1$ and we keep track of the image of a 0-framed meridian of $J$ under the annulus twist homeomorphism.} 
+908: \label{fig:annulustwist}

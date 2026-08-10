@@ -1,0 +1,75 @@
+%% Creator: Inkscape 1.0.1 (c497b03c, 2020-09-10), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'rbgforannulus1.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{692.99198914bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.2406806)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{rbgforannulus1.pdf}}%
+    \put(0.23210133,0.11192552){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k$\end{tabular}}}}%
+    \put(0.23210133,0.14872247){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}K\end{tabular}}}}%
+    \put(0.60656455,0.10976099){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k$\end{tabular}}}}%
+    \put(0.60656455,0.150887){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}K\end{tabular}}}}%
+    \put(0.95938248,0.10543194){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k$\end{tabular}}}}%
+    \put(0.95938248,0.14655795){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}K\end{tabular}}}}%
+    \put(570.27060115,0.2406806){\color[rgb]{0.83137255,0.40392157,0.40392157}\rotatebox{-180}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k-1$\end{tabular}}}}}%
+    \put(0.62209309,0.21261603){\color[rgb]{0.83137255,0.40392157,0.40392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k-1$\end{tabular}}}}%
+    \put(0.97146237,0.21040038){\color[rgb]{0.83137255,0.40392157,0.40392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k-1$\end{tabular}}}}%
+    \put(0.01441032,0.00470042){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$0$\end{tabular}}}}%
+    \put(0.28407266,0.06594654){\color[rgb]{0.30196078,0.63921569,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$0$\end{tabular}}}}%
+    \put(0.4147585,0.03996886){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k+1$\end{tabular}}}}%
+    \put(0.75857972,0.0424499){\color[rgb]{0.30196078,0.63921569,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$0$\end{tabular}}}}%
+    \put(0.5021823,0.23780031){\color[rgb]{0.30196078,0.63921569,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$0$\end{tabular}}}}%
+    \put(0.84417135,0.0495955){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k+1$\end{tabular}}}}%
+    \put(0.2963873,-0.01133444){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}slide\\\end{tabular}}}}%
+    \put(0.64039308,-0.01064557){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}isotopy\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

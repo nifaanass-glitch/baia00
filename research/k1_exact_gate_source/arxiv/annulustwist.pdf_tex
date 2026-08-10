@@ -1,0 +1,90 @@
+%% Creator: Inkscape 1.0.1 (c497b03c, 2020-09-10), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'annulustwist.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{702.00439453bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.23578488)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{annulustwist.pdf}}%
+    \put(0.14102536,0.18921086){\color[rgb]{0.64705882,0.56078431,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\infty$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{annulustwist.pdf}}%
+    \put(0.95719389,0.10955008){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k$\end{tabular}}}}%
+    \put(0.808697,0.19255496){\color[rgb]{0.64705882,0.56078431,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\infty$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{annulustwist.pdf}}%
+    \put(-0.00537105,0.095668){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$m$\end{tabular}}}}%
+    \put(0.25541123,0.10072828){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k$\end{tabular}}}}%
+    \put(0.25327449,0.13705283){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}K\end{tabular}}}}%
+    \put(0.6008835,0.1037183){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k$\end{tabular}}}}%
+    \put(0.54591582,0.14675357){\color[rgb]{0.64705882,0.56078431,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$-1$\end{tabular}}}}%
+    \put(0.59874677,0.14004285){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}K\end{tabular}}}}%
+    \put(0.68145443,0.08953263){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$m$\end{tabular}}}}%
+    \put(0.89415709,0.15083844){\color[rgb]{0.64705882,0.56078431,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\infty$\end{tabular}}}}%
+    \put(0.95505715,0.14587463){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}K\end{tabular}}}}%
+    \put(0.29329481,0.17910324){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$0$\end{tabular}}}}%
+    \put(0.63581554,0.17529985){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$0$\end{tabular}}}}%
+    \put(1.00105259,0.17808329){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$0$\end{tabular}}}}%
+    \put(0.20084462,0.14749431){\color[rgb]{0.64705882,0.56078431,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\infty$\end{tabular}}}}%
+    \put(0.24829184,-0.01338145){\color[rgb]{0.83137255,0.40392157,0.40392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\{\mu,0\}$\end{tabular}}}}%
+    \put(0.48182308,0.1927436){\color[rgb]{0.64705882,0.56078431,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$1$\end{tabular}}}}%
+    \put(0.55490176,-0.01412218){\color[rgb]{0.83137255,0.40392157,0.40392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\{\Phi_1(\mu),0\}$\end{tabular}}}}%
+    \put(0.86411944,-0.02499449){\color[rgb]{0.83137255,0.40392157,0.40392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\{F_1(\Phi_1(\mu)),k+1\}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{annulustwist.pdf}}%
+    \put(0.33734412,0.09897261){\color[rgb]{0.63921569,0.77647059,0.35686275}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$m$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{annulustwist.pdf}}%
+    \put(0.16752541,-0.00883363){\color[rgb]{0.64705882,0.56078431,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\ell_1$\end{tabular}}}}%
+    \put(0.20589964,0.07840264){\color[rgb]{0.64705882,0.56078431,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\ell_2$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{annulustwist.pdf}}%
+    \put(0.5087836,-0.00682496){\color[rgb]{0.64705882,0.56078431,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\ell_1$\end{tabular}}}}%
+    \put(0.55319435,0.08041131){\color[rgb]{0.64705882,0.56078431,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\ell_2$\end{tabular}}}}%
+    \put(0.83273987,-0.01004972){\color[rgb]{0.64705882,0.56078431,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\ell_1$\end{tabular}}}}%
+    \put(0.90335743,0.08731155){\color[rgb]{0.64705882,0.56078431,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\ell_2$\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
