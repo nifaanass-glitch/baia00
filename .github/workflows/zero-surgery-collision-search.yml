@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - zero-surgery-collision-search-20260811
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
