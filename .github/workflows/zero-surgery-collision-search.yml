@@ -1,0 +1,89 @@
+name: zero-surgery-collision-search
+
+on:
+  push:
+    branches:
+      - zero-surgery-collision-search-20260811
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  collision-search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clone public Dunfield--Gong data
+        run: |
+          set -euxo pipefail
+          git clone --depth 1 https://github.com/EugeneFrancisco/plausibly_slice_v1.git public-data
+          find public-data/Data -maxdepth 1 -type f -printf '%f\t%s bytes\n' | sort | tee public-data-inventory.txt
+
+      - name: Inspect arXiv source and public-code references
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          mkdir -p collision-diagnostics/leo-source
+          curl -L --retry 5 --retry-delay 2 -A 'zero-surgery-collision-audit/1.0' \
+            https://arxiv.org/e-print/2312.09114 -o collision-diagnostics/leo-source.tar || true
+          if [ -s collision-diagnostics/leo-source.tar ]; then
+            tar -xf collision-diagnostics/leo-source.tar -C collision-diagnostics/leo-source || true
+          fi
+          find collision-diagnostics/leo-source -maxdepth 3 -type f -printf '%p\t%s\n' \
+            > collision-diagnostics/leo-source-files.txt || true
+          grep -RniE '890|beta[_ -]?15|plausibly_unknown|\.csv|GitHub|data (is|are) available|supplement' \
+            collision-diagnostics/leo-source \
+            > collision-diagnostics/leo-source-grep.txt || true
+
+          for q in \
+            '"beta_15"' \
+            '"s_beta15"' \
+            '"CLS_red"' \
+            '"Local equivalence and refinements"' \
+            '"890 knots"'; do
+            safe=$(printf '%s' "$q" | tr -cd 'A-Za-z0-9_' | head -c 40)
+            gh search code "$q" --limit 100 --json repository,path,url,textMatches \
+              > "collision-diagnostics/github-search-${safe}.json" 2>&1 || true
+          done
+
+      - name: Run streaming database join
+        env:
+          PUBLIC_DATA_ROOT: public-data/Data
+          COLLISION_OUTPUT: collision-output
+        run: |
+          set -euxo pipefail
+          python3 research/zero_surgery_collision_scan.py | tee collision-search.log
+
+      - name: Preserve schemas and sample rows
+        run: |
+          set -euo pipefail
+          mkdir -p collision-diagnostics/samples
+          cp public-data-inventory.txt collision-diagnostics/
+          for f in public-data/Data/*.txt; do
+            cp "$f" collision-diagnostics/samples/ || true
+          done
+          for f in public-data/Data/*.csv public-data/Data/*.csv.bz2; do
+            [ -e "$f" ] || continue
+            base=$(basename "$f")
+            if [[ "$f" == *.bz2 ]]; then
+              bzcat "$f" | head -n 5 > "collision-diagnostics/samples/${base}.head.txt" || true
+            else
+              head -n 5 "$f" > "collision-diagnostics/samples/${base}.head.txt" || true
+            fi
+          done
+
+      - name: Upload collision audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: zero-surgery-collision-audit-20260811
+          path: |
+            collision-output/
+            collision-diagnostics/
+            collision-search.log
+          if-no-files-found: error
+          retention-days: 30
