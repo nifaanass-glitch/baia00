@@ -1,0 +1,43 @@
+name: zero-surgery-cluster-search-v3
+
+on:
+  push:
+    branches:
+      - zero-surgery-cluster-search-v3-20260811
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  collision-search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Acquire cluster scanner and public data
+        run: |
+          set -euxo pipefail
+          mkdir -p research
+          curl -L --retry 5 'https://raw.githubusercontent.com/nifaanass-glitch/baia00/zero-surgery-collision-search-20260811/research/zero_surgery_collision_scan.py?v=7ac08e00fbe523d161a56b69ed2b91ff1f68c143' -o research/zero_surgery_collision_scan.py
+          git clone --depth 1 https://github.com/EugeneFrancisco/plausibly_slice_v1.git public-data
+      - name: Search entire friend clusters
+        env:
+          PUBLIC_DATA_ROOT: public-data/Data
+          COLLISION_OUTPUT: collision-output
+        run: |
+          set -euxo pipefail
+          python3 research/zero_surgery_collision_scan.py | tee collision-search.log
+      - name: Upload cluster audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: zero-surgery-cluster-audit-v3-20260811
+          path: |
+            collision-output/
+            collision-search.log
+          if-no-files-found: error
+          retention-days: 30
