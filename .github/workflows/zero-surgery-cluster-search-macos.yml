@@ -1,0 +1,48 @@
+name: zero-surgery-cluster-search-macos
+
+on:
+  push:
+    branches:
+      - zero-surgery-cluster-search-macos-20260811
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  collision-search:
+    runs-on: macos-14
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Acquire scanner and public data
+        run: |
+          set -euxo pipefail
+          mkdir -p research
+          curl -L --retry 5 'https://raw.githubusercontent.com/nifaanass-glitch/baia00/zero-surgery-collision-search-20260811/research/zero_surgery_collision_scan.py?v=7ac08e00fbe523d161a56b69ed2b91ff1f68c143' -o research/zero_surgery_collision_scan.py
+          git clone --depth 1 https://github.com/EugeneFrancisco/plausibly_slice_v1.git public-data
+          find public-data/Data -maxdepth 1 -type f -print | sort > public-data-files.txt
+      - name: Search all public friend clusters
+        env:
+          PUBLIC_DATA_ROOT: public-data/Data
+          COLLISION_OUTPUT: collision-output
+        run: |
+          set -euxo pipefail
+          python research/zero_surgery_collision_scan.py | tee collision-search.log
+      - name: Upload cluster audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: zero-surgery-cluster-audit-macos-20260811
+          path: |
+            collision-output/
+            collision-search.log
+            public-data-files.txt
+          if-no-files-found: error
+          retention-days: 30
