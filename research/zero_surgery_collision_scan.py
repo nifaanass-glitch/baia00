@@ -1,30 +1,37 @@
 #!/usr/bin/env python3
-"""Proof-carrying search for a nonslice/ribbon equal-zero-surgery pair.
+"""Search entire 0-surgery friend clusters for a toxic/ribbon collision.
 
-The public files are self-describing CSV tables.  A row is promoted only when
-one side has a terminal smooth nonsliceness witness and the other side has a
-replayable ribbon payload (a direct band to the unknot or a stored full ribbon
-certificate).  Mere `slice=1`, `ribbon=1`, or `base_slice=1` flags are retained
-as weak leads but never called terminal.
+Each row in zero_friends.csv describes a knot (by triangulation and PD code)
+whose oriented 0-surgery agrees with that of `base_knot`.  Therefore two
+*different* rows with the same base already have the same oriented 0-surgery.
+This scanner looks for one row with an explicit smooth nonsliceness invariant
+and another row with a replayable ribbon-to-unknot payload.
+
+Fail-closed rules:
+  * bare slice/ribbon flags are leads, never terminal certificates;
+  * terminal nonsliceness requires a displayed invariant value;
+  * terminal ribbonness requires `ribbon_to` containing `unknot` or a complete
+    stored ribbon certificate;
+  * a table-level collision still requires independent replay of the oriented
+    0-surgery and ribbon certificates before publication.
 """
 from __future__ import annotations
 
 import ast
 import bz2
 import csv
+import hashlib
 import json
 import os
 import re
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Iterator
 
 ROOT = Path(os.environ.get("PUBLIC_DATA_ROOT", "public-data/Data"))
 OUT = Path(os.environ.get("COLLISION_OUTPUT", "collision-output"))
 OUT.mkdir(parents=True, exist_ok=True)
-
 ZERO_FILES = ["zero_friends.csv.bz2", "more_zero_friends.csv.bz2"]
-BLANKS = {"", "0", "0.0", "none", "null", "false", "[]", "{}", "nan", "?"}
 
 
 def open_text(path: Path):
@@ -43,23 +50,17 @@ def norm(x: object) -> str:
 
 
 def integer(x: object) -> int | None:
-    s = norm(x)
-    if not s:
-        return None
     try:
-        return int(float(s))
+        return int(float(norm(x)))
     except Exception:
         return None
 
 
 def numbers(x: object) -> list[float]:
-    s = norm(x)
-    if not s:
-        return []
-    return [float(y) for y in re.findall(r"[-+]?\d+(?:\.\d+)?", s)]
+    return [float(y) for y in re.findall(r"[-+]?\d+(?:\.\d+)?", norm(x))]
 
 
-def invariant_nonzero(x: object) -> bool:
+def nonzero(x: object) -> bool:
     return any(abs(y) > 1e-12 for y in numbers(x))
 
 
@@ -74,48 +75,7 @@ def parse_mapping(x: object) -> dict:
         return {}
 
 
-def ribbon_payload(rec: dict[str, str], source: str) -> tuple[bool, list[str]]:
-    """Return only proof-bearing ribbon payloads, never a bare status flag."""
-    witnesses: list[str] = []
-    mapping = parse_mapping(rec.get("ribbon_to"))
-    if "unknot" in mapping:
-        witnesses.append(f"{source}:ribbon_to_unknot={mapping['unknot']}")
-    cert = norm(rec.get("ribbon_cert"))
-    if cert:
-        witnesses.append(f"{source}:ribbon_cert")
-    return bool(witnesses), witnesses
-
-
-def nonslice_payload(rec: dict[str, str], source: str) -> tuple[bool, list[str]]:
-    witnesses: list[str] = []
-    if integer(rec.get("slice")) == -1:
-        witnesses.append(f"{source}:slice=-1")
-    for field in ("tau", "nu", "epsilon", "s_0", "s_2", "s_3", "CLS_red", "bls_odd", "Sq1_sum"):
-        value = rec.get(field)
-        if invariant_nonzero(value):
-            witnesses.append(f"{source}:{field}={norm(value)}")
-    # Donaldson and HKL fields are also rigorous nonsliceness obstructions,
-    # but they are recorded separately so the smooth-vs-topological provenance
-    # remains visible.
-    if integer(rec.get("bifac_obs")) == 1:
-        witnesses.append(f"{source}:Donaldson_bifactorability")
-    for field in ("HKL_basic", "HKL_fancy", "HKL_direct"):
-        if norm(rec.get(field)) not in ("", "0", "None"):
-            witnesses.append(f"{source}:{field}={norm(rec.get(field))}")
-    return bool(witnesses), witnesses
-
-
-def lead_status(rec: dict[str, str]) -> dict:
-    return {
-        "slice": integer(rec.get("slice")),
-        "ribbon": integer(rec.get("ribbon")),
-        "base_slice": integer(rec.get("base_slice")),
-        "ribbon_by_two_bands": integer(rec.get("ribbon_by_two_bands")),
-        "ribbon_by_three_bands": integer(rec.get("ribbon_by_three_bands")),
-    }
-
-
-def load_table(path: Path) -> dict[str, dict[str, str]]:
+def load_named(path: Path) -> dict[str, dict[str, str]]:
     ans: dict[str, dict[str, str]] = {}
     if path.exists():
         for rec in rows(path):
@@ -125,180 +85,227 @@ def load_table(path: Path) -> dict[str, dict[str, str]]:
     return ans
 
 
-def compact_row(rec: dict[str, str]) -> dict:
-    keep = [
-        "name", "base_knot", "tri", "PD_code", "num_cross", "core_len",
-        "slice", "ribbon", "base_slice", "ribbon_to",
-        "ribbon_by_two_bands", "ribbon_by_three_bands", "s_2", "s_3",
-        "Sq1_odd", "bls_odd", "Sq1_sum",
-    ]
-    return {k: rec.get(k, "") for k in keep if k in rec}
+def invariant_witnesses(rec: dict[str, str], source: str) -> list[str]:
+    witnesses: list[str] = []
+    # Explicit smooth concordance/Khovanov witnesses only.  A bare `slice=-1`
+    # is retained separately as a provenance lead.
+    for field in (
+        "tau", "nu", "epsilon", "s_0", "s_2", "s_3", "CLS_red",
+        "bls_odd", "Sq1_sum",
+    ):
+        value = rec.get(field)
+        if nonzero(value):
+            witnesses.append(f"{source}:{field}={norm(value)}")
+    if integer(rec.get("bifac_obs")) == 1:
+        witnesses.append(f"{source}:Donaldson_bifactorability")
+    for field in ("HKL_basic", "HKL_fancy", "HKL_direct"):
+        value = norm(rec.get(field))
+        if value not in ("", "0", "None", "[]", "{}"):
+            witnesses.append(f"{source}:{field}={value}")
+    return witnesses
+
+
+def ribbon_witnesses(rec: dict[str, str], source: str) -> list[str]:
+    witnesses: list[str] = []
+    mapping = parse_mapping(rec.get("ribbon_to"))
+    if "unknot" in mapping:
+        witnesses.append(f"{source}:ribbon_to_unknot={mapping['unknot']}")
+    cert = norm(rec.get("ribbon_cert"))
+    if cert:
+        witnesses.append(f"{source}:complete_ribbon_cert")
+    return witnesses
+
+
+def friend_id(rec: dict[str, str], filename: str) -> str:
+    tri = norm(rec.get("tri"))
+    pd = norm(rec.get("PD_code"))
+    digest = hashlib.sha256(pd.encode()).hexdigest()[:16]
+    return f"{filename}:{tri}:{digest}"
+
+
+def compact_friend(rec: dict[str, str], filename: str) -> dict:
+    return {
+        "id": friend_id(rec, filename),
+        "source_table": filename,
+        "base_knot": norm(rec.get("base_knot")),
+        "tri": norm(rec.get("tri")),
+        "PD_code": norm(rec.get("PD_code")),
+        "num_cross": norm(rec.get("num_cross")),
+        "core_len": norm(rec.get("core_len")),
+        "slice_flag": integer(rec.get("slice")),
+        "ribbon_flag": integer(rec.get("ribbon")),
+        "base_slice_flag": integer(rec.get("base_slice")),
+        "ribbon_to": norm(rec.get("ribbon_to")),
+        "ribbon_by_two_bands": integer(rec.get("ribbon_by_two_bands")),
+        "ribbon_by_three_bands": integer(rec.get("ribbon_by_three_bands")),
+        "s_2": norm(rec.get("s_2")),
+        "s_3": norm(rec.get("s_3")),
+        "bls_odd": norm(rec.get("bls_odd")),
+        "Sq1_sum": norm(rec.get("Sq1_sum")),
+    }
+
+
+def dedup(records: list[dict], keys: tuple[str, ...]) -> list[dict]:
+    out: dict[tuple, dict] = {}
+    for rec in records:
+        out[tuple(rec.get(k, "") for k in keys)] = rec
+    return sorted(out.values(), key=lambda r: tuple(r.get(k, "") for k in keys))
 
 
 def main() -> None:
-    unknown = load_table(ROOT / "plausibly_unknown.csv")
-    slice16 = load_table(ROOT / "plausibly_slice_16.csv")
+    unknown = load_named(ROOT / "plausibly_unknown.csv")
+    slice16 = load_named(ROOT / "plausibly_slice_16.csv")
     auxiliary = {**slice16, **unknown}
 
-    cls_names = []
-    unknown_counts = Counter()
-    for name, rec in unknown.items():
-        if invariant_nonzero(rec.get("CLS_red")):
-            cls_names.append(name)
-        for f in ("slice", "ribbon", "s_0", "s_2", "s_3", "CLS_red", "tau", "nu", "epsilon"):
-            if invariant_nonzero(rec.get(f)):
-                unknown_counts[f] += 1
-    (OUT / "CLS_red_nonzero_names.txt").write_text("\n".join(sorted(cls_names)) + "\n")
-
-    terminal: list[dict] = []
-    weak: list[dict] = []
+    clusters: dict[str, list[dict]] = defaultdict(list)
     table_stats: list[dict] = []
-    names_with_friends: set[str] = set()
-    toxic_friend_rows = 0
-    replayable_friend_ribbons = 0
+    status_counts = Counter()
 
     for filename in ZERO_FILES:
         path = ROOT / filename
         if not path.exists():
             continue
         count = 0
-        for rec in rows(path):
+        for raw in rows(path):
             count += 1
-            friend = norm(rec.get("name"))
-            base = norm(rec.get("base_knot"))
-            if not friend or not base:
+            base = norm(raw.get("base_knot"))
+            if not base:
                 continue
-            names_with_friends.update((friend, base))
-
-            friend_aux = auxiliary.get(friend, {})
-            base_aux = auxiliary.get(base, {})
-
-            ft0, fw0 = nonslice_payload(rec, f"{filename}:friend")
-            ft1, fw1 = nonslice_payload(friend_aux, "auxiliary:friend")
-            friend_toxic = ft0 or ft1
-            friend_toxic_w = fw0 + fw1
-            if friend_toxic:
-                toxic_friend_rows += 1
-
-            bt, bw = nonslice_payload(base_aux, "auxiliary:base")
-            # `base_slice=-1` is a terminal status in the friend table even if
-            # the complete base record is not present in the 16-crossing file.
-            if integer(rec.get("base_slice")) == -1:
-                bt = True
-                bw.append(f"{filename}:base_slice=-1")
-
-            fr0, frw0 = ribbon_payload(rec, f"{filename}:friend")
-            fr1, frw1 = ribbon_payload(friend_aux, "auxiliary:friend")
-            friend_ribbon = fr0 or fr1
-            friend_ribbon_w = frw0 + frw1
-            if friend_ribbon:
-                replayable_friend_ribbons += 1
-
-            br, brw = ribbon_payload(base_aux, "auxiliary:base")
-
-            common = {
-                "friend_name": friend,
-                "base_name": base,
-                "friend_table": filename,
-                "friend_exterior_tri": rec.get("tri", ""),
-                "friend_core_len": rec.get("core_len", ""),
-                "friend_PD_code": rec.get("PD_code", ""),
-                "raw_friend_row": compact_row(rec),
-            }
-
-            if friend_toxic and br:
-                terminal.append({
-                    **common,
-                    "toxic_name": friend,
-                    "ribbon_name": base,
-                    "toxic_side": "friend",
-                    "nonslice_witnesses": friend_toxic_w,
-                    "ribbon_witnesses": brw,
-                    "zero_surgery_basis": "public zero-friend construction",
-                })
-            if bt and friend_ribbon:
-                terminal.append({
-                    **common,
-                    "toxic_name": base,
-                    "ribbon_name": friend,
-                    "toxic_side": "base",
-                    "nonslice_witnesses": bw,
-                    "ribbon_witnesses": friend_ribbon_w,
-                    "zero_surgery_basis": "public zero-friend construction",
-                })
-
-            # Weak leads preserve rows where database statuses suggest a
-            # collision but a replayable ribbon payload is missing.
-            friend_flags = lead_status(rec)
-            if friend_toxic and integer(rec.get("base_slice")) == 1 and not br:
-                weak.append({
-                    **common,
-                    "lead_type": "toxic_friend__base_slice_flag_without_public_ribbon_payload",
-                    "nonslice_witnesses": friend_toxic_w,
-                    "status": friend_flags,
-                })
-            if bt and (friend_flags["slice"] == 1 or friend_flags["ribbon"] == 1) and not friend_ribbon:
-                weak.append({
-                    **common,
-                    "lead_type": "toxic_base__friend_slice_flag_without_replayable_payload",
-                    "nonslice_witnesses": bw,
-                    "status": friend_flags,
-                })
-            if friend_toxic and integer(rec.get("base_slice")) == 0:
-                weak.append({
-                    **common,
-                    "lead_type": "toxic_friend__unresolved_base",
-                    "nonslice_witnesses": friend_toxic_w,
-                    "status": friend_flags,
-                })
-
+            friend = compact_friend(raw, filename)
+            friend["nonslice_witnesses"] = invariant_witnesses(raw, f"{filename}:friend")
+            friend["ribbon_witnesses"] = ribbon_witnesses(raw, f"{filename}:friend")
+            clusters[base].append(friend)
+            if friend["nonslice_witnesses"]:
+                status_counts["toxic_friend_rows"] += 1
+            if friend["ribbon_witnesses"]:
+                status_counts["replayable_ribbon_friend_rows"] += 1
+            if friend["slice_flag"] == -1 and not friend["nonslice_witnesses"]:
+                status_counts["nonslice_status_without_explicit_witness"] += 1
         table_stats.append({"file": filename, "rows": count})
 
-    def dedup(records: list[dict], keys: tuple[str, ...]) -> list[dict]:
-        out: dict[tuple, dict] = {}
-        for r in records:
-            out[tuple(r.get(k, "") for k in keys)] = r
-        return sorted(out.values(), key=lambda r: tuple(r.get(k, "") for k in keys))
+    terminal: list[dict] = []
+    provenance_leads: list[dict] = []
+    unresolved_leads: list[dict] = []
 
-    terminal = dedup(terminal, ("toxic_name", "ribbon_name", "friend_exterior_tri"))
-    weak = dedup(weak, ("lead_type", "friend_name", "base_name", "friend_exterior_tri"))
+    for base, friends in clusters.items():
+        toxic_friends = [f for f in friends if f["nonslice_witnesses"]]
+        ribbon_friends = [f for f in friends if f["ribbon_witnesses"]]
+
+        # Strongest join: two distinct friends of one base.
+        for toxic in toxic_friends:
+            for ribbon in ribbon_friends:
+                if toxic["id"] == ribbon["id"]:
+                    continue
+                terminal.append({
+                    "collision_type": "friend_friend_same_base",
+                    "base_knot": base,
+                    "toxic_object": toxic,
+                    "ribbon_object": ribbon,
+                    "nonslice_witnesses": toxic["nonslice_witnesses"],
+                    "ribbon_witnesses": ribbon["ribbon_witnesses"],
+                    "zero_surgery_basis": (
+                        "both rows are oriented 0-friends of the same base_knot"
+                    ),
+                })
+
+        base_rec = auxiliary.get(base, {})
+        base_nonslice = invariant_witnesses(base_rec, "auxiliary:base")
+        base_ribbon = ribbon_witnesses(base_rec, "auxiliary:base")
+
+        # Toxic named base + ribbon friend.
+        if base_nonslice:
+            for ribbon in ribbon_friends:
+                terminal.append({
+                    "collision_type": "base_friend",
+                    "base_knot": base,
+                    "toxic_object": {"name": base, "auxiliary_record": base_rec},
+                    "ribbon_object": ribbon,
+                    "nonslice_witnesses": base_nonslice,
+                    "ribbon_witnesses": ribbon["ribbon_witnesses"],
+                    "zero_surgery_basis": "ribbon row is an oriented 0-friend of base_knot",
+                })
+
+        # Ribbon named base + toxic friend.
+        if base_ribbon:
+            for toxic in toxic_friends:
+                terminal.append({
+                    "collision_type": "friend_base",
+                    "base_knot": base,
+                    "toxic_object": toxic,
+                    "ribbon_object": {"name": base, "auxiliary_record": base_rec},
+                    "nonslice_witnesses": toxic["nonslice_witnesses"],
+                    "ribbon_witnesses": base_ribbon,
+                    "zero_surgery_basis": "toxic row is an oriented 0-friend of base_knot",
+                })
+
+        # Preserve rows that could close after recovering missing provenance.
+        if toxic_friends and not ribbon_friends:
+            direct_flagged = [
+                f for f in friends
+                if f["slice_flag"] == 1 or f["ribbon_flag"] == 1
+                or f["ribbon_by_two_bands"] == 1 or f["ribbon_by_three_bands"] == 1
+            ]
+            if direct_flagged:
+                provenance_leads.append({
+                    "base_knot": base,
+                    "lead_type": "toxic_friend_plus_ribbon_flag_without_replayable_payload",
+                    "toxic_friends": toxic_friends,
+                    "flagged_friends": direct_flagged,
+                })
+            elif any(f["base_slice_flag"] == 0 for f in toxic_friends):
+                unresolved_leads.append({
+                    "base_knot": base,
+                    "lead_type": "toxic_friend_cluster_with_unresolved_base_and_no_ribbon_friend",
+                    "toxic_friends": toxic_friends,
+                    "cluster_size": len(friends),
+                })
+
+        if ribbon_friends and not toxic_friends:
+            status_toxic = [f for f in friends if f["slice_flag"] == -1]
+            if status_toxic:
+                provenance_leads.append({
+                    "base_knot": base,
+                    "lead_type": "ribbon_friend_plus_nonslice_status_without_explicit_witness",
+                    "ribbon_friends": ribbon_friends,
+                    "status_toxic_friends": status_toxic,
+                })
+
+    terminal = dedup(
+        terminal,
+        ("collision_type", "base_knot", "nonslice_witnesses", "ribbon_witnesses"),
+    )
+    provenance_leads = dedup(provenance_leads, ("base_knot", "lead_type"))
+    unresolved_leads = dedup(unresolved_leads, ("base_knot", "lead_type"))
+
+    cls_names = [name for name, rec in unknown.items() if nonzero(rec.get("CLS_red"))]
+    (OUT / "CLS_red_nonzero_names.txt").write_text("\n".join(sorted(cls_names)) + "\n")
+    (OUT / "terminal_cluster_collisions.json").write_text(json.dumps(terminal, indent=2))
+    (OUT / "provenance_leads.json").write_text(json.dumps(provenance_leads, indent=2))
+    (OUT / "unresolved_toxic_clusters.json").write_text(json.dumps(unresolved_leads, indent=2))
 
     summary = {
         "public_unknown_rows": len(unknown),
         "public_slice16_rows": len(slice16),
-        "CLS_red_nonzero_count": len(cls_names),
-        "CLS_red_matches_published_890_count": len(cls_names) == 890,
-        "unknown_nonzero_field_counts": dict(unknown_counts),
         "friend_tables": table_stats,
-        "distinct_names_with_friends": len(names_with_friends),
-        "toxic_friend_rows": toxic_friend_rows,
-        "replayable_friend_ribbon_rows": replayable_friend_ribbons,
-        "terminal_collision_count": len(terminal),
-        "weak_lead_count": len(weak),
+        "base_clusters": len(clusters),
+        "friend_rows_total": sum(len(v) for v in clusters.values()),
+        "status_counts": dict(status_counts),
+        "terminal_cluster_collision_count": len(terminal),
+        "provenance_lead_count": len(provenance_leads),
+        "unresolved_toxic_cluster_count": len(unresolved_leads),
+        "CLS_red_nonzero_count_in_old_public_unknown_table": len(cls_names),
         "determination": (
-            "TERMINAL_RIBBON_FRIEND_COLLISION_FOUND" if terminal
-            else "NO_TERMINAL_COLLISION_IN_PUBLIC_TABLES"
+            "TERMINAL_TABLE_LEVEL_COLLISION_FOUND" if terminal
+            else "NO_TERMINAL_COLLISION_IN_PUBLIC_FRIEND_CLUSTERS"
         ),
-        "acceptance_rule": (
-            "same row must join a terminal nonsliceness witness to a replayable "
-            "ribbon payload; bare slice/ribbon flags are not terminal"
-        ),
+        "next_validation_if_hit": [
+            "replay the ribbon movie",
+            "certify the orientation-preserving zero-surgery homeomorphism",
+            "replay the nonsliceness invariant",
+            "assemble the trace-plus-disk-exterior homotopy sphere",
+        ],
     }
-
-    (OUT / "terminal_collisions.json").write_text(json.dumps(terminal, indent=2))
-    (OUT / "weak_leads.json").write_text(json.dumps(weak, indent=2))
     (OUT / "summary.json").write_text(json.dumps(summary, indent=2))
-
-    with (OUT / "terminal_collisions.csv").open("w", newline="", encoding="utf-8") as fh:
-        fields = ["toxic_name", "ribbon_name", "toxic_side", "friend_table", "friend_exterior_tri", "nonslice_witnesses", "ribbon_witnesses"]
-        w = csv.DictWriter(fh, fieldnames=fields)
-        w.writeheader()
-        for rec in terminal:
-            row = {k: rec.get(k, "") for k in fields}
-            row["nonslice_witnesses"] = "; ".join(rec["nonslice_witnesses"])
-            row["ribbon_witnesses"] = "; ".join(rec["ribbon_witnesses"])
-            w.writerow(row)
-
     print(json.dumps(summary, indent=2))
 
 
