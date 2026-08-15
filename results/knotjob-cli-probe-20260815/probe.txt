@@ -1,0 +1,209 @@
+=== FILES ===
+KnotJob/Documentation/.DS_Store
+KnotJob/Documentation/._.DS_Store
+KnotJob/Documentation/._Combine Crossings.rtf
+KnotJob/Documentation/._Export Links.rtf
+KnotJob/Documentation/._Graded s-invariants.rtf
+KnotJob/Documentation/._Khovanov cohomology.rtf
+KnotJob/Documentation/._Lipshitz-Sarkar Invariants.rtf
+KnotJob/Documentation/._New Links.rtf
+KnotJob/Documentation/._Open Links.rtf
+KnotJob/Documentation/._Save Links.rtf
+KnotJob/Documentation/._Stable Homotopy Types.rtf
+KnotJob/Documentation/._s-Invariants.rtf
+KnotJob/Documentation/Combine Crossings.rtf
+KnotJob/Documentation/Export Links.rtf
+KnotJob/Documentation/Graded s-invariants.rtf
+KnotJob/Documentation/Khovanov cohomology.rtf
+KnotJob/Documentation/Lipshitz-Sarkar Invariants.rtf
+KnotJob/Documentation/Minimize Girth.rtf
+KnotJob/Documentation/New Links.rtf
+KnotJob/Documentation/Open Links.rtf
+KnotJob/Documentation/Save Links.rtf
+KnotJob/Documentation/Stable Homotopy Types.rtf
+KnotJob/Documentation/s-Invariants.rtf
+KnotJob/KnotJob.jar
+KnotJob/Knots/11a001-11a367.kjb
+KnotJob/Knots/11n001-11n185.kjb
+KnotJob/Knots/12a0001-12a1288.kjb
+KnotJob/Knots/12n001-12n888.kjb
+KnotJob/Knots/13a0001-13a4878.txt.zip
+KnotJob/Knots/13n0001-13n5110.txt.zip
+KnotJob/Knots/14a00001-14a19536.txt.zip
+KnotJob/Knots/14n00001-14n27436.txt.zip
+KnotJob/Knots/FourTor.kjb
+KnotJob/Knots/KnotsSq1.kjb
+KnotJob/Knots/L02a001-L11n459.kjb
+KnotJob/Knots/Rolfsen.kjb
+KnotJob/Knots/StrGrade.kjb
+KnotJob/README.TXT
+KnotJob/Troubleshooting.txt
+KnotJob/gpl.txt
+KnotJob/knotjob.png
+KnotJob/knotjob/AbortInfo.java
+KnotJob/knotjob/Calculation.java
+KnotJob/knotjob/Calculator.java
+KnotJob/knotjob/Comparer.java
+KnotJob/knotjob/FilterBusiness.java
+KnotJob/knotjob/Knobster.java
+KnotJob/knotjob/KnotButtons.java
+KnotJob/knotjob/KnotFileConverter.java
+KnotJob/knotjob/KnotJob.java
+KnotJob/knotjob/KnotJobCommand.java
+KnotJob/knotjob/LinkLoader.java
+KnotJob/knotjob/LinkSaver.java
+KnotJob/knotjob/Options.java
+KnotJob/knotjob/diagrams/CircleDiagram.java
+KnotJob/knotjob/diagrams/DiagramInfo.java
+KnotJob/knotjob/diagrams/DrawComplex.java
+KnotJob/knotjob/diagrams/Edge.java
+KnotJob/knotjob/diagrams/GraphicDiagram.java
+KnotJob/knotjob/diagrams/GraphicalDiagram.java
+KnotJob/knotjob/diagrams/PointMover.java
+KnotJob/knotjob/diagrams/SComplex.java
+KnotJob/knotjob/diagrams/SaveDiagram.java
+KnotJob/knotjob/diagrams/ShowDiagram.java
+KnotJob/knotjob/diagrams/Triangle.java
+KnotJob/knotjob/diagrams/Vertex.java
+KnotJob/knotjob/dialogs/BLTFilterDialog.java
+KnotJob/knotjob/dialogs/BettiFilterDialog.java
+KnotJob/knotjob/dialogs/CalculationDialog.java
+KnotJob/knotjob/dialogs/CalculationDialogWrap.java
+KnotJob/knotjob/dialogs/CharDialog.java
+KnotJob/knotjob/dialogs/ColorDialog.java
+KnotJob/knotjob/dialogs/CombDialogWrap.java
+KnotJob/knotjob/dialogs/CompDialog.java
+KnotJob/knotjob/dialogs/CompFilterDialog.java
+KnotJob/knotjob/dialogs/CreateLinkDialog.java
+KnotJob/knotjob/dialogs/DiagramFrame.java
+KnotJob/knotjob/dialogs/DiagramFrame3D.java
+KnotJob/knotjob/dialogs/DialogWrap.java
+KnotJob/knotjob/dialogs/EditDialog.java
+KnotJob/knotjob/dialogs/EnterData.java
+KnotJob/knotjob/dialogs/ExportDialog.java
+KnotJob/knotjob/dialogs/FilterAndOrDialog.java
+KnotJob/knotjob/dialogs/FilterCreateDialog.java
+KnotJob/knotjob/dialogs/FilterSelectDialog.java
+KnotJob/knotjob/dialogs/FilterTypeDialog.java
+KnotJob/knotjob/dialogs/GirthDialogWrap.java
+KnotJob/knotjob/dialogs/ImportDialog.java
+KnotJob/knotjob/dialogs/InfoDialog.java
+KnotJob/knotjob/dialogs/KhovDialog.java
+KnotJob/knotjob/dialogs/LoadDialog.java
+KnotJob/knotjob/dialogs/LoadDialogWrap.java
+KnotJob/knotjob/dialogs/MirrorLink.java
+KnotJob/knotjob/dialogs/NiceSlTDialog.java
+KnotJob/knotjob/dialogs/OpenSelectDialog.java
+KnotJob/knotjob/dialogs/OptionDialog.java
+KnotJob/knotjob/dialogs/OrientLink.java
+KnotJob/knotjob/dialogs/ReducedDialog.java
+KnotJob/knotjob/dialogs/RotateDialog.java
+KnotJob/knotjob/dialogs/SFanFilterDialog.java
+KnotJob/knotjob/dialogs/SFilterDialog.java
+KnotJob/knotjob/dialogs/SelectTypeDialog.java
+KnotJob/knotjob/dialogs/SlTFilterDialog.java
+KnotJob/knotjob/dialogs/SlTSFilterDialog.java
+KnotJob/knotjob/dialogs/SortDialog.java
+KnotJob/knotjob/dialogs/SpSqOptionsDialog.java
+KnotJob/knotjob/dialogs/SquareDialog.java
+KnotJob/knotjob/dialogs/StableDialog.java
+KnotJob/knotjob/dialogs/StableFilterDialog.java
+KnotJob/knotjob/dialogs/SubdivDialog.java
+KnotJob/knotjob/dialogs/TimerDialog.java
+KnotJob/knotjob/dialogs/UnionKnot.java
+KnotJob/knotjob/dialogs/UnivSlTDialog.java
+KnotJob/knotjob/dialogs/YesNoDialog.java
+KnotJob/knotjob/filters/AndFilter.java
+KnotJob/knotjob/filters/BLTFilter.java
+KnotJob/knotjob/filters/CompFilter.java
+KnotJob/knotjob/filters/Filter.java
+KnotJob/knotjob/filters/FilterIdentifier.java
+KnotJob/knotjob/filters/KhovFilter.java
+KnotJob/knotjob/filters/NotFilter.java
+KnotJob/knotjob/filters/OrFilter.java
+KnotJob/knotjob/filters/SInvFilter.java
+KnotJob/knotjob/filters/SignFilter.java
+KnotJob/knotjob/filters/SlTFilter.java
+KnotJob/knotjob/filters/StabFilter.java
+KnotJob/knotjob/frames/BLTComponent.java
+KnotJob/knotjob/frames/GraphComponent.java
+KnotJob/knotjob/frames/GridDiagramFrame.java
+KnotJob/knotjob/frames/StableGraph.java
+KnotJob/knotjob/frames/StringFrame.java
+KnotJob/knotjob/frames/ViewBLTInvariant.java
+KnotJob/knotjob/frames/ViewCohomology.java
+KnotJob/knotjob/frames/ViewDocumentation.java
+KnotJob/knotjob/frames/ViewOddHomology.java
+KnotJob/knotjob/frames/ViewSInvariants.java
+KnotJob/knotjob/frames/ViewSlTHomology.java
+KnotJob/knotjob/frames/ViewStableType.java
+KnotJob/knotjob/homology/Arrow.java
+KnotJob/knotjob/homology/Cache.java
+KnotJob/knotjob/homology/ChainComplex.java
+KnotJob/knotjob/homology/Diagram.java
+KnotJob/knotjob/homology/Generator.java
+KnotJob/knotjob/homology/Homology.java
+KnotJob/knotjob/homology/HomologyCalculation.java
+KnotJob/knotjob/homology/HomologyInfo.java
+KnotJob/knotjob/homology/QGenerator.java
+KnotJob/knotjob/homology/QuantumCohomology.java
+KnotJob/knotjob/homology/SpecSeqCalculation.java
+KnotJob/knotjob/homology/TangleComplex.java
+KnotJob/knotjob/invariants/SignatureCalculator.java
+KnotJob/knotjob/invariants/SignatureKnot.java
+KnotJob/knotjob/links/Coefficient.java
+KnotJob/knotjob/links/CombMinimizer.java
+KnotJob/knotjob/links/Diagram.java
+KnotJob/knotjob/links/GirthMinimizer.java
+KnotJob/knotjob/links/Link.java
+KnotJob/knotjob/links/LinkCreator.java
+KnotJob/knotjob/links/LinkData.java
+KnotJob/knotjob/links/Reidemeister.java
+KnotJob/knotjob/links/SInv.java
+KnotJob/knotjob/links/StringData.java
+KnotJob/knotjob/polynomial/Coefficient.java
+KnotJob/knotjob/polynomial/HalfCoefficient.java
+KnotJob/knotjob/polynomial/HalfPolynomial.java
+KnotJob/knotjob/polynomial/PoincarePolynomial.java
+KnotJob/knotjob/polynomial/Polynomial.java
+KnotJob/knotjob/polynomial/QuantumPolynomial.java
+KnotJob/knotjob/rings/BigInt.java
+KnotJob/knotjob/rings/BigIntXi.java
+KnotJob/knotjob/rings/BigRat.java
+KnotJob/knotjob/rings/BigTrans.java
+KnotJob/knotjob/rings/Coeff.java
+KnotJob/knotjob/rings/DoubleMatrix.java
+KnotJob/knotjob/rings/DoubleSymMatrix.java
+KnotJob/knotjob/rings/DoubleVector.java
+KnotJob/knotjob/rings/LocalP.java
+KnotJob/knotjob/rings/Matrix.java
+KnotJob/knotjob/rings/ModN.java
+KnotJob/knotjob/rings/ModNH.java
+KnotJob/knotjob/rings/ModNXi.java
+KnotJob/knotjob/rings/PolFunc.java
+KnotJob/knotjob/rings/Polynomial.java
+KnotJob/knotjob/rings/QuadExt.java
+KnotJob/knotjob/rings/RatFunc.java
+KnotJob/knotjob/rings/Ring.java
+KnotJob/knotjob/rings/SymMatrix.java
+KnotJob/knotjob/rings/Vector.java
+KnotJob/knotjob/stabletype/CatFiller.java
+KnotJob/knotjob/stabletype/EvenCatFiller.java
+KnotJob/knotjob/stabletype/FlowEdge.java
+KnotJob/knotjob/stabletype/FlowGenerator.java
+KnotJob/knotjob/stabletype/FlowVertex.java
+KnotJob/knotjob/stabletype/GraphStructure.java
+KnotJob/knotjob/stabletype/ModOne.java
+KnotJob/knotjob/stabletype/OddCatFiller.java
+KnotJob/knotjob/stabletype/OneFlowCategory.java
+KnotJob/knotjob/stabletype/StableEvenCalculator.java
+KnotJob/knotjob/stabletype/StableEvenInvariant.java
+KnotJob/knotjob/stabletype/StableOddCalculator.java
+KnotJob/knotjob/stabletype/StableOddInvariant.java
+KnotJob/knotjob_med.png
+=== JAVA ===
+openjdk version "23.0.2" 2025-01-21
+OpenJDK Runtime Environment Temurin-23.0.2+7 (build 23.0.2+7)
+OpenJDK 64-Bit Server VM Temurin-23.0.2+7 (build 23.0.2+7, mixed mode, sharing)
+=== JARS ===
+/tmp/knotjob/KnotJob/KnotJob.jar
