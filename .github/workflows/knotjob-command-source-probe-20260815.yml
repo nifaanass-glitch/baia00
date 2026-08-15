@@ -1,0 +1,42 @@
+name: KnotJob command source probe 20260815
+
+on:
+  push:
+    paths:
+      - '.github/workflows/knotjob-command-source-probe-20260815.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and extract command parser
+        run: |
+          set -o pipefail
+          mkdir -p results/knotjob-command-source-probe-20260815 /tmp/knotjob
+          curl -fL --retry 3 'https://www.maths.dur.ac.uk/users/dirk.schuetz/KnotJob.zip' -o /tmp/KnotJob.zip
+          unzip -q /tmp/KnotJob.zip -d /tmp/knotjob
+          src=/tmp/knotjob/KnotJob/knotjob/KnotJobCommand.java
+          {
+            echo '=== MAIN ARGUMENT PARSER ==='
+            nl -ba "$src" | sed -n '1,220p'
+            echo '=== CALCULATE ==='
+            nl -ba "$src" | sed -n '220,520p'
+            echo '=== REMAINDER ==='
+            nl -ba "$src" | sed -n '520,900p'
+          } > results/knotjob-command-source-probe-20260815/KnotJobCommand-numbered.txt
+          cp /tmp/knotjob/KnotJob/README.TXT results/knotjob-command-source-probe-20260815/README.TXT
+      - name: Commit probe
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase || true
+          git add results/knotjob-command-source-probe-20260815
+          git commit -m 'Store KnotJob command parser probe 20260815' || exit 0
+          git push
