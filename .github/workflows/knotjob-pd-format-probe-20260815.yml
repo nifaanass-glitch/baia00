@@ -1,0 +1,53 @@
+name: KnotJob PD format probe 20260815
+
+on:
+  push:
+    paths:
+      - '.github/workflows/knotjob-pd-format-probe-20260815.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '23'
+      - name: Inspect parser and test PD formats
+        run: |
+          set -o pipefail
+          mkdir -p results/knotjob-pd-format-probe-20260815 /tmp/knotjob
+          curl -fL --retry 3 'https://www.maths.dur.ac.uk/users/dirk.schuetz/KnotJob.zip' -o /tmp/KnotJob.zip
+          unzip -q /tmp/KnotJob.zip -d /tmp/knotjob
+          src=/tmp/knotjob/KnotJob/knotjob/links/LinkCreator.java
+          start=$(grep -n 'enterPDCode' "$src" | head -n1 | cut -d: -f1)
+          lo=$((start-20)); [ "$lo" -lt 1 ] && lo=1
+          hi=$((start+180))
+          nl -ba "$src" | sed -n "${lo},${hi}p" > results/knotjob-pd-format-probe-20260815/LinkCreator-enterPDCode.txt
+          jar=/tmp/knotjob/KnotJob/KnotJob.jar
+          formats=(
+            '[[1,5,2,4],[5,3,0,2],[3,1,4,0]]'
+            'PD[[1,5,2,4],[5,3,0,2],[3,1,4,0]]'
+            'PD[X[1,5,2,4],X[5,3,0,2],X[3,1,4,0]]'
+            '1,5,2,4;5,3,0,2;3,1,4,0'
+          )
+          i=0
+          for fmt in "${formats[@]}"; do
+            i=$((i+1))
+            printf '%s\n\n' "$fmt" | timeout 30s java -jar "$jar" -s0 -scr -nf > "results/knotjob-pd-format-probe-20260815/format-${i}.txt" 2>&1 || true
+          done
+      - name: Commit probe
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase || true
+          git add results/knotjob-pd-format-probe-20260815
+          git commit -m 'Store KnotJob PD format probe 20260815' || exit 0
+          git push
