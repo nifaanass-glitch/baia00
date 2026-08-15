@@ -1,0 +1,1 @@
+S3 mp2_bp1 1 [{'slope': (1, 0), 'methods': ['filled_is_3sphere'], 'intersection_with_longitude': 1}, {'slope': (-1, 0), 'methods': ['filled_is_3sphere'], 'intersection_with_longitude': 1}]
