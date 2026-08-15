@@ -41,7 +41,7 @@ jobs:
           }
           expected={'positive_trefoil':2,'negative_trefoil':-2,'figure_eight':0}
           candidates=json.load(open('research/cork_2r_small_candidates_20260809.json'))
-          output={'schema':'cork-small-rasmussen-all-primes-v2','primes':primes,'expected_controls':expected,'controls':{},'candidates':{}}
+          output={'schema':'cork-small-rasmussen-all-primes-v3','primes':primes,'expected_controls':expected,'controls':{},'candidates':{}}
           path='results/cork-small-rasmussen-all-primes-20260815/result.json'
 
           def extract_s(result):
@@ -100,12 +100,25 @@ jobs:
           PY
           set -o pipefail
           timeout --signal=TERM --kill-after=30s 340m python /tmp/run_all_primes.py 2>&1 | tee results/cork-small-rasmussen-all-primes-20260815/run.log
-      - name: Commit result
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cork-small-rasmussen-all-primes-20260815
+          path: results/cork-small-rasmussen-all-primes-20260815
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Commit result without concurrent-workflow conflict
         if: always()
         run: |
+          tmp=$(mktemp -d)
+          cp -R results/cork-small-rasmussen-all-primes-20260815 "$tmp/"
+          git fetch origin main
+          git reset --hard origin/main
+          rm -rf results/cork-small-rasmussen-all-primes-20260815
+          mkdir -p results
+          cp -R "$tmp/cork-small-rasmussen-all-primes-20260815" results/
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git pull --rebase || true
-          git add results/cork-small-rasmussen-all-primes-20260815
+          git add -f results/cork-small-rasmussen-all-primes-20260815
           git commit -m 'Store all-prime Rasmussen audit of small cocores 20260815' || exit 0
           git push
