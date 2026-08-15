@@ -1,0 +1,51 @@
+CALIBRATION 2 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 3 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 5 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 7 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 11 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 13 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 17 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 19 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 23 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 29 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 31 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 37 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 41 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 43 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 47 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 53 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 59 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 61 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 67 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 71 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 73 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 79 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 83 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 89 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 97 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 101 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 103 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 107 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 109 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 113 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 127 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 131 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 137 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 139 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 149 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 151 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 157 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 163 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 167 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 173 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 179 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 181 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 191 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 193 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 197 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 199 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+CALIBRATION 211 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
+Traceback (most recent call last):
+  File "/tmp/run_all_primes.py", line 49, in <module>
+    raise RuntimeError('calibration failed')
+RuntimeError: calibration failed
