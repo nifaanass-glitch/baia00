@@ -1,0 +1,133 @@
+name: Cork small cocore Rasmussen field spectrum 20260815
+
+on:
+  push:
+    paths:
+      - '.github/workflows/cork-small-rasmussen-field-spectrum-20260815.yml'
+      - 'research/cork_2r_small_candidates_20260809.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rasmussen-spectrum:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'py==1.11.0' 'khoca==1.5'
+      - name: Compute calibrated Rasmussen invariants over several fields
+        env:
+          OMP_NUM_THREADS: '4'
+          OPENBLAS_NUM_THREADS: '1'
+          PYTHONUNBUFFERED: '1'
+        run: |
+          mkdir -p results/cork-small-rasmussen-field-spectrum-20260815
+          cat > /tmp/run_field_spectrum.py <<'PY'
+          import json,time,traceback
+          from khoca import InteractiveCalculator
+
+          fields=[2,3,5,7,11]
+          controls={
+            'positive_trefoil': [[1,5,2,4],[5,3,0,2],[3,1,4,0]],
+            'negative_trefoil': [[1,4,2,5],[5,2,0,3],[3,0,4,1]],
+            'figure_eight': [[3,7,4,6],[1,4,2,5],[7,3,0,2],[5,0,6,1]],
+          }
+          expected={'positive_trefoil':2,'negative_trefoil':-2,'figure_eight':0}
+          candidates=json.load(open('research/cork_2r_small_candidates_20260809.json'))
+          output={
+            'schema':'cork-small-rasmussen-field-spectrum-v1',
+            'fields':fields,
+            'expected_controls':expected,
+            'controls':{},
+            'candidates':{},
+          }
+          path='results/cork-small-rasmussen-field-spectrum-20260815/result.json'
+
+          def extract_s(result):
+              active=[]
+              for t,q,torsion,coefficient in result[1]:
+                  c=int(coefficient)
+                  if c:
+                      active.extend([int(q)]*abs(c))
+              active.sort()
+              if len(active)!=2 or active[1]-active[0]!=2:
+                  return {'ok':False,'active_q':active,'reason':'unexpected Lee E_infinity shape'}
+              return {'ok':True,'active_q':active,'s':(active[0]+active[1])//2}
+
+          def compute(pd,p):
+              start=time.time()
+              calc=InteractiveCalculator(p,(0,-1),0)
+              result,messages=calc(pd,print_messages=True,progress=True)
+              return {
+                'elapsed_seconds':time.time()-start,
+                'extracted':extract_s(result),
+                'result':result,
+                'messages':messages,
+              }
+
+          calibration_pass=True
+          for p in fields:
+              pkey=str(p)
+              output['controls'][pkey]={}
+              for name,pd in controls.items():
+                  try:
+                      output['controls'][pkey][name]=compute(pd,p)
+                  except BaseException as exc:
+                      output['controls'][pkey][name]={'error':repr(exc),'traceback':traceback.format_exc()}
+                  json.dump(output,open(path,'w'),indent=2,sort_keys=True)
+                  print('CONTROL',p,name,json.dumps(output['controls'][pkey][name].get('extracted'),sort_keys=True),flush=True)
+              observed={k:v.get('extracted',{}).get('s') for k,v in output['controls'][pkey].items()}
+              output['controls'][pkey]['observed']=observed
+              output['controls'][pkey]['calibration_pass']=observed==expected
+              calibration_pass &= observed==expected
+              json.dump(output,open(path,'w'),indent=2,sort_keys=True)
+          output['calibration_pass']=calibration_pass
+          if not calibration_pass:
+              json.dump(output,open(path,'w'),indent=2,sort_keys=True)
+              raise RuntimeError('one or more field calibrations failed')
+
+          order=sorted(candidates,key=lambda k:(candidates[k]['crossings'],k))
+          for name in order:
+              rec=candidates[name]
+              item={
+                'crossings':rec['crossings'],
+                'dt':rec['dt'],
+                'hfk_summary':rec['hfk_summary'],
+                'm':rec['m'],'eps':rec['eps'],'keep':rec['keep'],'slope':rec['slope'],
+                'fields':{},
+              }
+              for p in fields:
+                  try:
+                      item['fields'][str(p)]=compute(rec['pd'],p)
+                  except BaseException as exc:
+                      item['fields'][str(p)]={'error':repr(exc),'traceback':traceback.format_exc()}
+                  json.dump(output,open(path,'w'),indent=2,sort_keys=True)
+                  print('CANDIDATE',name,p,json.dumps(item['fields'][str(p)].get('extracted'),sort_keys=True),flush=True)
+              spectrum={p:item['fields'][str(p)].get('extracted',{}).get('s') for p in fields}
+              item['spectrum']=spectrum
+              item['terminal_nonzero_fields']=[p for p,s in spectrum.items() if s not in (None,0)]
+              output['candidates'][name]=item
+              output['terminal_hits']=[
+                {'candidate':k,'fields':v.get('terminal_nonzero_fields',[]),'spectrum':v.get('spectrum',{})}
+                for k,v in output['candidates'].items() if v.get('terminal_nonzero_fields')
+              ]
+              json.dump(output,open(path,'w'),indent=2,sort_keys=True)
+          PY
+          set -o pipefail
+          timeout --signal=TERM --kill-after=30s 340m python /tmp/run_field_spectrum.py 2>&1 | tee results/cork-small-rasmussen-field-spectrum-20260815/run.log
+      - name: Commit result
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase || true
+          git add results/cork-small-rasmussen-field-spectrum-20260815
+          git commit -m 'Store cork small cocore Rasmussen field spectrum 20260815' || exit 0
+          git push
