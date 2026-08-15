@@ -1,51 +1,235 @@
-CALIBRATION 2 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 3 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 5 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 7 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 11 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 13 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 17 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 19 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 23 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 29 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 31 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 37 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 41 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 43 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 47 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 53 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 59 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 61 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 67 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 71 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 73 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 79 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 83 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 89 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 97 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 101 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 103 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 107 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 109 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 113 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 127 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 131 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 137 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 139 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 149 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 151 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 157 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 163 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 167 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 173 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 179 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 181 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 191 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 193 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 197 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 199 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-CALIBRATION 211 {'positive_trefoil': None, 'negative_trefoil': None, 'figure_eight': None} False
-Traceback (most recent call last):
-  File "/tmp/run_all_primes.py", line 49, in <module>
-    raise RuntimeError('calibration failed')
-RuntimeError: calibration failed
+CALIBRATION 2 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 3 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 5 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 7 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 11 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 13 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 17 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 19 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 23 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 29 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 31 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 37 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 41 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 43 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 47 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 53 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 59 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 61 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 67 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 71 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 73 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 79 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 83 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 89 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 97 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 101 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 103 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 107 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 109 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 113 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 127 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 131 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 137 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 139 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 149 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 151 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 157 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 163 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 167 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 173 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 179 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 181 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 191 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 193 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 197 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 199 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CALIBRATION 211 {'positive_trefoil': 2, 'negative_trefoil': -2, 'figure_eight': 0} True
+CANDIDATE m1_e1_k1 2 0
+CANDIDATE m1_e1_k1 3 0
+CANDIDATE m1_e1_k1 5 0
+CANDIDATE m1_e1_k1 7 0
+CANDIDATE m1_e1_k1 11 0
+CANDIDATE m1_e1_k1 13 0
+CANDIDATE m1_e1_k1 17 0
+CANDIDATE m1_e1_k1 19 0
+CANDIDATE m1_e1_k1 23 0
+CANDIDATE m1_e1_k1 29 0
+CANDIDATE m1_e1_k1 31 0
+CANDIDATE m1_e1_k1 37 0
+CANDIDATE m1_e1_k1 41 0
+CANDIDATE m1_e1_k1 43 0
+CANDIDATE m1_e1_k1 47 0
+CANDIDATE m1_e1_k1 53 0
+CANDIDATE m1_e1_k1 59 0
+CANDIDATE m1_e1_k1 61 0
+CANDIDATE m1_e1_k1 67 0
+CANDIDATE m1_e1_k1 71 0
+CANDIDATE m1_e1_k1 73 0
+CANDIDATE m1_e1_k1 79 0
+CANDIDATE m1_e1_k1 83 0
+CANDIDATE m1_e1_k1 89 0
+CANDIDATE m1_e1_k1 97 0
+CANDIDATE m1_e1_k1 101 0
+CANDIDATE m1_e1_k1 103 0
+CANDIDATE m1_e1_k1 107 0
+CANDIDATE m1_e1_k1 109 0
+CANDIDATE m1_e1_k1 113 0
+CANDIDATE m1_e1_k1 127 0
+CANDIDATE m1_e1_k1 131 0
+CANDIDATE m1_e1_k1 137 0
+CANDIDATE m1_e1_k1 139 0
+CANDIDATE m1_e1_k1 149 0
+CANDIDATE m1_e1_k1 151 0
+CANDIDATE m1_e1_k1 157 0
+CANDIDATE m1_e1_k1 163 0
+CANDIDATE m1_e1_k1 167 0
+CANDIDATE m1_e1_k1 173 0
+CANDIDATE m1_e1_k1 179 0
+CANDIDATE m1_e1_k1 181 0
+CANDIDATE m1_e1_k1 191 0
+CANDIDATE m1_e1_k1 193 0
+CANDIDATE m1_e1_k1 197 0
+CANDIDATE m1_e1_k1 199 0
+CANDIDATE m1_e1_k1 211 0
+CANDIDATE m1_e1_k2 2 0
+CANDIDATE m1_e1_k2 3 0
+CANDIDATE m1_e1_k2 5 0
+CANDIDATE m1_e1_k2 7 0
+CANDIDATE m1_e1_k2 11 0
+CANDIDATE m1_e1_k2 13 0
+CANDIDATE m1_e1_k2 17 0
+CANDIDATE m1_e1_k2 19 0
+CANDIDATE m1_e1_k2 23 0
+CANDIDATE m1_e1_k2 29 0
+CANDIDATE m1_e1_k2 31 0
+CANDIDATE m1_e1_k2 37 0
+CANDIDATE m1_e1_k2 41 0
+CANDIDATE m1_e1_k2 43 0
+CANDIDATE m1_e1_k2 47 0
+CANDIDATE m1_e1_k2 53 0
+CANDIDATE m1_e1_k2 59 0
+CANDIDATE m1_e1_k2 61 0
+CANDIDATE m1_e1_k2 67 0
+CANDIDATE m1_e1_k2 71 0
+CANDIDATE m1_e1_k2 73 0
+CANDIDATE m1_e1_k2 79 0
+CANDIDATE m1_e1_k2 83 0
+CANDIDATE m1_e1_k2 89 0
+CANDIDATE m1_e1_k2 97 0
+CANDIDATE m1_e1_k2 101 0
+CANDIDATE m1_e1_k2 103 0
+CANDIDATE m1_e1_k2 107 0
+CANDIDATE m1_e1_k2 109 0
+CANDIDATE m1_e1_k2 113 0
+CANDIDATE m1_e1_k2 127 0
+CANDIDATE m1_e1_k2 131 0
+CANDIDATE m1_e1_k2 137 0
+CANDIDATE m1_e1_k2 139 0
+CANDIDATE m1_e1_k2 149 0
+CANDIDATE m1_e1_k2 151 0
+CANDIDATE m1_e1_k2 157 0
+CANDIDATE m1_e1_k2 163 0
+CANDIDATE m1_e1_k2 167 0
+CANDIDATE m1_e1_k2 173 0
+CANDIDATE m1_e1_k2 179 0
+CANDIDATE m1_e1_k2 181 0
+CANDIDATE m1_e1_k2 191 0
+CANDIDATE m1_e1_k2 193 0
+CANDIDATE m1_e1_k2 197 0
+CANDIDATE m1_e1_k2 199 0
+CANDIDATE m1_e1_k2 211 0
+CANDIDATE m1_e-1_k1 2 0
+CANDIDATE m1_e-1_k1 3 0
+CANDIDATE m1_e-1_k1 5 0
+CANDIDATE m1_e-1_k1 7 0
+CANDIDATE m1_e-1_k1 11 0
+CANDIDATE m1_e-1_k1 13 0
+CANDIDATE m1_e-1_k1 17 0
+CANDIDATE m1_e-1_k1 19 0
+CANDIDATE m1_e-1_k1 23 0
+CANDIDATE m1_e-1_k1 29 0
+CANDIDATE m1_e-1_k1 31 0
+CANDIDATE m1_e-1_k1 37 0
+CANDIDATE m1_e-1_k1 41 0
+CANDIDATE m1_e-1_k1 43 0
+CANDIDATE m1_e-1_k1 47 0
+CANDIDATE m1_e-1_k1 53 0
+CANDIDATE m1_e-1_k1 59 0
+CANDIDATE m1_e-1_k1 61 0
+CANDIDATE m1_e-1_k1 67 0
+CANDIDATE m1_e-1_k1 71 0
+CANDIDATE m1_e-1_k1 73 0
+CANDIDATE m1_e-1_k1 79 0
+CANDIDATE m1_e-1_k1 83 0
+CANDIDATE m1_e-1_k1 89 0
+CANDIDATE m1_e-1_k1 97 0
+CANDIDATE m1_e-1_k1 101 0
+CANDIDATE m1_e-1_k1 103 0
+CANDIDATE m1_e-1_k1 107 0
+CANDIDATE m1_e-1_k1 109 0
+CANDIDATE m1_e-1_k1 113 0
+CANDIDATE m1_e-1_k1 127 0
+CANDIDATE m1_e-1_k1 131 0
+CANDIDATE m1_e-1_k1 137 0
+CANDIDATE m1_e-1_k1 139 0
+CANDIDATE m1_e-1_k1 149 0
+CANDIDATE m1_e-1_k1 151 0
+CANDIDATE m1_e-1_k1 157 0
+CANDIDATE m1_e-1_k1 163 0
+CANDIDATE m1_e-1_k1 167 0
+CANDIDATE m1_e-1_k1 173 0
+CANDIDATE m1_e-1_k1 179 0
+CANDIDATE m1_e-1_k1 181 0
+CANDIDATE m1_e-1_k1 191 0
+CANDIDATE m1_e-1_k1 193 0
+CANDIDATE m1_e-1_k1 197 0
+CANDIDATE m1_e-1_k1 199 0
+CANDIDATE m1_e-1_k1 211 0
+CANDIDATE m1_e-1_k2 2 0
+CANDIDATE m1_e-1_k2 3 0
+CANDIDATE m1_e-1_k2 5 0
+CANDIDATE m1_e-1_k2 7 0
+CANDIDATE m1_e-1_k2 11 0
+CANDIDATE m1_e-1_k2 13 0
+CANDIDATE m1_e-1_k2 17 0
+CANDIDATE m1_e-1_k2 19 0
+CANDIDATE m1_e-1_k2 23 0
+CANDIDATE m1_e-1_k2 29 0
+CANDIDATE m1_e-1_k2 31 0
+CANDIDATE m1_e-1_k2 37 0
+CANDIDATE m1_e-1_k2 41 0
+CANDIDATE m1_e-1_k2 43 0
+CANDIDATE m1_e-1_k2 47 0
+CANDIDATE m1_e-1_k2 53 0
+CANDIDATE m1_e-1_k2 59 0
+CANDIDATE m1_e-1_k2 61 0
+CANDIDATE m1_e-1_k2 67 0
+CANDIDATE m1_e-1_k2 71 0
+CANDIDATE m1_e-1_k2 73 0
+CANDIDATE m1_e-1_k2 79 0
+CANDIDATE m1_e-1_k2 83 0
+CANDIDATE m1_e-1_k2 89 0
+CANDIDATE m1_e-1_k2 97 0
+CANDIDATE m1_e-1_k2 101 0
+CANDIDATE m1_e-1_k2 103 0
+CANDIDATE m1_e-1_k2 107 0
+CANDIDATE m1_e-1_k2 109 0
+CANDIDATE m1_e-1_k2 113 0
+CANDIDATE m1_e-1_k2 127 0
+CANDIDATE m1_e-1_k2 131 0
+CANDIDATE m1_e-1_k2 137 0
+CANDIDATE m1_e-1_k2 139 0
+CANDIDATE m1_e-1_k2 149 0
+CANDIDATE m1_e-1_k2 151 0
+CANDIDATE m1_e-1_k2 157 0
+CANDIDATE m1_e-1_k2 163 0
+CANDIDATE m1_e-1_k2 167 0
+CANDIDATE m1_e-1_k2 173 0
+CANDIDATE m1_e-1_k2 179 0
+CANDIDATE m1_e-1_k2 181 0
+CANDIDATE m1_e-1_k2 191 0
+CANDIDATE m1_e-1_k2 193 0
+CANDIDATE m1_e-1_k2 197 0
+CANDIDATE m1_e-1_k2 199 0
+CANDIDATE m1_e-1_k2 211 0

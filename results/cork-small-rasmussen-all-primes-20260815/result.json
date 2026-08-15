@@ -1,945 +1,2345 @@
 {
-  "calibration_pass": false,
-  "candidates": {},
+  "calibration_pass": true,
+  "candidates": {
+    "m1_e-1_k1": {
+      "crossings": 32,
+      "dt": "[(36, 34, 10, 12, 30, 6, -32, 58, 26, -50, 24, 52, -62, -40, 42, 8, -56, 2, 64, 16, -60, -14, 38, -54, -20, -48, 22, 4, -44, -28, 18, -46)]",
+      "errors": {},
+      "spectrum": {
+        "101": 0,
+        "103": 0,
+        "107": 0,
+        "109": 0,
+        "11": 0,
+        "113": 0,
+        "127": 0,
+        "13": 0,
+        "131": 0,
+        "137": 0,
+        "139": 0,
+        "149": 0,
+        "151": 0,
+        "157": 0,
+        "163": 0,
+        "167": 0,
+        "17": 0,
+        "173": 0,
+        "179": 0,
+        "181": 0,
+        "19": 0,
+        "191": 0,
+        "193": 0,
+        "197": 0,
+        "199": 0,
+        "2": 0,
+        "211": 0,
+        "23": 0,
+        "29": 0,
+        "3": 0,
+        "31": 0,
+        "37": 0,
+        "41": 0,
+        "43": 0,
+        "47": 0,
+        "5": 0,
+        "53": 0,
+        "59": 0,
+        "61": 0,
+        "67": 0,
+        "7": 0,
+        "71": 0,
+        "73": 0,
+        "79": 0,
+        "83": 0,
+        "89": 0,
+        "97": 0
+      },
+      "timing": {
+        "101": 4.876193046569824,
+        "103": 4.5398149490356445,
+        "107": 4.48012638092041,
+        "109": 4.695331335067749,
+        "11": 4.600101470947266,
+        "113": 4.700032949447632,
+        "127": 4.735016822814941,
+        "13": 4.959964036941528,
+        "131": 4.82358193397522,
+        "137": 4.568860292434692,
+        "139": 4.774111270904541,
+        "149": 4.683021068572998,
+        "151": 4.626068115234375,
+        "157": 4.652177810668945,
+        "163": 4.834795236587524,
+        "167": 4.812729120254517,
+        "17": 4.938978433609009,
+        "173": 4.823418378829956,
+        "179": 4.744494915008545,
+        "181": 4.804360628128052,
+        "19": 4.656398296356201,
+        "191": 4.825371503829956,
+        "193": 4.952740907669067,
+        "197": 5.00121545791626,
+        "199": 4.8091957569122314,
+        "2": 4.557889938354492,
+        "211": 4.429891586303711,
+        "23": 4.565328359603882,
+        "29": 4.557550668716431,
+        "3": 4.488577365875244,
+        "31": 4.739977598190308,
+        "37": 4.924172878265381,
+        "41": 4.664843320846558,
+        "43": 4.674935817718506,
+        "47": 4.784911870956421,
+        "5": 4.804354906082153,
+        "53": 4.770100831985474,
+        "59": 4.603222846984863,
+        "61": 4.763517141342163,
+        "67": 4.527862787246704,
+        "7": 4.686851501464844,
+        "71": 4.634925127029419,
+        "73": 4.473081111907959,
+        "79": 4.537742376327515,
+        "83": 4.729004144668579,
+        "89": 4.515457630157471,
+        "97": 4.505032062530518
+      }
+    },
+    "m1_e-1_k2": {
+      "crossings": 32,
+      "dt": "[(58, 48, 54, -14, 44, -6, 52, -10, 36, 34, 32, -40, 60, -64, -26, 22, 20, 18, 42, -16, 30, 38, 8, -56, 2, -46, 12, 4, -50, 62, 24, -28)]",
+      "errors": {},
+      "spectrum": {
+        "101": 0,
+        "103": 0,
+        "107": 0,
+        "109": 0,
+        "11": 0,
+        "113": 0,
+        "127": 0,
+        "13": 0,
+        "131": 0,
+        "137": 0,
+        "139": 0,
+        "149": 0,
+        "151": 0,
+        "157": 0,
+        "163": 0,
+        "167": 0,
+        "17": 0,
+        "173": 0,
+        "179": 0,
+        "181": 0,
+        "19": 0,
+        "191": 0,
+        "193": 0,
+        "197": 0,
+        "199": 0,
+        "2": 0,
+        "211": 0,
+        "23": 0,
+        "29": 0,
+        "3": 0,
+        "31": 0,
+        "37": 0,
+        "41": 0,
+        "43": 0,
+        "47": 0,
+        "5": 0,
+        "53": 0,
+        "59": 0,
+        "61": 0,
+        "67": 0,
+        "7": 0,
+        "71": 0,
+        "73": 0,
+        "79": 0,
+        "83": 0,
+        "89": 0,
+        "97": 0
+      },
+      "timing": {
+        "101": 1.5665874481201172,
+        "103": 1.5690217018127441,
+        "107": 1.5817856788635254,
+        "109": 1.552180528640747,
+        "11": 1.6429014205932617,
+        "113": 1.5333614349365234,
+        "127": 1.6377918720245361,
+        "13": 1.6135687828063965,
+        "131": 1.5853557586669922,
+        "137": 1.6283833980560303,
+        "139": 1.6175792217254639,
+        "149": 1.565140724182129,
+        "151": 1.6430139541625977,
+        "157": 1.5763781070709229,
+        "163": 1.6300814151763916,
+        "167": 1.578169584274292,
+        "17": 1.618473768234253,
+        "173": 1.5348658561706543,
+        "179": 1.546875238418579,
+        "181": 1.6220686435699463,
+        "19": 1.6335930824279785,
+        "191": 1.5655291080474854,
+        "193": 1.6256859302520752,
+        "197": 1.6118354797363281,
+        "199": 1.5562644004821777,
+        "2": 1.8638293743133545,
+        "211": 1.592444658279419,
+        "23": 1.585942029953003,
+        "29": 1.5917754173278809,
+        "3": 1.5653176307678223,
+        "31": 1.6084575653076172,
+        "37": 1.574897050857544,
+        "41": 1.6259875297546387,
+        "43": 1.568157434463501,
+        "47": 1.5924043655395508,
+        "5": 1.6543922424316406,
+        "53": 1.625321626663208,
+        "59": 1.6347196102142334,
+        "61": 1.6274328231811523,
+        "67": 1.6283488273620605,
+        "7": 1.6239473819732666,
+        "71": 1.5709881782531738,
+        "73": 1.5885436534881592,
+        "79": 1.6265113353729248,
+        "83": 1.5367484092712402,
+        "89": 1.5741384029388428,
+        "97": 1.5740246772766113
+      }
+    },
+    "m1_e1_k1": {
+      "crossings": 25,
+      "dt": "[(24, -42, 48, -50, 16, -36, 40, 38, -26, 6, 30, -32, 8, -4, -46, 44, 2, -12, -10, 14, 34, 22, -20, -28, 18)]",
+      "errors": {},
+      "spectrum": {
+        "101": 0,
+        "103": 0,
+        "107": 0,
+        "109": 0,
+        "11": 0,
+        "113": 0,
+        "127": 0,
+        "13": 0,
+        "131": 0,
+        "137": 0,
+        "139": 0,
+        "149": 0,
+        "151": 0,
+        "157": 0,
+        "163": 0,
+        "167": 0,
+        "17": 0,
+        "173": 0,
+        "179": 0,
+        "181": 0,
+        "19": 0,
+        "191": 0,
+        "193": 0,
+        "197": 0,
+        "199": 0,
+        "2": 0,
+        "211": 0,
+        "23": 0,
+        "29": 0,
+        "3": 0,
+        "31": 0,
+        "37": 0,
+        "41": 0,
+        "43": 0,
+        "47": 0,
+        "5": 0,
+        "53": 0,
+        "59": 0,
+        "61": 0,
+        "67": 0,
+        "7": 0,
+        "71": 0,
+        "73": 0,
+        "79": 0,
+        "83": 0,
+        "89": 0,
+        "97": 0
+      },
+      "timing": {
+        "101": 1.377936601638794,
+        "103": 1.3217127323150635,
+        "107": 1.4223670959472656,
+        "109": 1.4688501358032227,
+        "11": 1.4815924167633057,
+        "113": 1.2466819286346436,
+        "127": 1.334047794342041,
+        "13": 1.4133977890014648,
+        "131": 1.2431526184082031,
+        "137": 1.2962214946746826,
+        "139": 1.5361402034759521,
+        "149": 1.2792954444885254,
+        "151": 1.5343961715698242,
+        "157": 1.3753232955932617,
+        "163": 1.5866734981536865,
+        "167": 1.396127462387085,
+        "17": 1.2756929397583008,
+        "173": 1.5614936351776123,
+        "179": 1.2965452671051025,
+        "181": 1.531869888305664,
+        "19": 1.5278351306915283,
+        "191": 1.5799455642700195,
+        "193": 1.3004157543182373,
+        "197": 1.504422903060913,
+        "199": 1.4237160682678223,
+        "2": 1.2327580451965332,
+        "211": 1.3090777397155762,
+        "23": 1.289048671722412,
+        "29": 1.3855280876159668,
+        "3": 1.2387843132019043,
+        "31": 1.2030296325683594,
+        "37": 1.5140941143035889,
+        "41": 1.2583765983581543,
+        "43": 1.515758991241455,
+        "47": 1.502284049987793,
+        "5": 1.2477946281433105,
+        "53": 1.2229154109954834,
+        "59": 1.2310841083526611,
+        "61": 1.5586950778961182,
+        "67": 1.3748259544372559,
+        "7": 1.4378118515014648,
+        "71": 1.52010178565979,
+        "73": 1.2785322666168213,
+        "79": 1.447220802307129,
+        "83": 1.5812058448791504,
+        "89": 1.31618070602417,
+        "97": 1.2341220378875732
+      }
+    },
+    "m1_e1_k2": {
+      "crossings": 25,
+      "dt": "[(24, 32, -16, -40, 28, 18, -34, -4, 42, -36, 26, -46, 50, -48, -38, 6, -44, -12, 10, -8, -30, 14, -2, -22, 20)]",
+      "errors": {},
+      "spectrum": {
+        "101": 0,
+        "103": 0,
+        "107": 0,
+        "109": 0,
+        "11": 0,
+        "113": 0,
+        "127": 0,
+        "13": 0,
+        "131": 0,
+        "137": 0,
+        "139": 0,
+        "149": 0,
+        "151": 0,
+        "157": 0,
+        "163": 0,
+        "167": 0,
+        "17": 0,
+        "173": 0,
+        "179": 0,
+        "181": 0,
+        "19": 0,
+        "191": 0,
+        "193": 0,
+        "197": 0,
+        "199": 0,
+        "2": 0,
+        "211": 0,
+        "23": 0,
+        "29": 0,
+        "3": 0,
+        "31": 0,
+        "37": 0,
+        "41": 0,
+        "43": 0,
+        "47": 0,
+        "5": 0,
+        "53": 0,
+        "59": 0,
+        "61": 0,
+        "67": 0,
+        "7": 0,
+        "71": 0,
+        "73": 0,
+        "79": 0,
+        "83": 0,
+        "89": 0,
+        "97": 0
+      },
+      "timing": {
+        "101": 0.6812443733215332,
+        "103": 0.6980893611907959,
+        "107": 0.6823804378509521,
+        "109": 0.693187952041626,
+        "11": 0.6835100650787354,
+        "113": 0.6743688583374023,
+        "127": 0.6740577220916748,
+        "13": 0.6646974086761475,
+        "131": 0.6830153465270996,
+        "137": 0.6820883750915527,
+        "139": 0.6908411979675293,
+        "149": 0.678718090057373,
+        "151": 0.6799817085266113,
+        "157": 0.6941521167755127,
+        "163": 0.6890273094177246,
+        "167": 0.6836326122283936,
+        "17": 0.6795883178710938,
+        "173": 0.6860578060150146,
+        "179": 0.6890876293182373,
+        "181": 0.6764037609100342,
+        "19": 0.708402156829834,
+        "191": 0.6750297546386719,
+        "193": 0.685394287109375,
+        "197": 0.6923670768737793,
+        "199": 0.6815395355224609,
+        "2": 0.7656452655792236,
+        "211": 0.6836631298065186,
+        "23": 0.6841750144958496,
+        "29": 0.7099053859710693,
+        "3": 0.6916475296020508,
+        "31": 0.6859185695648193,
+        "37": 0.6782557964324951,
+        "41": 0.6885771751403809,
+        "43": 0.6756331920623779,
+        "47": 0.6915316581726074,
+        "5": 0.6867742538452148,
+        "53": 0.6813192367553711,
+        "59": 0.7010982036590576,
+        "61": 0.7645294666290283,
+        "67": 0.6858906745910645,
+        "7": 0.7002501487731934,
+        "71": 0.7018804550170898,
+        "73": 0.6707913875579834,
+        "79": 0.6781044006347656,
+        "83": 0.6948292255401611,
+        "89": 0.6806659698486328,
+        "97": 0.7101211547851562
+      }
+    }
+  },
   "controls": {
     "101": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.034336090087890625,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02620530128479004,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02711319923400879,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "103": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03487730026245117,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026488304138183594,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.025929927825927734,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "107": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03644537925720215,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026236772537231445,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026842117309570312,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "109": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.035573720932006836,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026947498321533203,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027120590209960938,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "11": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03839516639709473,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026465892791748047,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02705073356628418,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "113": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03533482551574707,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02704453468322754,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027057409286499023,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "127": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.035280704498291016,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.0256197452545166,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026694059371948242,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "13": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.04899144172668457,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03139352798461914,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02664041519165039,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "131": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03517794609069824,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.0263211727142334,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.0262606143951416,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "137": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03517794609069824,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02649402618408203,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026417016983032227,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "139": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03525829315185547,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026278018951416016,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02656102180480957,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "149": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.036083221435546875,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026703357696533203,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02619004249572754,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "151": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03589224815368652,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02907085418701172,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02749156951904297,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "157": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03589963912963867,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02683234214782715,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026233673095703125,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "163": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03523707389831543,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026657819747924805,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027729034423828125,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "167": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03548097610473633,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.031092405319213867,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.028195619583129883,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "17": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03626704216003418,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026598215103149414,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027354001998901367,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "173": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03691411018371582,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02660989761352539,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026705503463745117,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "179": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.04181504249572754,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027692794799804688,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027820587158203125,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "181": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03712892532348633,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02768230438232422,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.029366731643676758,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "19": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.053400278091430664,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027354955673217773,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027460336685180664,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "191": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03661704063415527,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027401447296142578,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026900529861450195,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "193": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03618144989013672,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.029037952423095703,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027216672897338867,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "197": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.04035639762878418,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02726006507873535,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027565479278564453,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "199": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03571772575378418,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026738882064819336,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027799129486083984,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "2": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03519845008850098,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.025595903396606445,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03154134750366211,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "211": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.035683631896972656,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026616334915161133,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.029172182083129883,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "23": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03526616096496582,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.029443979263305664,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03046131134033203,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "29": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.0357975959777832,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027221202850341797,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027391672134399414,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "3": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.040366411209106445,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03306293487548828,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026582956314086914,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "31": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03680086135864258,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027346372604370117,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027666330337524414,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "37": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03517341613769531,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027074337005615234,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027071237564086914,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "41": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.036072731018066406,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026860713958740234,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027922391891479492,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "43": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.036347150802612305,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027306556701660156,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027888059616088867,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "47": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03537178039550781,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027814865112304688,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02673172950744629,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "5": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.035756587982177734,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026567459106445312,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026932477951049805,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "53": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.0369267463684082,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02773451805114746,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027207612991333008,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "59": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03586721420288086,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027161359786987305,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02777719497680664,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "61": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.035924434661865234,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026630163192749023,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03177452087402344,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "67": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.035132646560668945,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026864290237426758,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026706933975219727,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "7": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03513789176940918,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026561260223388672,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027779340744018555,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "71": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03545522689819336,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02645397186279297,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03341078758239746,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "73": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03559303283691406,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02744770050048828,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.026625633239746094,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "79": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03715658187866211,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02626967430114746,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02671027183532715,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "83": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03589010238647461,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027047157287597656,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02733135223388672,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "89": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03638625144958496,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027135372161865234,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02692103385925293,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     },
     "97": {
-      "calibration_pass": false,
+      "calibration_pass": true,
       "figure_eight": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.03573012351989746,
+        "extracted": {
+          "active_q": [
+            -1,
+            1
+          ],
+          "ok": true,
+          "s": 0
+        }
       },
       "negative_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.027263879776000977,
+        "extracted": {
+          "active_q": [
+            -3,
+            -1
+          ],
+          "ok": true,
+          "s": -2
+        }
       },
       "observed": {
-        "figure_eight": null,
-        "negative_trefoil": null,
-        "positive_trefoil": null
+        "figure_eight": 0,
+        "negative_trefoil": -2,
+        "positive_trefoil": 2
       },
       "positive_trefoil": {
-        "error": "IndexError('list index out of range')",
-        "traceback": "Traceback (most recent call last):\n  File \"/tmp/run_all_primes.py\", line 36, in <module>\n    try: rec=compute(pd,p)\n             ~~~~~~~^^^^^^\n  File \"/tmp/run_all_primes.py\", line 29, in compute\n    return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}\n                                                            ~~~~~~~~~^^^^^^^^\n  File \"/tmp/run_all_primes.py\", line 17, in extract_s\n    for t,q,torsion,coefficient in result[1]:\n                                   ~~~~~~^^^\nIndexError: list index out of range\n"
+        "elapsed_seconds": 0.02684783935546875,
+        "extracted": {
+          "active_q": [
+            1,
+            3
+          ],
+          "ok": true,
+          "s": 2
+        }
       }
     }
   },
@@ -997,5 +2397,6 @@
     199,
     211
   ],
-  "schema": "cork-small-rasmussen-all-primes-v1"
+  "schema": "cork-small-rasmussen-all-primes-v3",
+  "terminal_hits": []
 }
