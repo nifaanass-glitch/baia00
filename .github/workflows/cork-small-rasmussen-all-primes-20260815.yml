@@ -1,0 +1,111 @@
+name: Cork small cocore all-prime Rasmussen audit 20260815
+
+on:
+  push:
+    paths:
+      - '.github/workflows/cork-small-rasmussen-all-primes-20260815.yml'
+      - 'research/cork_2r_small_candidates_20260809.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  all-primes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'py==1.11.0' 'khoca==1.5'
+      - name: Compute calibrated Rasmussen spectrum over every supported prime
+        env:
+          OMP_NUM_THREADS: '4'
+          OPENBLAS_NUM_THREADS: '1'
+          PYTHONUNBUFFERED: '1'
+        run: |
+          mkdir -p results/cork-small-rasmussen-all-primes-20260815
+          cat > /tmp/run_all_primes.py <<'PY'
+          import json,time,traceback
+          from khoca import InteractiveCalculator
+
+          primes=[2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199,211]
+          controls={
+            'positive_trefoil': [[1,5,2,4],[5,3,0,2],[3,1,4,0]],
+            'negative_trefoil': [[1,4,2,5],[5,2,0,3],[3,0,4,1]],
+            'figure_eight': [[3,7,4,6],[1,4,2,5],[7,3,0,2],[5,0,6,1]],
+          }
+          expected={'positive_trefoil':2,'negative_trefoil':-2,'figure_eight':0}
+          candidates=json.load(open('research/cork_2r_small_candidates_20260809.json'))
+          output={'schema':'cork-small-rasmussen-all-primes-v1','primes':primes,'expected_controls':expected,'controls':{},'candidates':{}}
+          path='results/cork-small-rasmussen-all-primes-20260815/result.json'
+
+          def extract_s(result):
+              active=[]
+              for t,q,torsion,coefficient in result[1]:
+                  c=int(coefficient)
+                  if c: active.extend([int(q)]*abs(c))
+              active.sort()
+              if len(active)!=2 or active[1]-active[0]!=2:
+                  return {'ok':False,'active_q':active,'reason':'unexpected Lee E_infinity shape'}
+              return {'ok':True,'active_q':active,'s':(active[0]+active[1])//2}
+
+          def compute(pd,p):
+              start=time.time()
+              calc=InteractiveCalculator(p,(0,-1),0)
+              result,messages=calc(pd,print_messages=False,progress=False)
+              return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}
+
+          all_calibrated=True
+          for p in primes:
+              observed={}
+              output['controls'][str(p)]={}
+              for name,pd in controls.items():
+                  try: rec=compute(pd,p)
+                  except BaseException as exc: rec={'error':repr(exc),'traceback':traceback.format_exc()}
+                  output['controls'][str(p)][name]=rec
+                  observed[name]=rec.get('extracted',{}).get('s')
+              ok=observed==expected
+              output['controls'][str(p)]['observed']=observed
+              output['controls'][str(p)]['calibration_pass']=ok
+              all_calibrated &= ok
+              json.dump(output,open(path,'w'),indent=2,sort_keys=True)
+              print('CALIBRATION',p,observed,ok,flush=True)
+          output['calibration_pass']=all_calibrated
+          if not all_calibrated:
+              json.dump(output,open(path,'w'),indent=2,sort_keys=True)
+              raise RuntimeError('calibration failed')
+
+          for name,rec in sorted(candidates.items(),key=lambda kv:(kv[1]['crossings'],kv[0])):
+              item={'crossings':rec['crossings'],'dt':rec['dt'],'spectrum':{},'errors':{}}
+              for p in primes:
+                  try:
+                      ans=compute(rec['pd'],p)
+                      item['spectrum'][str(p)]=ans['extracted']['s']
+                      item.setdefault('timing',{})[str(p)]=ans['elapsed_seconds']
+                  except BaseException as exc:
+                      item['errors'][str(p)]={'error':repr(exc),'traceback':traceback.format_exc()}
+                  output['candidates'][name]=item
+                  output['terminal_hits']=[
+                    {'candidate':k,'nonzero':{p:s for p,s in v.get('spectrum',{}).items() if s not in (None,0)}}
+                    for k,v in output['candidates'].items()
+                    if any(s not in (None,0) for s in v.get('spectrum',{}).values())
+                  ]
+                  json.dump(output,open(path,'w'),indent=2,sort_keys=True)
+                  print('CANDIDATE',name,p,item['spectrum'].get(str(p)),flush=True)
+          PY
+          set -o pipefail
+          timeout --signal=TERM --kill-after=30s 340m python /tmp/run_all_primes.py 2>&1 | tee results/cork-small-rasmussen-all-primes-20260815/run.log
+      - name: Commit result
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase || true
+          git add results/cork-small-rasmussen-all-primes-20260815
+          git commit -m 'Store all-prime Rasmussen audit of small cocores 20260815' || exit 0
+          git push
