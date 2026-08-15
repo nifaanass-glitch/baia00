@@ -1,0 +1,43 @@
+name: KnotJob LEO source probe 20260815
+
+on:
+  push:
+    paths:
+      - '.github/workflows/knotjob-leo-source-probe-20260815.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Archive LEO calculator sources
+        run: |
+          set -o pipefail
+          mkdir -p results/knotjob-leo-source-probe-20260815 /tmp/knotjob
+          curl -fL --retry 3 'https://www.maths.dur.ac.uk/users/dirk.schuetz/KnotJob.zip' -o /tmp/KnotJob.zip
+          unzip -q /tmp/KnotJob.zip -d /tmp/knotjob
+          root=/tmp/knotjob/KnotJob/knotjob
+          for f in \
+            homology/oddkhov/unified/sinv/CompleteSCalculator.java \
+            homology/oddkhov/unified/sinv/SqOneSumCalculator.java \
+            homology/oddkhov/sinv/SqOneOddCalculator.java \
+            homology/evenkhov/sinv/SqOneCalculator.java \
+            homology/evenkhov/sinv/GradedCalculator.java \
+            links/LinkData.java; do
+            dest=results/knotjob-leo-source-probe-20260815/$(basename "$f")
+            cp "$root/$f" "$dest"
+          done
+      - name: Commit source probe
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase || true
+          git add results/knotjob-leo-source-probe-20260815
+          git commit -m 'Store KnotJob LEO calculator source probe 20260815' || exit 0
+          git push
