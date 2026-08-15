@@ -1,0 +1,91 @@
+{
+  "candidates": {
+    "m1_e-1_k1": {
+      "exception": false,
+      "file": "results/cork-small-leo-terminal-20260815/candidates/m1_e-1_k1.log",
+      "summary_lines": [
+        "S-Invariant mod 0 : 0",
+        "S-Invariant mod 2 : 0",
+        "S-Invariant mod 3 : 0",
+        "Complete reduced LS-Invariant : (0, 0)"
+      ],
+      "tail": "=== CANDIDATE m1_e-1_k1 ===\nKnot\nS-Invariant mod 0 : 0\nS-Invariant mod 2 : 0\nS-Invariant mod 3 : 0\nEven Sq^1 Invariant : (0, 0, 0, 0)\nOdd Sq^1 Invariant : (0, 0)\nSum Sq^1 Invariant : (0, 0, 0, 0)\nComplete reduced LS-Invariant : (0, 0)\nOdd BLS 32768 Invariant : (0, 0)\nGraded s-invariant : 0. 0",
+      "timeout": false
+    },
+    "m1_e-1_k2": {
+      "exception": false,
+      "file": "results/cork-small-leo-terminal-20260815/candidates/m1_e-1_k2.log",
+      "summary_lines": [
+        "S-Invariant mod 0 : 0",
+        "S-Invariant mod 2 : 0",
+        "S-Invariant mod 3 : 0",
+        "Complete reduced LS-Invariant : (0, 0)"
+      ],
+      "tail": "=== CANDIDATE m1_e-1_k2 ===\nKnot\nS-Invariant mod 0 : 0\nS-Invariant mod 2 : 0\nS-Invariant mod 3 : 0\nEven Sq^1 Invariant : (0, 0, 0, 0)\nOdd Sq^1 Invariant : (0, 0)\nSum Sq^1 Invariant : (0, 0, 0, 0)\nComplete reduced LS-Invariant : (0, 0)\nOdd BLS 32768 Invariant : (0, 0)\nGraded s-invariant : 0. 0",
+      "timeout": false
+    },
+    "m1_e1_k1": {
+      "exception": false,
+      "file": "results/cork-small-leo-terminal-20260815/candidates/m1_e1_k1.log",
+      "summary_lines": [
+        "S-Invariant mod 0 : 0",
+        "S-Invariant mod 2 : 0",
+        "S-Invariant mod 3 : 0",
+        "Complete reduced LS-Invariant : (0, 0)"
+      ],
+      "tail": "=== CANDIDATE m1_e1_k1 ===\nKnot\nS-Invariant mod 0 : 0\nS-Invariant mod 2 : 0\nS-Invariant mod 3 : 0\nEven Sq^1 Invariant : (0, 0, 0, 0)\nOdd Sq^1 Invariant : (0, 0)\nSum Sq^1 Invariant : (0, 0, 0, 0)\nComplete reduced LS-Invariant : (0, 0)\nOdd BLS 32768 Invariant : (0, 0)\nGraded s-invariant : 0. 0",
+      "timeout": false
+    },
+    "m1_e1_k2": {
+      "exception": false,
+      "file": "results/cork-small-leo-terminal-20260815/candidates/m1_e1_k2.log",
+      "summary_lines": [
+        "S-Invariant mod 0 : 0",
+        "S-Invariant mod 2 : 0",
+        "S-Invariant mod 3 : 0",
+        "Complete reduced LS-Invariant : (0, 0)"
+      ],
+      "tail": "=== CANDIDATE m1_e1_k2 ===\nKnot\nS-Invariant mod 0 : 0\nS-Invariant mod 2 : 0\nS-Invariant mod 3 : 0\nEven Sq^1 Invariant : (0, 0, 0, 0)\nOdd Sq^1 Invariant : (0, 0)\nSum Sq^1 Invariant : (0, 0, 0, 0)\nComplete reduced LS-Invariant : (0, 0)\nOdd BLS 32768 Invariant : (0, 0)\nGraded s-invariant : 0. 0",
+      "timeout": false
+    }
+  },
+  "controls": {
+    "figure_eight": {
+      "exception": false,
+      "file": "results/cork-small-leo-terminal-20260815/controls/figure_eight.log",
+      "summary_lines": [
+        "S-Invariant mod 0 : 0",
+        "S-Invariant mod 2 : 0",
+        "S-Invariant mod 3 : 0",
+        "Complete reduced LS-Invariant : (0, 0)"
+      ],
+      "tail": "=== CONTROL figure_eight ===\nKnot\nS-Invariant mod 0 : 0\nS-Invariant mod 2 : 0\nS-Invariant mod 3 : 0\nEven Sq^1 Invariant : (0, 0, 0, 0)\nOdd Sq^1 Invariant : (0, 0)\nSum Sq^1 Invariant : (0, 0, 0, 0)\nComplete reduced LS-Invariant : (0, 0)\nOdd BLS 32768 Invariant : (0, 0)\nGraded s-invariant : 0. 0",
+      "timeout": false
+    },
+    "negative_trefoil": {
+      "exception": false,
+      "file": "results/cork-small-leo-terminal-20260815/controls/negative_trefoil.log",
+      "summary_lines": [
+        "S-Invariant mod 0 : -2",
+        "S-Invariant mod 2 : -2",
+        "S-Invariant mod 3 : -2",
+        "Complete reduced LS-Invariant : (-2, -2)"
+      ],
+      "tail": "=== CONTROL negative_trefoil ===\nKnot\nS-Invariant mod 0 : -2\nS-Invariant mod 2 : -2\nS-Invariant mod 3 : -2\nEven Sq^1 Invariant : (-2, -2, -2, -2)\nOdd Sq^1 Invariant : (-2, -2)\nSum Sq^1 Invariant : (-2, -2, -2, -2)\nComplete reduced LS-Invariant : (-2, -2)\nOdd BLS 32768 Invariant : (-2, -2)\nGraded s-invariant : -2. 2",
+      "timeout": false
+    },
+    "positive_trefoil": {
+      "exception": false,
+      "file": "results/cork-small-leo-terminal-20260815/controls/positive_trefoil.log",
+      "summary_lines": [
+        "S-Invariant mod 0 : 2",
+        "S-Invariant mod 2 : 2",
+        "S-Invariant mod 3 : 2",
+        "Complete reduced LS-Invariant : (2, 2)"
+      ],
+      "tail": "=== CONTROL positive_trefoil ===\nKnot\nS-Invariant mod 0 : 2\nS-Invariant mod 2 : 2\nS-Invariant mod 3 : 2\nEven Sq^1 Invariant : (2, 2, 2, 2)\nOdd Sq^1 Invariant : (2, 2)\nSum Sq^1 Invariant : (2, 2, 2, 2)\nComplete reduced LS-Invariant : (2, 2)\nOdd BLS 32768 Invariant : (2, 2)\nGraded s-invariant : 2. -2",
+      "timeout": false
+    }
+  },
+  "schema": "cork-small-leo-terminal-v1"
+}

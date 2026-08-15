@@ -1,0 +1,11 @@
+=== CONTROL positive_trefoil ===
+Knot
+S-Invariant mod 0 : 2
+S-Invariant mod 2 : 2
+S-Invariant mod 3 : 2
+Even Sq^1 Invariant : (2, 2, 2, 2)
+Odd Sq^1 Invariant : (2, 2)
+Sum Sq^1 Invariant : (2, 2, 2, 2)
+Complete reduced LS-Invariant : (2, 2)
+Odd BLS 32768 Invariant : (2, 2)
+Graded s-invariant : 2. -2
