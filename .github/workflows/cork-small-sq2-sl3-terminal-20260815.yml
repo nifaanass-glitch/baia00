@@ -1,0 +1,101 @@
+name: Cork small cocore Sq2 and sl3 terminal audit 20260815
+
+on:
+  push:
+    paths:
+      - '.github/workflows/cork-small-sq2-sl3-terminal-20260815.yml'
+      - 'research/cork_2r_small_candidates_20260809.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  compute:
+    strategy:
+      fail-fast: false
+      matrix:
+        candidate: [m1_e1_k1, m1_e1_k2, m1_e-1_k1, m1_e-1_k2]
+        mirror: [false, true]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '23'
+      - name: Prepare exact PD diagram
+        run: |
+          mkdir -p case
+          CANDIDATE='${{ matrix.candidate }}' MIRROR='${{ matrix.mirror }}' python - <<'PY'
+          import json,os,pathlib
+          data=json.load(open('research/cork_2r_small_candidates_20260809.json'))
+          name=os.environ['CANDIDATE']; mirror=os.environ['MIRROR']=='true'
+          pd=data[name]['pd']
+          if mirror: pd=[[a,d,c,b] for a,b,c,d in pd]
+          label=name+('-mirror' if mirror else '')
+          pathlib.Path('case/input.pd').write_text(json.dumps(pd,separators=(',',':'))+'\n\n')
+          pathlib.Path('case/meta.json').write_text(json.dumps({'candidate':name,'mirror':mirror,'label':label,'crossings':len(pd),'pd':pd},indent=2,sort_keys=True))
+          PY
+      - name: Download KnotJob and compute
+        run: |
+          curl -fL --retry 3 'https://www.maths.dur.ac.uk/users/dirk.schuetz/KnotJob.zip' -o /tmp/KnotJob.zip
+          rm -rf /tmp/knotjob && mkdir -p /tmp/knotjob
+          unzip -q /tmp/KnotJob.zip -d /tmp/knotjob
+          jar=/tmp/knotjob/KnotJob/KnotJob.jar
+          set -o pipefail
+          timeout --signal=TERM --kill-after=30s 165m java -Xmx7g -jar "$jar" \
+            -sl0 -sl2 -sl3 -sl5 -sl7 -sl11 -sq2e -sq2o0 -sq2o1 -nf \
+            < case/input.pd 2>&1 | tee case/run.log || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sq2-sl3-${{ matrix.candidate }}-${{ matrix.mirror }}
+          path: case
+          if-no-files-found: warn
+          retention-days: 7
+
+  collect:
+    needs: compute
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: sq2-sl3-*
+          path: downloaded
+      - name: Parse and commit
+        run: |
+          out=results/cork-small-sq2-sl3-terminal-20260815
+          rm -rf "$out" && mkdir -p "$out/cases"
+          cp -R downloaded/. "$out/cases/"
+          python - <<'PY'
+          import json,pathlib
+          root=pathlib.Path('results/cork-small-sq2-sl3-terminal-20260815')
+          items=[]
+          for meta in sorted((root/'cases').glob('**/meta.json')):
+              rec=json.load(open(meta)); log=meta.with_name('run.log')
+              text=log.read_text(errors='replace') if log.exists() else ''
+              fields={}
+              for line in text.splitlines():
+                  if ' : ' in line:
+                      k,v=line.split(' : ',1); fields[k.strip()]=v.strip()
+              rec['invariants']=fields; rec['log']=str(log)
+              rec['timeout']='Terminated' in text or 'Killed' in text
+              rec['exception']='Exception' in text or 'Error' in text
+              items.append(rec)
+          out={'schema':'cork-small-sq2-sl3-terminal-v1','items':items,'count':len(items)}
+          (root/'summary.json').write_text(json.dumps(out,indent=2,sort_keys=True))
+          print(json.dumps(out,indent=2,sort_keys=True))
+          PY
+          tmp=$(mktemp -d); cp -R "$out" "$tmp/"
+          git fetch origin main; git reset --hard origin/main
+          rm -rf "$out"; mkdir -p results; cp -R "$tmp/$(basename "$out")" results/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f "$out"
+          git commit -m 'Store Sq2 and sl3 audit of small cocores 20260815' || exit 0
+          git push
