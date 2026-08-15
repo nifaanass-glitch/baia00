@@ -41,7 +41,7 @@ jobs:
           }
           expected={'positive_trefoil':2,'negative_trefoil':-2,'figure_eight':0}
           candidates=json.load(open('research/cork_2r_small_candidates_20260809.json'))
-          output={'schema':'cork-small-rasmussen-all-primes-v1','primes':primes,'expected_controls':expected,'controls':{},'candidates':{}}
+          output={'schema':'cork-small-rasmussen-all-primes-v2','primes':primes,'expected_controls':expected,'controls':{},'candidates':{}}
           path='results/cork-small-rasmussen-all-primes-20260815/result.json'
 
           def extract_s(result):
@@ -57,7 +57,7 @@ jobs:
           def compute(pd,p):
               start=time.time()
               calc=InteractiveCalculator(p,(0,-1),0)
-              result,messages=calc(pd,print_messages=False,progress=False)
+              result,messages=calc(pd,print_messages=True,progress=False)
               return {'elapsed_seconds':time.time()-start,'extracted':extract_s(result)}
 
           all_calibrated=True
