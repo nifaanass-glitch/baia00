@@ -1,0 +1,55 @@
+name: KnotJob CLI probe 20260815
+
+on:
+  push:
+    paths:
+      - '.github/workflows/knotjob-cli-probe-20260815.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '23'
+      - name: Download and inspect KnotJob
+        run: |
+          set -o pipefail
+          mkdir -p results/knotjob-cli-probe-20260815 /tmp/knotjob
+          curl -fL --retry 3 'https://www.maths.dur.ac.uk/users/dirk.schuetz/KnotJob.zip' -o /tmp/KnotJob.zip
+          unzip -q /tmp/KnotJob.zip -d /tmp/knotjob
+          {
+            echo '=== FILES ==='
+            find /tmp/knotjob -maxdepth 4 -type f -printf '%P\n' | sort
+            echo '=== JAVA ==='
+            java -version
+            echo '=== JARS ==='
+            find /tmp/knotjob -type f -name '*.jar' -print
+          } > results/knotjob-cli-probe-20260815/probe.txt 2>&1
+          jar=$(find /tmp/knotjob -type f -name '*.jar' | head -n1)
+          if [ -n "$jar" ]; then
+            timeout 15s java -jar "$jar" --help > results/knotjob-cli-probe-20260815/help-long.txt 2>&1 || true
+            timeout 15s java -jar "$jar" -h > results/knotjob-cli-probe-20260815/help-short.txt 2>&1 || true
+            timeout 15s java -jar "$jar" > results/knotjob-cli-probe-20260815/noargs.txt 2>&1 || true
+            unzip -p "$jar" META-INF/MANIFEST.MF > results/knotjob-cli-probe-20260815/manifest.txt || true
+          fi
+          find /tmp/knotjob -type f \( -iname '*readme*' -o -iname '*manual*' -o -iname '*.txt' \) -print0 | while IFS= read -r -d '' f; do
+            echo "=== $f ===" >> results/knotjob-cli-probe-20260815/docs.txt
+            cat "$f" >> results/knotjob-cli-probe-20260815/docs.txt || true
+          done
+      - name: Commit probe
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase || true
+          git add results/knotjob-cli-probe-20260815
+          git commit -m 'Store KnotJob CLI probe 20260815' || exit 0
+          git push
