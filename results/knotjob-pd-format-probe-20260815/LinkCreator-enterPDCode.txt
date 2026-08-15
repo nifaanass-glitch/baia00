@@ -1,0 +1,201 @@
+    36	    public static LinkData enterDTCode(String theString, String name, boolean combin, JFrame knob, 
+    37	            Comparer comparer) {
+    38	        if (theString == null) {
+    39	            EnterData data = new EnterData(knob, "DT-Code", "DT-Code : ", true);
+    40	            if ("".equals(data.theString)) return null;
+    41	            theString = data.theString;
+    42	            combin = data.combin;
+    43	            name = data.theName;
+    44	        }
+    45	        Link theLink = obtainLink(theString);
+    46	        if (theLink == null) return null;
+    47	        if (name.length() == 0) {
+    48	            if (theLink.components() == 1) name = "Knot";
+    49	            else name = "Link";
+    50	        }
+    51	        if (combin) theLink = theLink.girthMinimize();
+    52	        LinkData theNewData = new LinkData(name, theLink, comparer);
+    53	        return theNewData;
+    54	    }
+    55	    
+    56	    public static LinkData enterPDCode(String theString, String name, boolean combin, JFrame knob, 
+    57	            Comparer comparer) {
+    58	        if (theString == null) {
+    59	            EnterData data = new EnterData(knob, "PD-Code", "PD-Code : ", true);
+    60	            if ("".equals(data.theString)) return null;
+    61	            theString = data.theString;
+    62	            combin = data.combin;
+    63	            name = data.theName;
+    64	        }
+    65	        Link theLink = obtainPDLink(theString);
+    66	        if (theLink == null) return null;
+    67	        if (name.length() == 0) {
+    68	            if (theLink.components() == 1) name = "Knot";
+    69	            else name = "Link";
+    70	        }
+    71	        if (combin) theLink = theLink.girthMinimize();
+    72	        LinkData theNewData = new LinkData(name, theLink, comparer);
+    73	        return theNewData;
+    74	    }
+    75	    
+    76	    private static Link obtainPDLink(String pdcode) {
+    77	        if (pdcode.contains("PD")) pdcode = pdcode.substring(pdcode.lastIndexOf("PD"));
+    78	        ArrayList<Integer> numbers = new ArrayList<Integer>();
+    79	        int i = 0;
+    80	        while (i < pdcode.length()) {
+    81	            int c = pdcode.codePointAt(i);
+    82	            if (c != 44 && (c < 48 | c > 57)) pdcode = pdcode.replace(pdcode.charAt(i), 'X');
+    83	            i++;
+    84	        }
+    85	        pdcode = ","+pdcode.replaceAll("X", "")+",";
+    86	        ArrayList<Integer> commas = getCommas(pdcode);
+    87	        for (int j = 0; j < commas.size()-1; j++) {
+    88	            int a = commas.get(j);
+    89	            int b = commas.get(j+1);
+    90	            if (b > a+1) numbers.add(Integer.valueOf(pdcode.substring(a+1, b)));
+    91	        }
+    92	        int size = numbers.size();
+    93	        if (size %4 != 0) return null;
+    94	        if (numbers.contains(0)) {
+    95	            for (int j = 0; j < numbers.size(); j++) numbers.set(j, numbers.get(j)+1);
+    96	        }
+    97	        int[] crossings = new int[size/4];
+    98	        int[][] paths = new int[size/4][4];
+    99	        for (int j = 0; j < size/4; j++) {
+   100	            for (int k = 0; k < 4; k++) {
+   101	                paths[j][k] = numbers.get(4*j+k);
+   102	            }
+   103	            crossings[j] = 1;
+   104	        }
+   105	        if (numbersOkay(numbers, size/2) && isPlanar(paths, size/4)) {
+   106	            ArrayList<int[]> ors = getOrientation(paths);
+   107	            return new Link(crossings, paths, ors, 0);
+   108	        }
+   109	            
+   110	        return null;
+   111	    }
+   112	    
+   113	    private static ArrayList<int[]> getOrientation(int[][] paths) {
+   114	        ArrayList<int[]> ors = new ArrayList<int[]>();
+   115	        ArrayList<Integer> compBounds = getComponentBounds(paths);
+   116	        if (compBounds.size() <= 1) {
+   117	            if (compBounds.size() == 1) ors.add(new int[] {0, 0});
+   118	            return ors;
+   119	        }
+   120	        else compBounds.add(0, 0);
+   121	        for (int i = 0; i < compBounds.size() - 1; i++) {
+   122	            int test = compBounds.get(i)+1;
+   123	            int top = paths.length * 2;
+   124	            if (i+1 < compBounds.size()) top = compBounds.get(i+1);
+   125	            for (int j = 0; j < paths.length; j++) {
+   126	                if (paths[j][0] >= test && paths[j][0] <= top) {
+   127	                    ors.add(new int[] {j, 0});
+   128	                    break;
+   129	                }
+   130	            }
+   131	        }
+   132	        return ors;
+   133	    }
+   134	    
+   135	    private static ArrayList<Integer> getComponentBounds(int[][] paths) {
+   136	        ArrayList<Integer> bounds = new ArrayList<Integer>();
+   137	        int find = 1;
+   138	        while (true) {
+   139	            int next = nextValue(paths, find);
+   140	            if (next == -1) break;
+   141	            bounds.add(next);
+   142	            find = next+1;
+   143	        }
+   144	        return bounds;
+   145	    }
+   146	    
+   147	    private static int nextValue(int[][] paths, int find) {
+   148	        ArrayList<Integer> pos = new ArrayList<Integer>();
+   149	        for (int i = 0; i < paths.length; i++) {
+   150	            for (int j = 0; j < 4; j++) {
+   151	                if (paths[i][j] == find) pos.add(paths[i][(j+2)%4]);
+   152	            }
+   153	            if (pos.size() == 2) break;
+   154	        }
+   155	        if (pos.isEmpty()) return -1;
+   156	        if (pos.get(0) > pos.get(1)) return pos.get(0);
+   157	        return pos.get(1);
+   158	    }
+   159	    
+   160	    private static boolean numbersOkay(ArrayList<Integer> numbers, int size) {
+   161	        int[] check = new int[size];
+   162	        for (int n : numbers) {
+   163	            if (n > 0 && n <= size) check[n-1]++;
+   164	        }
+   165	        boolean okay = true;
+   166	        for (int c : check) if (c != 2) okay = false;
+   167	        return okay;
+   168	    }
+   169	    
+   170	    private static ArrayList<Integer> getCommas(String code) {
+   171	        ArrayList<Integer> commas = new ArrayList<Integer>();
+   172	        for (int i = 0; i < code.length(); i++) 
+   173	            if (code.charAt(i) == ',') commas.add(i);
+   174	        return commas;
+   175	    }
+   176	    
+   177	    private static boolean isPlanar(int[][] paths, int max) {
+   178	        boolean [][] checkedSurfaces = new boolean[paths.length][4];
+   179	        int discs = 0;
+   180	        int runner;
+   181	        int pos1 = 0;
+   182	        int pos2 = 0;
+   183	        int twice = 0;
+   184	        for (int i = 0; i < paths.length; i++) 
+   185	            if (paths[i][0] == 0 & paths[i][1] == 0) {
+   186	                for (int j = 0; j < 4; j++) checkedSurfaces[i][j] = true;
+   187	            }
+   188	        while (notAll(checkedSurfaces)) {
+   189	            checkedSurfaces[pos1][pos2] = true;
+   190	            pos2 = (pos2+1)%4;
+   191	            runner = paths[pos1][pos2];
+   192	            if (runner >= 1 ) {
+   193	                boolean found = false;
+   194	                int i = 0;
+   195	                int j = 0;
+   196	                while (!found & i < paths.length) {
+   197	                    j = 0;
+   198	                    while (!found & j < 4) {
+   199	                        if (paths[i][j] == runner & (!(i == pos1 & j == pos2)))
+   200	                            found = true;
+   201	                        else j++;
+   202	                    }
+   203	                    if (!found) i++;
+   204	                }
+   205	                if (found) {
+   206	                    pos1 = i;
+   207	                    pos2 = j;
+   208	                    twice++;
+   209	                }
+   210	            }
+   211	            if (checkedSurfaces[pos1][pos2]) {
+   212	                discs++;
+   213	                boolean found = false;
+   214	                pos1 = 0;
+   215	                while (!found & pos1 < paths.length) {
+   216	                    pos2 = 0;
+   217	                    while (!found & pos2 < 4) {
+   218	                        if (!checkedSurfaces[pos1][pos2]) found = true;
+   219	                        else pos2++;
+   220	                    }
+   221	                    if (!found) pos1++;
+   222	                }
+   223	            }
+   224	        }
+   225	        int vme = 0;
+   226	        for (int i = 0; i < paths.length; i++) if (paths[i][0]!=0) vme++;
+   227	        return (vme+discs-(twice/2) >= 2);
+   228	    }
+   229	    
+   230	    private static boolean notAll(boolean [][] check) {
+   231	        boolean notall = false;
+   232	        int i = 0;
+   233	        int j;
+   234	        while (i < check.length & !notall) {
+   235	            j = 0;
+   236	            while (j < 4 & !notall) {

@@ -1,0 +1,3 @@
+Knot
+S-Invariant mod 0 : 2
+Complete reduced LS-Invariant : (2, 2)
