@@ -1,0 +1,149 @@
+name: Balanced RBG v3 expanded receiver and LEO search 20260815
+
+on:
+  push:
+    paths:
+      - '.github/workflows/balanced-rbg-v3-expanded-leo-20260815.yml'
+      - 'research/balanced_rbg_word_sweep_v2.py'
+      - 'research/balanced_rbg_word_sweep_v3.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    strategy:
+      fail-fast: false
+      matrix:
+        m: [-4, -3, -2, 2, 3, 4]
+        b: [-1, 1]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir 'snappy==3.3.2' 'knot_floer_homology==1.2.2'
+      - name: Generate exact receiver dual knots
+        run: |
+          label="m${{ matrix.m }}_b${{ matrix.b }}"
+          out="case/$label"
+          mkdir -p "$out"
+          set -o pipefail
+          COMMUTATOR_EXPONENT='${{ matrix.m }}' B_SIGN='${{ matrix.b }}' OUTPUT_DIR="$out" \
+          PYTHONHASHSEED=2 PYTHONUNBUFFERED=1 \
+          timeout --signal=TERM --kill-after=30s 105m \
+          python research/balanced_rbg_word_sweep_v3.py \
+          2>&1 | tee "$out/run.log" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: case-m${{ matrix.m }}-b${{ matrix.b }}
+          path: case
+          if-no-files-found: warn
+          retention-days: 7
+
+  audit:
+    needs: generate
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '23'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: case-*
+          path: downloaded
+      - name: Consolidate generated knots
+        run: |
+          out=results/balanced-rbg-v3-expanded-leo-20260815
+          mkdir -p "$out/cases" "$out/leo"
+          find downloaded -type f -print
+          cp -R downloaded/. "$out/cases/"
+          python - <<'PY'
+          import glob,json,pathlib
+          root=pathlib.Path('results/balanced-rbg-v3-expanded-leo-20260815')
+          records=[]; candidates=[]
+          for path in sorted(glob.glob(str(root/'cases/**/result.json'),recursive=True)):
+              try:
+                  rec=json.load(open(path)); rec['_path']=path; records.append(rec)
+                  for mark in rec.get('marked_duals',[]):
+                      best=mark.get('best_diagram')
+                      if not best or 'fatal_error' in mark: continue
+                      name=f"{rec.get('label','case')}_k{mark.get('keep_cusp')}"
+                      candidates.append({
+                        'name':name,'label':rec.get('label'),'m':rec.get('m'),'B_sign':rec.get('B_sign'),
+                        'keep_cusp':mark.get('keep_cusp'),'crossings':best.get('crossings'),
+                        'morse_girth':best.get('morse_girth'),'pd':best.get('pd'),'dt':best.get('dt'),
+                        'hfk_summary':mark.get('hfk_summary'),'longitude_certificate':mark.get('longitude_certificate'),
+                        's3_slopes':mark.get('s3_slopes'),'source_result':path,
+                      })
+              except Exception as exc:
+                  records.append({'_path':path,'parse_error':repr(exc)})
+          summary={'records':records,'candidates':candidates,'counts':{'records':len(records),'candidates':len(candidates)}}
+          (root/'generated-summary.json').write_text(json.dumps(summary,indent=2,sort_keys=True))
+          for c in candidates:
+              (root/'leo'/f"{c['name']}.pd").write_text(json.dumps(c['pd'],separators=(',',':'))+'\n\n')
+          print(json.dumps(summary['counts'],sort_keys=True))
+          PY
+      - name: Download KnotJob and run terminal LEO invariants
+        run: |
+          set -o pipefail
+          out=results/balanced-rbg-v3-expanded-leo-20260815
+          curl -fL --retry 3 'https://www.maths.dur.ac.uk/users/dirk.schuetz/KnotJob.zip' -o /tmp/KnotJob.zip
+          rm -rf /tmp/knotjob && mkdir -p /tmp/knotjob
+          unzip -q /tmp/KnotJob.zip -d /tmp/knotjob
+          jar=/tmp/knotjob/KnotJob/KnotJob.jar
+          commands=(-s0 -s2 -s3 -s5 -s7 -s11 -sgr -sqe -sqo -sqs -scr -sbls15 -nf)
+          shopt -s nullglob
+          for pd in "$out"/leo/*.pd; do
+            name=$(basename "$pd" .pd)
+            timeout --signal=TERM --kill-after=30s 90m java -Xmx7g -jar "$jar" "${commands[@]}" < "$pd" > "$out/leo/$name.log" 2>&1 || true
+            echo "=== $name ==="
+            cat "$out/leo/$name.log"
+          done
+          python - <<'PY'
+          import json,pathlib,re
+          root=pathlib.Path('results/balanced-rbg-v3-expanded-leo-20260815')
+          gen=json.load(open(root/'generated-summary.json'))
+          byname={c['name']:c for c in gen['candidates']}
+          items=[]
+          for log in sorted((root/'leo').glob('*.log')):
+              text=log.read_text(errors='replace')
+              fields={}
+              for line in text.splitlines():
+                  if ' : ' in line:
+                      key,val=line.split(' : ',1); fields[key.strip()]=val.strip()
+              name=log.stem
+              rec=dict(byname.get(name,{})); rec['invariants']=fields; rec['log']=str(log)
+              nonzero=[]
+              baseline_strings={'0','0. 0','(0, 0)','(0, 0, 0, 0)'}
+              for key,val in fields.items():
+                  if ('Invariant' in key or 'invariant' in key) and val not in baseline_strings:
+                      nonzero.append([key,val])
+              rec['nonbaseline']=nonzero
+              items.append(rec)
+          terminal=[r for r in items if r.get('nonbaseline')]
+          out={'schema':'balanced-rbg-v3-expanded-leo-v1','items':items,'terminal_hits':terminal,
+               'counts':{'items':len(items),'terminal_hits':len(terminal)}}
+          (root/'leo-summary.json').write_text(json.dumps(out,indent=2,sort_keys=True))
+          print(json.dumps(out['counts'],sort_keys=True))
+          if terminal: print('TERMINAL_HITS',json.dumps(terminal,sort_keys=True))
+          PY
+      - name: Commit expanded search results
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase || true
+          git add results/balanced-rbg-v3-expanded-leo-20260815
+          git commit -m 'Store expanded balanced receiver and LEO search 20260815' || exit 0
+          git push
