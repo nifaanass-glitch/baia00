@@ -1,0 +1,96 @@
+name: Cork small cocore full LEO audit 20260815
+
+on:
+  push:
+    paths:
+      - '.github/workflows/cork-small-leo-terminal-20260815.yml'
+      - 'research/cork_2r_small_candidates_20260809.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  leo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '23'
+      - name: Download KnotJob
+        run: |
+          curl -fL --retry 3 'https://www.maths.dur.ac.uk/users/dirk.schuetz/KnotJob.zip' -o /tmp/KnotJob.zip
+          rm -rf /tmp/knotjob && mkdir -p /tmp/knotjob
+          unzip -q /tmp/KnotJob.zip -d /tmp/knotjob
+      - name: Run complete LEO and refined-s audits
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: |
+          set -o pipefail
+          out=results/cork-small-leo-terminal-20260815
+          mkdir -p "$out/candidates" "$out/controls"
+          python - <<'PY'
+          import json, pathlib
+          candidates=json.load(open('research/cork_2r_small_candidates_20260809.json'))
+          root=pathlib.Path('results/cork-small-leo-terminal-20260815/candidates')
+          for name,rec in candidates.items():
+              (root/f'{name}.pd').write_text(json.dumps(rec['pd'],separators=(',',':'))+'\n\n')
+          controls={
+            'positive_trefoil': [[1,5,2,4],[5,3,0,2],[3,1,4,0]],
+            'negative_trefoil': [[1,4,2,5],[5,2,0,3],[3,0,4,1]],
+            'figure_eight': [[3,7,4,6],[1,4,2,5],[7,3,0,2],[5,0,6,1]],
+          }
+          root=pathlib.Path('results/cork-small-leo-terminal-20260815/controls')
+          for name,pd in controls.items():
+              (root/f'{name}.pd').write_text(json.dumps(pd,separators=(',',':'))+'\n\n')
+          PY
+          jar=/tmp/knotjob/KnotJob/KnotJob.jar
+          commands=(-s0 -s2 -s3 -sgr -sqe -sqo -sqs -scr -sbls15 -nf)
+          for pd in "$out"/controls/*.pd; do
+            name=$(basename "$pd" .pd)
+            echo "=== CONTROL $name ===" | tee "$out/controls/$name.log"
+            timeout --signal=TERM --kill-after=30s 20m java -Xmx6g -jar "$jar" "${commands[@]}" < "$pd" 2>&1 | tee -a "$out/controls/$name.log" || true
+          done
+          for pd in "$out"/candidates/*.pd; do
+            name=$(basename "$pd" .pd)
+            echo "=== CANDIDATE $name ===" | tee "$out/candidates/$name.log"
+            timeout --signal=TERM --kill-after=30s 80m java -Xmx7g -jar "$jar" "${commands[@]}" < "$pd" 2>&1 | tee -a "$out/candidates/$name.log" || true
+          done
+          python - <<'PY'
+          import json,re,pathlib
+          root=pathlib.Path('results/cork-small-leo-terminal-20260815')
+          labels=[
+            'S-Invariant mod 0','S-Invariant mod 2','S-Invariant mod 3',
+            'Graded S-Invariant','Even Sq^1 LS-Invariant','Odd Sq^1 LS-Invariant',
+            'Sum Sq^1 LS-Invariant','Complete reduced LS-Invariant','BLS odd',
+          ]
+          def parse(path):
+              text=path.read_text(errors='replace')
+              lines=[]
+              for line in text.splitlines():
+                  if any(label in line for label in labels): lines.append(line.strip())
+              return {
+                'file':str(path),
+                'summary_lines':lines,
+                'timeout':('Terminated' in text or 'Killed' in text),
+                'exception':('Exception' in text or 'Error' in text),
+                'tail':'\n'.join(text.splitlines()[-40:]),
+              }
+          out={'schema':'cork-small-leo-terminal-v1','controls':{},'candidates':{}}
+          for path in sorted((root/'controls').glob('*.log')): out['controls'][path.stem]=parse(path)
+          for path in sorted((root/'candidates').glob('*.log')): out['candidates'][path.stem]=parse(path)
+          (root/'summary.json').write_text(json.dumps(out,indent=2,sort_keys=True))
+          print(json.dumps({k:v['summary_lines'] for k,v in out['candidates'].items()},indent=2,sort_keys=True))
+          PY
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase || true
+          git add results/cork-small-leo-terminal-20260815
+          git commit -m 'Store full LEO audit of small cocores 20260815' || exit 0
+          git push
