@@ -1,0 +1,57 @@
+name: Cork small cocore mirror LEO audit 20260815
+
+on:
+  push:
+    paths:
+      - '.github/workflows/cork-small-leo-mirror-20260815.yml'
+      - 'research/cork_2r_small_candidates_20260809.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  leo-mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '23'
+      - name: Download KnotJob
+        run: |
+          curl -fL --retry 3 'https://www.maths.dur.ac.uk/users/dirk.schuetz/KnotJob.zip' -o /tmp/KnotJob.zip
+          rm -rf /tmp/knotjob && mkdir -p /tmp/knotjob
+          unzip -q /tmp/KnotJob.zip -d /tmp/knotjob
+      - name: Run complete refinement on every mirror
+        run: |
+          set -o pipefail
+          out=results/cork-small-leo-mirror-20260815
+          mkdir -p "$out"
+          python - <<'PY'
+          import json,pathlib
+          data=json.load(open('research/cork_2r_small_candidates_20260809.json'))
+          root=pathlib.Path('results/cork-small-leo-mirror-20260815')
+          for name,rec in data.items():
+              mirror=[[a,d,c,b] for a,b,c,d in rec['pd']]
+              (root/f'{name}-mirror.pd').write_text(json.dumps(mirror,separators=(',',':'))+'\n\n')
+          PY
+          jar=/tmp/knotjob/KnotJob/KnotJob.jar
+          commands=(-s0 -s2 -s3 -sgr -sqe -sqo -sqs -scr -sbls15 -nf)
+          for pd in "$out"/*.pd; do
+            name=$(basename "$pd" .pd)
+            timeout --signal=TERM --kill-after=30s 60m java -Xmx7g -jar "$jar" "${commands[@]}" < "$pd" > "$out/$name.log" 2>&1 || true
+            echo "=== $name ==="
+            cat "$out/$name.log"
+          done
+      - name: Commit mirror results
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase || true
+          git add results/cork-small-leo-mirror-20260815
+          git commit -m 'Store mirror LEO audit of small cocores 20260815' || exit 0
+          git push
